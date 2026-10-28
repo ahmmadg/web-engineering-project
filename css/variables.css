@@ -1,0 +1,32 @@
+:root {
+    --bg-base: #121212;
+    --bg-surface: #1a1a1a;
+    --bg-alt: #1a222c;
+    --bg-promo: #111a2a;
+    --bg-footer: #1e1e1e;
+    
+    --text-main: #ffffff;
+    --text-muted: #cccccc;
+    --text-dim: #aaaaaa;
+    --text-sub: #bbb;
+    
+    --accent-primary: #e58d47;
+    --accent-secondary: #e54747;
+    --accent-blue: #a4c8e1;
+
+    --ink: #000000;
+    --muted: #8a8a8a;
+    --line: #747474;
+    --auth-bg: rgb(5, 5, 5);
+
+    --radius-card: 64px;
+    --radius-hero: 52px;
+    --pill: 999px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 20px;
+
+    --hero-image: none;
+    
+    
+    }
