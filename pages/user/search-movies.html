@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search &amp; Filter Movies — CineReview</title>
+    <!-- Member 1 Shared Design Tokens & Layout -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <!-- Member 2 Movie Catalog & Search Stylesheet -->
+    <link rel="stylesheet" href="../../css/pages/movies.css">
+</head>
+<body>
+    <!-- Registered User Navbar -->
+    <header class="navbar">
+        <a href="../../index.html" class="logo">
+            <span class="ticket-icon">🎟️</span> Movies REVIEW
+        </a>
+
+        <!-- Quick Search Bar (Pure HTML Form - No JS) -->
+        <form action="search-movies.html" method="get" class="search-bar">
+            <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
+            <button type="submit" class="search-btn" title="Search Movies" aria-label="Search">🔍</button>
+        </form>
+
+        <nav class="nav-links">
+            <a href="../../index.html">Home</a>
+            <a href="movies-list.html">Browse Movies</a>
+            <a href="search-movies.html" class="active">Search &amp; Filter</a>
+            <a href="my-reviews.html">My Reviews</a>
+            <a href="submit-review.html" class="nav-btn-highlight">+ Write Review</a>
+        </nav>
+
+        <div class="user-nav-actions">
+            <a href="my-reviews.html" class="user-profile-badge" title="View Profile">
+                <span class="avatar-icon">👤</span>
+                <span>MovieBuff</span>
+            </a>
+            <a href="../auth/login.html" class="nav-logout-btn" title="Sign Out">Sign Out</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="movies-container">
+        <!-- Breadcrumbs Navigation -->
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span class="separator">/</span>
+            <a href="movies-list.html">Catalog</a>
+            <span class="separator">/</span>
+            <span class="current">Advanced Search</span>
+        </nav>
+
+        <!-- Search Header Hero -->
+        <section class="search-header-hero">
+            <h1>Search &amp; Filter Catalog</h1>
+            <p>Locate any cinematic work in our standardized library. Query by record ID, title keyword, primary genre, release year, or director name.</p>
+        </section>
+
+        <!-- Dedicated Search & Filter Form (Pure HTML5 - No JavaScript) -->
+        <section class="search-form-card" aria-label="Movie Search Form">
+            <h2>
+                <span>🔍</span> Multi-Criteria Movie Filter
+            </h2>
+
+            <form action="search-movies.html" method="get">
+                <div class="search-inputs-grid">
+
+                    <!-- Filter 1: Movie ID -->
+                    <div class="search-input-group">
+                        <label for="search-id">
+                            Movie ID <span>(Exact match, 1 – 8)</span>
+                        </label>
+                        <input type="number" id="search-id" name="id" class="input-styled" placeholder="e.g. 1" min="1" max="9999">
+                    </div>
+
+                    <!-- Filter 2: Movie Title -->
+                    <div class="search-input-group">
+                        <label for="search-title">
+                            Movie Title <span>(Keyword or full name)</span>
+                        </label>
+                        <input type="text" id="search-title" name="title" class="input-styled" placeholder="e.g. The Dark Knight">
+                    </div>
+
+                    <!-- Filter 3: Genre Dropdown -->
+                    <div class="search-input-group">
+                        <label for="search-genre">
+                            Genre <span>(Select primary category)</span>
+                        </label>
+                        <select id="search-genre" name="genre" class="select-styled">
+                            <option value="">All Genres</option>
+                            <option value="Action">Action</option>
+                            <option value="Sci-Fi">Sci-Fi</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Crime">Crime</option>
+                            <option value="Animation">Animation</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Thriller">Thriller</option>
+                            <option value="Fantasy">Fantasy</option>
+                        </select>
+                    </div>
+
+                    <!-- Filter 4: Release Year -->
+                    <div class="search-input-group">
+                        <label for="search-year">
+                            Release Year <span>(Four-digit year)</span>
+                        </label>
+                        <input type="number" id="search-year" name="year" class="input-styled" placeholder="e.g. 2008" min="1900" max="2026">
+                    </div>
+
+                    <!-- Filter 5: Director -->
+                    <div class="search-input-group">
+                        <label for="search-director">
+                            Director Name <span>(e.g. Nolan, Tarantino)</span>
+                        </label>
+                        <input type="text" id="search-director" name="director" class="input-styled" placeholder="e.g. Christopher Nolan">
+                    </div>
+
+                    <!-- Filter 6: Sort Order Preference -->
+                    <div class="search-input-group">
+                        <label for="search-sort">
+                            Sort Results By
+                        </label>
+                        <select id="search-sort" name="sort" class="select-styled">
+                            <option value="rating-desc">Highest Rated First</option>
+                            <option value="year-desc">Release Year (Newest)</option>
+                            <option value="year-asc">Release Year (Oldest)</option>
+                            <option value="title-asc">Title (Alphabetical A – Z)</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- Form Action Buttons -->
+                <div class="search-actions-row">
+                    <a href="search-movies.html" class="btn-search-reset" title="Clear all input values">
+                        <span>↺</span> Clear Filters
+                    </a>
+                    <button type="submit" class="btn-search-submit">
+                        <span>🔍</span> Filter Movie Catalog
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Active Search Filters Simulated Summary Bar -->
+        <div class="active-query-bar">
+            <div class="query-chips-list">
+                <span style="font-size: 0.85rem; color: #888; font-weight: 600;">Active Filter:</span>
+                <span class="query-chip">
+                    Director: Christopher Nolan
+                    <a href="search-movies.html" class="remove-x" title="Remove filter">✕</a>
+                </span>
+                <span class="query-chip">
+                    Status: Standardized Catalog
+                </span>
+            </div>
+            <div class="results-stats-label">
+                Matching Results: <strong>3 Movies Found</strong>
+            </div>
+        </div>
+
+        <!-- Sample Search Results Grid -->
+        <section aria-label="Search Results Grid">
+            <div class="catalog-grid">
+
+                <!-- Result 1: The Dark Knight (ID 1) -->
+                <article class="catalog-card">
+                    <div class="card-poster-wrapper">
+                        <span class="poster-badge-id">ID: 1</span>
+                        <span class="poster-badge-year">2008</span>
+                        <a href="movie-detail.html">
+                            <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Dark Knight Movie Poster">
+                                <defs>
+                                    <linearGradient id="s-tdk-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#0a0e17"/>
+                                        <stop offset="60%" stop-color="#141c2b"/>
+                                        <stop offset="100%" stop-color="#05070a"/>
+                                    </linearGradient>
+                                    <radialGradient id="s-tdk-glow" cx="50%" cy="40%" r="50%">
+                                        <stop offset="0%" stop-color="#e58d47" stop-opacity="0.45"/>
+                                        <stop offset="60%" stop-color="#2563eb" stop-opacity="0.15"/>
+                                        <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+                                    </radialGradient>
+                                </defs>
+                                <rect width="300" height="450" fill="url(#s-tdk-bg)"/>
+                                <circle cx="150" cy="180" r="130" fill="url(#s-tdk-glow)"/>
+                                <path d="M0,450 L0,360 L25,360 L25,320 L50,320 L50,380 L80,380 L80,300 L95,300 L95,270 L110,270 L110,380 L140,380 L140,240 L160,240 L160,380 L190,380 L190,290 L210,290 L210,340 L235,340 L235,310 L260,310 L260,370 L300,370 L300,450 Z" fill="#06090e" opacity="0.9"/>
+                                <path d="M150,150 C160,135 180,130 195,142 C210,135 235,148 240,170 C220,165 205,178 198,195 C185,182 170,185 150,205 C130,185 115,182 102,195 C95,178 80,165 60,170 C65,148 90,135 105,142 C120,130 140,135 150,150 Z" fill="#e58d47" opacity="0.92"/>
+                                <text x="150" y="70" text-anchor="middle" fill="#94a3b8" font-size="11" letter-spacing="3" font-family="'Segoe UI', sans-serif">CHRISTOPHER NOLAN</text>
+                                <text x="150" y="405" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="900" letter-spacing="2" font-family="'Segoe UI', sans-serif">THE DARK KNIGHT</text>
+                                <text x="150" y="425" text-anchor="middle" fill="#e58d47" font-size="10" letter-spacing="4" font-weight="700" font-family="'Segoe UI', sans-serif">WHY SO SERIOUS?</text>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            <a href="movie-detail.html">The Dark Knight</a>
+                        </h3>
+                        <p class="card-director">Director: <strong style="color: var(--accent-primary, #e58d47);">Christopher Nolan</strong></p>
+                        <div class="genre-badges-row">
+                            <span class="genre-tag genre-action">Action</span>
+                            <span class="genre-tag genre-crime">Crime</span>
+                            <span class="genre-tag genre-drama">Drama</span>
+                        </div>
+                        <div class="card-rating-row">
+                            <div class="star-score">
+                                <span class="stars-visual">⭐</span>
+                                <span>4.9 / 5.0</span>
+                            </div>
+                            <span class="review-tally">1,482 reviews</span>
+                        </div>
+                        <a href="movie-detail.html" class="card-action-btn">View Movie Details →</a>
+                    </div>
+                </article>
+
+                <!-- Result 2: Inception (ID 2) -->
+                <article class="catalog-card">
+                    <div class="card-poster-wrapper">
+                        <span class="poster-badge-id">ID: 2</span>
+                        <span class="poster-badge-year">2010</span>
+                        <a href="movie-detail.html">
+                            <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Inception Movie Poster">
+                                <defs>
+                                    <linearGradient id="s-inc-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#081426"/>
+                                        <stop offset="50%" stop-color="#102542"/>
+                                        <stop offset="100%" stop-color="#060d17"/>
+                                    </linearGradient>
+                                    <radialGradient id="s-inc-spin" cx="50%" cy="45%" r="45%">
+                                        <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+                                        <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+                                    </radialGradient>
+                                </defs>
+                                <rect width="300" height="450" fill="url(#s-inc-bg)"/>
+                                <circle cx="150" cy="200" r="110" fill="url(#s-inc-spin)"/>
+                                <circle cx="150" cy="200" r="95" fill="none" stroke="#2563eb" stroke-width="2" stroke-dasharray="25 15 40 10" opacity="0.6"/>
+                                <circle cx="150" cy="200" r="70" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="30 20 15 15" opacity="0.75"/>
+                                <circle cx="150" cy="200" r="45" fill="none" stroke="#93c5fd" stroke-width="2" stroke-dasharray="15 10 25 8" opacity="0.85"/>
+                                <polygon points="150,140 162,185 178,192 153,245 150,265 147,245 122,192 138,185" fill="#f8fafc" opacity="0.95"/>
+                                <text x="150" y="70" text-anchor="middle" fill="#93c5fd" font-size="11" letter-spacing="3" font-family="'Segoe UI', sans-serif">CHRISTOPHER NOLAN</text>
+                                <text x="150" y="405" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="900" letter-spacing="4" font-family="'Segoe UI', sans-serif">INCEPTION</text>
+                                <text x="150" y="425" text-anchor="middle" fill="#38bdf8" font-size="9" letter-spacing="2" font-weight="600" font-family="'Segoe UI', sans-serif">YOUR MIND IS THE SCENE OF THE CRIME</text>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            <a href="movie-detail.html">Inception</a>
+                        </h3>
+                        <p class="card-director">Director: <strong style="color: var(--accent-primary, #e58d47);">Christopher Nolan</strong></p>
+                        <div class="genre-badges-row">
+                            <span class="genre-tag genre-scifi">Sci-Fi</span>
+                            <span class="genre-tag genre-action">Action</span>
+                        </div>
+                        <div class="card-rating-row">
+                            <div class="star-score">
+                                <span class="stars-visual">⭐</span>
+                                <span>4.8 / 5.0</span>
+                            </div>
+                            <span class="review-tally">1,230 reviews</span>
+                        </div>
+                        <a href="movie-detail.html" class="card-action-btn">View Movie Details →</a>
+                    </div>
+                </article>
+
+                <!-- Result 3: Interstellar (ID 3) -->
+                <article class="catalog-card">
+                    <div class="card-poster-wrapper">
+                        <span class="poster-badge-id">ID: 3</span>
+                        <span class="poster-badge-year">2014</span>
+                        <a href="movie-detail.html">
+                            <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interstellar Movie Poster">
+                                <defs>
+                                    <linearGradient id="s-int-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#030712"/>
+                                        <stop offset="50%" stop-color="#0b1329"/>
+                                        <stop offset="100%" stop-color="#02040a"/>
+                                    </linearGradient>
+                                    <radialGradient id="s-int-blackhole" cx="50%" cy="45%" r="50%">
+                                        <stop offset="0%" stop-color="#000000"/>
+                                        <stop offset="35%" stop-color="#000000"/>
+                                        <stop offset="42%" stop-color="#fbbf24"/>
+                                        <stop offset="55%" stop-color="#f59e0b" stop-opacity="0.8"/>
+                                        <stop offset="70%" stop-color="#d97706" stop-opacity="0.2"/>
+                                        <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+                                    </radialGradient>
+                                </defs>
+                                <rect width="300" height="450" fill="url(#s-int-bg)"/>
+                                <circle cx="40" cy="50" r="1" fill="#fff" opacity="0.8"/>
+                                <circle cx="85" cy="110" r="1.5" fill="#fff" opacity="0.9"/>
+                                <circle cx="230" cy="70" r="1.2" fill="#fff" opacity="0.7"/>
+                                <circle cx="270" cy="140" r="1" fill="#fff" opacity="0.8"/>
+                                <circle cx="50" cy="270" r="1.3" fill="#fff" opacity="0.6"/>
+                                <circle cx="250" cy="300" r="1" fill="#fff" opacity="0.9"/>
+                                <circle cx="150" cy="190" r="115" fill="url(#s-int-blackhole)"/>
+                                <ellipse cx="150" cy="190" rx="125" ry="32" fill="none" stroke="#fbbf24" stroke-width="5" opacity="0.85"/>
+                                <ellipse cx="150" cy="190" rx="90" ry="20" fill="none" stroke="#fff" stroke-width="2" opacity="0.95"/>
+                                <circle cx="150" cy="190" r="42" fill="#000000"/>
+                                <text x="150" y="65" text-anchor="middle" fill="#fbbf24" font-size="11" letter-spacing="3" font-family="'Segoe UI', sans-serif">CHRISTOPHER NOLAN</text>
+                                <text x="150" y="405" text-anchor="middle" fill="#ffffff" font-size="21" font-weight="900" letter-spacing="4" font-family="'Segoe UI', sans-serif">INTERSTELLAR</text>
+                                <text x="150" y="425" text-anchor="middle" fill="#d97706" font-size="9" letter-spacing="2" font-weight="600" font-family="'Segoe UI', sans-serif">MANKIND WAS NEVER MEANT TO DIE HERE</text>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            <a href="movie-detail.html">Interstellar</a>
+                        </h3>
+                        <p class="card-director">Director: <strong style="color: var(--accent-primary, #e58d47);">Christopher Nolan</strong></p>
+                        <div class="genre-badges-row">
+                            <span class="genre-tag genre-scifi">Sci-Fi</span>
+                            <span class="genre-tag genre-drama">Drama</span>
+                        </div>
+                        <div class="card-rating-row">
+                            <div class="star-score">
+                                <span class="stars-visual">⭐</span>
+                                <span>4.7 / 5.0</span>
+                            </div>
+                            <span class="review-tally">1,150 reviews</span>
+                        </div>
+                        <a href="movie-detail.html" class="card-action-btn">View Movie Details →</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Standard CineReview Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <h2>Great MOVIES deserve<br>great conversations!</h2>
+                <p>Read our expert reviews. Join the community. Let the silver screen ignite your imagination.<br>Because moments on screen become discussions off screen.</p>
+                <div class="social-icons">
+                    <span class="icon" title="Facebook">f</span>
+                    <span class="icon" title="Twitter / X">t</span>
+                    <span class="icon" title="LinkedIn">in</span>
+                    <span class="icon" title="YouTube">yt</span>
+                </div>
+                <p class="copyright">© 2026 CineReview. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="search-movies.html?genre=Action">Action &amp; Adventure</a></li>
+                        <li><a href="search-movies.html?genre=Sci-Fi">Sci-Fi &amp; Fantasy</a></li>
+                        <li><a href="search-movies.html?genre=Drama">Drama</a></li>
+                        <li><a href="search-movies.html?genre=Crime">Crime &amp; Thriller</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="movies-list.html">Movie Catalog</a></li>
+                        <li><a href="submit-review.html">Write a Review</a></li>
+                        <li><a href="my-reviews.html">My Reviews</a></li>
+                        <li><a href="../auth/login.html">Sign In</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home Page</a></li>
+                        <li><a href="search-movies.html">Advanced Search</a></li>
+                        <li><a href="../admin/dashboard.html">Admin Portal</a></li>
+                        <li><a href="../../cover-page.html">Cover Page</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-right-logo">
+                <div class="logo-box">🎟️ CINE REVIEW</div>
+                <p class="address">Faculty of Computers &amp; Artificial Intelligence<br>Web Engineering Project<br>Cairo University</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

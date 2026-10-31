@@ -7,24 +7,22 @@
     <link rel="stylesheet" href="css/pages/home.css">
 </head>
 <body>
-    <div class="film-strip"></div>
-
     <header class="navbar">
         <div class="logo">
-            <span class="ticket-icon">🎟️</span> MOVIE REVIEWS
+            <a href="index.html" style="color: inherit; text-decoration: none;"><span class="ticket-icon">🎟️</span> MOVIE REVIEWS</a>
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Search Reviews, Movies, Directors..">
-            <button class="search-btn">🔍</button>
+            <a href="pages/user/search-movies.html" class="search-btn" style="text-decoration: none; display: flex; align-items: center;">🔍</a>
         </div>
         <nav class="nav-links">
-            <a href="#" class="active">Home</a>
-            <a href="#">Latest Reviews</a>
-            <a href="#">Top Rated</a>
-            <a href="#">News & Editorials</a>
+            <a href="index.html" class="active">Home</a>
+            <a href="">Latest Reviews</a>
+            <a href="pages/user/movies-list.html">Top Rated</a>
+            <a href="">News & Editorials</a>
         </nav>
         <div class="user-profile">
-            <div class="avatar">👤</div>
+            <a href="pages/auth/login.html" class="avatar" style="text-decoration: none;">👤</a>
         </div>
     </header>
 
@@ -33,14 +31,14 @@
             <div class="hero-content">
                 <h1>Our Sweet<br>Sunday Super<br>Review</h1>
                 <p>Dive into our in-depth spoiler-free review of Marvel Studios'<br>'THE FANTASTIC FOUR: FIRST STEPS'. Is it the hit we've been waiting for?</p>
-                <button class="btn-primary">Read Review</button>
+                <a href="pages/user/movie-detail.html"><button class="btn-primary">Read Review</button></a>
             </div>
         </section>
 
         <section class="movie-section">
             <div class="section-header">
                 <h2>Review Movies</h2>
-                <a href="#" class="see-all">See All</a>
+                <a href="pages/user/movies-list.html" class="see-all">See All</a>
             </div>
             <div class="movie-grid">
                 <div class="movie-card"><div class="poster blue"></div><p>THE FANTASTIC 4</p><span class="rating">⭐ 4.5/5</span></div>
@@ -59,7 +57,7 @@
         <section class="movie-section coming-soon-section">
             <div class="section-header">
                 <h2>Highest Rated This Year</h2>
-                <a href="#" class="see-all">See All</a>
+                <a href="pages/user/movies-list.html" class="see-all">See All</a>
             </div>
             <div class="movie-grid">
                 <div class="movie-card"><div class="poster red"></div><p>NOTHING BUT A WINNER</p><span class="review-quote">"A Masterpiece" - 10/10</span></div>
@@ -95,19 +93,19 @@
                 <div class="link-column">
                     <h4>Categories</h4>
                     <ul>
-                        <li><a href="#">Action & Adventure</a></li>
-                        <li><a href="#">Sci-Fi & Fantasy</a></li>
-                        <li><a href="#">Drama</a></li>
-                        <li><a href="#">Comedy</a></li>
+                        <li><a href="pages/user/search-movies.html">Action & Adventure</a></li>
+                        <li><a href="pages/user/search-movies.html">Sci-Fi & Fantasy</a></li>
+                        <li><a href="pages/user/search-movies.html">Drama</a></li>
+                        <li><a href="pages/user/search-movies.html">Comedy</a></li>
                     </ul>
                 </div>
                 <div class="link-column">
                     <h4>Community</h4>
                     <ul>
-                        <li><a href="#">Forum</a></li>
-                        <li><a href="#">Write a Review</a></li>
-                        <li><a href="#">Sign In</a></li>
-                        <li><a href="#">Create Account</a></li>
+                        <li><a href="pages/user/movies-list.html">Forum</a></li>
+                        <li><a href="pages/user/movie-detail.html">Write a Review</a></li>
+                        <li><a href="pages/auth/login.html">Sign In</a></li>
+                        <li><a href="pages/auth/signup.html">Create Account</a></li>
                     </ul>
                 </div>
                 <div class="link-column">
@@ -121,6 +119,5 @@
             </div>
         </div>
     </footer>
-    <div class="film-strip"></div>
 </body>
 </html>

@@ -48,13 +48,7 @@ h1 {
     }
     
     .film-strip {
-    height: 24px;
-    background-color: #000;
-    background-image: radial-gradient(circle at 16px 12px, #fff 4px, transparent 5px);
-    background-size: 32px 24px;
-    background-repeat: repeat-x;
-    border-top: 2px solid #222;
-    border-bottom: 2px solid #222;
+    display: none;
     }
     
     .user-profile .avatar {
