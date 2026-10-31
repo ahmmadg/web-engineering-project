@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineReview — Movie Reviews &amp; Community Ratings</title>
+    <!-- Member 1 Shared Design Tokens & Layout -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
+    <!-- Member 1 Home Page Stylesheet -->
     <link rel="stylesheet" href="css/pages/home.css">
 </head>
 <body>
@@ -38,6 +40,7 @@
             <span>CineReview</span>
         </a>
 
+        <!-- Quick Search Bar (Pure HTML Form - No JS) -->
         <form action="pages/user/search-movies.html" method="get" class="search-bar">
             <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
             <button type="submit" class="search-btn" title="Search" aria-label="Search">
@@ -57,93 +60,377 @@
 
         <div class="user-nav-actions">
             <a href="pages/auth/login.html" class="nav-logout-btn">Log In</a>
-            <a href="pages/auth/signup.html" class="auth-btn-primary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem; height: auto; margin-top: 0;">Sign Up</a>
+            <a href="pages/auth/signup.html" class="auth-btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.85rem; height: auto; margin-top: 0; font-weight: 700; border-radius: 999px; text-decoration: none;">Sign Up</a>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section with Fallback Cinema Backdrop -->
-        <section class="hero" style="background: linear-gradient(to right, rgba(18, 18, 18, 0.95), rgba(112, 0, 0, 0.65)), url('Gemini_Generated_Image_mzmgvhmzmgvhmzmg.jfif') center/cover no-repeat;">
+        <!-- Hero Section with Cinema Backdrop and Brand Messaging -->
+        <section class="hero" style="background: linear-gradient(to right, rgba(14, 14, 16, 0.94) 0%, rgba(20, 20, 24, 0.88) 50%, rgba(140, 24, 24, 0.55) 100%), url('Gemini_Generated_Image_mzmgvhmzmgvhmzmg.jfif') center/cover no-repeat;">
             <div class="hero-content">
-                <h1>Our Sweet<br>Sunday Super<br>Review</h1>
-                <p>Dive into our in-depth spoiler-free review of Marvel Studios'<br>'THE FANTASTIC FOUR: FIRST STEPS'. Is it the hit we've been waiting for?</p>
-                <a href="pages/user/movie-detail.html"><button class="btn-primary">Read Review</button></a>
+                <div class="hero-tagline-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <span>Community-Powered Cinema Critic</span>
+                </div>
+                <h1>Discover, Review &amp; Debate the Movies You Love</h1>
+                <p>Your authentic destination for cinematic discussion. Explore curated critic ratings, share your own thoughtful commentary, and discover unforgettable films.</p>
+                <div class="hero-actions">
+                    <a href="pages/user/movies-list.html" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                        <span>Browse All Movies</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="pages/user/search-movies.html" style="color: #cccccc; font-size: 0.9rem; font-weight: 600; padding: 0.6rem 1rem; border: 1px solid #333333; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <span>Search Catalog</span>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- Featured Section -->
-        <section class="movie-section">
+        <!-- Our Movie Catalog Section: 8 Standardized Catalog Titles -->
+        <section class="movie-section" aria-labelledby="catalog-heading">
             <div class="section-header">
-                <h2>Review Movies</h2>
-                <a href="pages/user/movies-list.html" class="see-all">See All</a>
+                <div class="section-title-wrap">
+                    <h2 id="catalog-heading">Our Movie Catalog</h2>
+                    <p class="section-subtitle">Click any title to explore detailed reviews, full metadata, and audience impressions</p>
+                </div>
+                <a href="pages/user/movies-list.html" class="see-all">
+                    <span>View Full Catalog (8 Titles)</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </a>
             </div>
+
             <div class="movie-grid">
-                <div class="movie-card"><div class="poster blue"></div><p>THE FANTASTIC 4</p><span class="rating">&#9733; 4.5/5</span></div>
-                <div class="movie-card"><div class="poster red"></div><p>SUPERMAN (2025)</p><span class="rating">&#9733; 4.0/5</span></div>
-                <div class="movie-card"><div class="poster dark"></div><p>JURASSIC WORLD</p><span class="rating">&#9733; 3.5/5</span></div>
-                <div class="movie-card"><div class="poster blue-light"></div><p>SMURFS (2025)</p><span class="rating">&#9733; 3.0/5</span></div>
-                <div class="movie-card"><div class="poster dark-blue"></div><p>I KNOW WHAT YOU DID LAST</p><span class="rating">&#9733; 2.5/5</span></div>
-                <div class="movie-card"><div class="poster yellow"></div><p>F1 THE MOVIE</p><span class="rating">&#9733; 4.2/5</span></div>
-                <div class="movie-card"><div class="poster green"></div><p>HOW TO TRAIN YOUR DRAGON</p><span class="rating">&#9733; 4.8/5</span></div>
-                <div class="movie-card"><div class="poster orange"></div><p>EDDINGTON (2025)</p><span class="rating">&#9733; 4.1/5</span></div>
-                <div class="movie-card"><div class="poster red-dark"></div><p>THE HOME (2025)</p><span class="rating">&#9733; 3.8/5</span></div>
-                <div class="movie-card"><div class="poster purple"></div><p>ELIO (2025)</p><span class="rating">&#9733; 4.6/5</span></div>
+                <!-- Movie 1: The Dark Knight -->
+                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for The Dark Knight">
+                    <article class="movie-card">
+                        <div class="poster poster--tdk">
+                            <div class="poster-center-monogram">TDK</div>
+                            <span class="poster-top-badge">#M001 &bull; 2008</span>
+                            <div class="poster-hover-overlay">
+                                <span class="poster-hover-btn">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    View Movie
+                                </span>
+                            </div>
+                            <div class="poster-art-info">
+                                <h4 class="poster-art-title">The Dark Knight</h4>
+                                <div class="poster-art-meta">
+                                    <span>Dir. Christopher Nolan</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-meta-below">
+                            <h3>The Dark Knight</h3>
+                            <div class="movie-meta-sub">
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Action</span>
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Crime</span>
+                                <span>&bull; 2008</span>
+                            </div>
+                            <span class="rating">&#9733; 9.0 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(152 min)</small></span>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Movie 2: Inception -->
+                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for Inception">
+                    <article class="movie-card">
+                        <div class="poster poster--inception">
+                            <div class="poster-center-monogram">INC</div>
+                            <span class="poster-top-badge">#M002 &bull; 2010</span>
+                            <div class="poster-hover-overlay">
+                                <span class="poster-hover-btn">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    View Movie
+                                </span>
+                            </div>
+                            <div class="poster-art-info">
+                                <h4 class="poster-art-title">Inception</h4>
+                                <div class="poster-art-meta">
+                                    <span>Dir. Christopher Nolan</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-meta-below">
+                            <h3>Inception</h3>
+                            <div class="movie-meta-sub">
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Sci-Fi</span>
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Action</span>
+                                <span>&bull; 2010</span>
+                            </div>
+                            <span class="rating">&#9733; 8.8 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(148 min)</small></span>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Movie 3: The Shawshank Redemption -->
+                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for The Shawshank Redemption">
+                    <article class="movie-card">
+                        <div class="poster poster--shawshank">
+                            <div class="poster-center-monogram">SHA</div>
+                            <span class="poster-top-badge">#M003 &bull; 1994</span>
+                            <div class="poster-hover-overlay">
+                                <span class="poster-hover-btn">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    View Movie
+                                </span>
+                            </div>
+                            <div class="poster-art-info">
+                                <h4 class="poster-art-title">The Shawshank Redemption</h4>
+                                <div class="poster-art-meta">
+                                    <span>Dir. Frank Darabont</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-meta-below">
+                            <h3>The Shawshank Redemption</h3>
+                            <div class="movie-meta-sub">
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Drama</span>
+                                <span>&bull; 1994</span>
+                            </div>
+                            <span class="rating">&#9733; 9.3 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(142 min)</small></span>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Movie 4: Pulp Fiction -->
+                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for Pulp Fiction">
+                    <article class="movie-card">
+                        <div class="poster poster--pulp">
+                            <div class="poster-center-monogram">PUL</div>
+                            <span class="poster-top-badge">#M004 &bull; 1994</span>
+                            <div class="poster-hover-overlay">
+                                <span class="poster-hover-btn">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    View Movie
+                                </span>
+                            </div>
+                            <div class="poster-art-info">
+                                <h4 class="poster-art-title">Pulp Fiction</h4>
+                                <div class="poster-art-meta">
+                                    <span>Dir. Quentin Tarantino</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-meta-below">
+                            <h3>Pulp Fiction</h3>
+                            <div class="movie-meta-sub">
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Crime</span>
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Drama</span>
+                                <span>&bull; 1994</span>
+                            </div>
+                            <span class="rating">&#9733; 8.9 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(154 min)</small></span>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Movie 5: The Grand Budapest Hotel -->
+                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for The Grand Budapest Hotel">
+                    <article class="movie-card">
+                        <div class="poster poster--budapest">
+                            <div class="poster-center-monogram">BUD</div>
+                            <span class="poster-top-badge">#M005 &bull; 2014</span>
+                            <div class="poster-hover-overlay">
+                                <span class="poster-hover-btn">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    View Movie
+                                </span>
+                            </div>
+                            <div class="poster-art-info">
+                                <h4 class="poster-art-title">The Grand Budapest Hotel</h4>
+                                <div class="poster-art-meta">
+                                    <span>Dir. Wes Anderson</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-meta-below">
+                            <h3>The Grand Budapest Hotel</h3>
+                            <div class="movie-meta-sub">
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Comedy</span>
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Drama</span>
+                                <span>&bull; 2014</span>
+                            </div>
+                            <span class="rating">&#9733; 8.1 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(99 min)</small></span>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Movie 6: Parasite -->
+                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for Parasite">
+                    <article class="movie-card">
+                        <div class="poster poster--parasite">
+                            <div class="poster-center-monogram">PAR</div>
+                            <span class="poster-top-badge">#M006 &bull; 2019</span>
+                            <div class="poster-hover-overlay">
+                                <span class="poster-hover-btn">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    View Movie
+                                </span>
+                            </div>
+                            <div class="poster-art-info">
+                                <h4 class="poster-art-title">Parasite</h4>
+                                <div class="poster-art-meta">
+                                    <span>Dir. Bong Joon-ho</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-meta-below">
+                            <h3>Parasite</h3>
+                            <div class="movie-meta-sub">
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Thriller</span>
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Drama</span>
+                                <span>&bull; 2019</span>
+                            </div>
+                            <span class="rating">&#9733; 8.5 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(132 min)</small></span>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Movie 7: Interstellar -->
+                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for Interstellar">
+                    <article class="movie-card">
+                        <div class="poster poster--interstellar">
+                            <div class="poster-center-monogram">INT</div>
+                            <span class="poster-top-badge">#M007 &bull; 2014</span>
+                            <div class="poster-hover-overlay">
+                                <span class="poster-hover-btn">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    View Movie
+                                </span>
+                            </div>
+                            <div class="poster-art-info">
+                                <h4 class="poster-art-title">Interstellar</h4>
+                                <div class="poster-art-meta">
+                                    <span>Dir. Christopher Nolan</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-meta-below">
+                            <h3>Interstellar</h3>
+                            <div class="movie-meta-sub">
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Sci-Fi</span>
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Adventure</span>
+                                <span>&bull; 2014</span>
+                            </div>
+                            <span class="rating">&#9733; 8.7 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(169 min)</small></span>
+                        </div>
+                    </article>
+                </a>
+
+                <!-- Movie 8: La La Land -->
+                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for La La Land">
+                    <article class="movie-card">
+                        <div class="poster poster--lalaland">
+                            <div class="poster-center-monogram">LLL</div>
+                            <span class="poster-top-badge">#M008 &bull; 2016</span>
+                            <div class="poster-hover-overlay">
+                                <span class="poster-hover-btn">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    View Movie
+                                </span>
+                            </div>
+                            <div class="poster-art-info">
+                                <h4 class="poster-art-title">La La Land</h4>
+                                <div class="poster-art-meta">
+                                    <span>Dir. Damien Chazelle</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-meta-below">
+                            <h3>La La Land</h3>
+                            <div class="movie-meta-sub">
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Drama</span>
+                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Music</span>
+                                <span>&bull; 2016</span>
+                            </div>
+                            <span class="rating">&#9733; 8.0 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(128 min)</small></span>
+                        </div>
+                    </article>
+                </a>
             </div>
         </section>
 
-        <!-- Coming Soon / Highest Rated -->
-        <section class="movie-section coming-soon-section">
-            <div class="section-header">
-                <h2>Highest Rated This Year</h2>
-                <a href="pages/user/movies-list.html" class="see-all">See All</a>
-            </div>
-            <div class="movie-grid">
-                <div class="movie-card"><div class="poster red"></div><p>NOTHING BUT A WINNER</p><span class="review-quote">"A Masterpiece" - 10/10</span></div>
-                <div class="movie-card"><div class="poster dark"></div><p>WEAPONS</p><span class="review-quote">"Thrilling" - 9.5/10</span></div>
-                <div class="movie-card"><div class="poster yellow"></div><p>BAD GUYS 2</p><span class="review-quote">"Hilarious" - 9/10</span></div>
-                <div class="movie-card"><div class="poster blue-light"></div><p>SHE RIDES SHOTGUN</p><span class="review-quote">"Visually Stunning" - 9/10</span></div>
-                <div class="movie-card"><div class="poster orange"></div><p>MIGRATION</p><span class="review-quote">"Heartwarming" - 8.5/10</span></div>
-
-                <div class="movie-card"><div class="poster white"></div><p>WHAT IF...</p><span class="review-quote">"Thought Provoking" - 8.5/10</span></div>
-                <div class="movie-card"><div class="poster pink"></div><p>THE NAKED GUN</p><span class="review-quote">"A Classic Return" - 8.5/10</span></div>
-                <div class="movie-card"><div class="poster brown"></div><p>MEMOIR OF A SNAIL</p><span class="review-quote">"Deeply Moving" - 9.2/10</span></div>
-                <div class="movie-card"><div class="poster dark"></div><p>SORRY, BABY</p><span class="review-quote">"A Wild Ride" - 8/10</span></div>
-                <div class="movie-card"><div class="poster dark-blue"></div><p>TOGETHER</p><span class="review-quote">"Beautifully Acted" - 8.8/10</span></div>
-            </div>
-        </section>
-
-        <section class="promo-section">
+        <!-- Community Call to Action Section -->
+        <section class="promo-section" aria-labelledby="promo-heading">
             <div class="promo-content">
-                <h2>Some scenes stay with you.<br>So do our critiques.</h2>
-                <p>Read, Debate and Share....because every great movie needs a good conversation!</p>
+                <h2 id="promo-heading">Some scenes stay with you.<br>So do our critiques.</h2>
+                <p>Read, debate, and share your perspective &mdash; because every cinematic masterpiece deserves a great conversation.</p>
+                <div class="promo-actions">
+                    <a href="pages/auth/signup.html" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                        <span>Join CineReview &mdash; Sign Up Free</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </a>
+                    <a href="pages/user/submit-review.html" style="color: #cccccc; font-size: 0.9rem; font-weight: 600; padding: 0.75rem 1.4rem; border: 1px solid #444444; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
+                        <span>Write a Review</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Unified CineReview Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-left">
                 <h2>Great MOVIES deserve<br>great conversations!</h2>
                 <p>Read our expert reviews. Join the community. Let the silver screen ignite your imagination.<br>Because moments on screen become discussions off screen.</p>
+                <div class="social-icons">
+                    <span class="icon" title="Facebook">f</span>
+                    <span class="icon" title="Twitter / X">t</span>
+                    <span class="icon" title="LinkedIn">in</span>
+                    <span class="icon" title="YouTube">yt</span>
+                </div>
+                <p class="copyright">&copy; 2026 CineReview. All rights reserved.</p>
             </div>
             <div class="footer-links">
                 <div class="link-column">
                     <h4>Categories</h4>
                     <ul>
-                        <li><a href="pages/user/search-movies.html">Action &amp; Adventure</a></li>
-                        <li><a href="pages/user/search-movies.html">Sci-Fi &amp; Fantasy</a></li>
-                        <li><a href="pages/user/search-movies.html">Drama</a></li>
-                        <li><a href="pages/user/search-movies.html">Comedy</a></li>
+                        <li><a href="pages/user/search-movies.html?genre=Action">Action &amp; Adventure</a></li>
+                        <li><a href="pages/user/search-movies.html?genre=Sci-Fi">Sci-Fi &amp; Fantasy</a></li>
+                        <li><a href="pages/user/search-movies.html?genre=Drama">Drama</a></li>
+                        <li><a href="pages/user/search-movies.html?genre=Crime">Crime &amp; Thriller</a></li>
                     </ul>
                 </div>
                 <div class="link-column">
                     <h4>Community</h4>
                     <ul>
-                        <li><a href="pages/user/movies-list.html">Catalog</a></li>
+                        <li><a href="pages/user/movies-list.html">Movie Catalog</a></li>
                         <li><a href="pages/user/submit-review.html">Write a Review</a></li>
+                        <li><a href="pages/user/my-reviews.html">My Reviews</a></li>
                         <li><a href="pages/auth/login.html">Sign In</a></li>
-                        <li><a href="pages/auth/signup.html">Create Account</a></li>
                     </ul>
                 </div>
                 <div class="link-column">
@@ -151,11 +438,16 @@
                     <ul>
                         <li><a href="cover-page.html">Cover Page &amp; Team</a></li>
                         <li><a href="pages/user/movies-list.html">User View Demo</a></li>
-                        <li><a href="pages/admin/manage-reviews.html">Admin View Demo</a></li>
+                        <li><a href="pages/admin/dashboard.html">Admin View Demo</a></li>
                     </ul>
                 </div>
             </div>
+            <div class="footer-right-logo">
+                <div class="logo-box">CineReview</div>
+                <p class="address">Faculty of Computers &amp; Artificial Intelligence<br>Web Engineering Project<br>Cairo University</p>
+            </div>
         </div>
     </footer>
+
 </body>
 </html>
