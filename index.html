@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
+    <!-- Member 2 Movie Catalog Stylesheet (for accurate poster and card aesthetics) -->
+    <link rel="stylesheet" href="css/pages/movies.css">
     <!-- Member 1 Home Page Stylesheet -->
     <link rel="stylesheet" href="css/pages/home.css">
 </head>
@@ -95,7 +97,7 @@
             </div>
         </section>
 
-        <!-- Our Movie Catalog Section: 8 Standardized Catalog Titles -->
+        <!-- Our Movie Catalog Section: Matching Posters from Browse Movies (movies-list.html) -->
         <section class="movie-section" aria-labelledby="catalog-heading">
             <div class="section-header">
                 <div class="section-title-wrap">
@@ -110,269 +112,413 @@
                 </a>
             </div>
 
-            <div class="movie-grid">
+            <div class="catalog-grid" aria-label="Movie Catalog List">
                 <!-- Movie 1: The Dark Knight -->
-                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for The Dark Knight">
-                    <article class="movie-card">
-                        <div class="poster poster--tdk">
-                            <div class="poster-center-monogram">TDK</div>
-                            <span class="poster-top-badge">#M001 &bull; 2008</span>
-                            <div class="poster-hover-overlay">
-                                <span class="poster-hover-btn">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                    </svg>
-                                    View Movie
-                                </span>
-                            </div>
-                            <div class="poster-art-info">
-                                <h4 class="poster-art-title">The Dark Knight</h4>
-                                <div class="poster-art-meta">
-                                    <span>Dir. Christopher Nolan</span>
-                                </div>
-                            </div>
+                <article class="catalog-card">
+                    <div class="card-poster-wrapper">
+                        <span class="poster-badge-id">ID: 1</span>
+                        <span class="poster-badge-year">2008</span>
+                        <a href="pages/user/movie-detail.html" aria-label="View The Dark Knight details">
+                            <!-- Custom SVG Poster Art (from movies-list.html) -->
+                            <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Dark Knight Movie Poster">
+                                <defs>
+                                    <linearGradient id="tdk-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#0a0e17"/>
+                                        <stop offset="60%" stop-color="#141c2b"/>
+                                        <stop offset="100%" stop-color="#05070a"/>
+                                    </linearGradient>
+                                    <radialGradient id="tdk-glow" cx="50%" cy="40%" r="50%">
+                                        <stop offset="0%" stop-color="#e58d47" stop-opacity="0.45"/>
+                                        <stop offset="60%" stop-color="#2563eb" stop-opacity="0.15"/>
+                                        <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+                                    </radialGradient>
+                                </defs>
+                                <rect width="300" height="450" fill="url(#tdk-bg)"/>
+                                <circle cx="150" cy="180" r="130" fill="url(#tdk-glow)"/>
+                                <path d="M0,450 L0,360 L25,360 L25,320 L50,320 L50,380 L80,380 L80,300 L95,300 L95,270 L110,270 L110,380 L140,380 L140,240 L160,240 L160,380 L190,380 L190,290 L210,290 L210,340 L235,340 L235,310 L260,310 L260,370 L300,370 L300,450 Z" fill="#06090e" opacity="0.9"/>
+                                <path d="M150,150 C160,135 180,130 195,142 C210,135 235,148 240,170 C220,165 205,178 198,195 C185,182 170,185 150,205 C130,185 115,182 102,195 C95,178 80,165 60,170 C65,148 90,135 105,142 C120,130 140,135 150,150 Z" fill="#e58d47" opacity="0.92"/>
+                                <text x="150" y="70" text-anchor="middle" fill="#94a3b8" font-size="11" letter-spacing="3" font-family="'Segoe UI', sans-serif">A FILM BY CHRISTOPHER NOLAN</text>
+                                <text x="150" y="405" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="900" letter-spacing="2" font-family="'Segoe UI', sans-serif">THE DARK KNIGHT</text>
+                                <text x="150" y="425" text-anchor="middle" fill="#e58d47" font-size="10" letter-spacing="4" font-weight="700" font-family="'Segoe UI', sans-serif">WHY SO SERIOUS&bull;</text>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">
+                            <a href="pages/user/movie-detail.html">The Dark Knight</a>
+                        </h2>
+                        <p class="card-director">Director: <strong>Christopher Nolan</strong></p>
+                        <div class="genre-badges-row">
+                            <span class="genre-tag genre-action">Action</span>
+                            <span class="genre-tag genre-crime">Crime</span>
+                            <span class="genre-tag genre-drama">Drama</span>
                         </div>
-                        <div class="movie-meta-below">
-                            <h3>The Dark Knight</h3>
-                            <div class="movie-meta-sub">
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Action</span>
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Crime</span>
-                                <span>&bull; 2008</span>
+                        <div class="card-rating-row">
+                            <div class="star-score">
+                                <span class="stars-visual">⭐</span>
+                                <span>4.9 / 5.0</span>
                             </div>
-                            <span class="rating">&#9733; 9.0 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(152 min)</small></span>
+                            <span class="review-tally">1,482 reviews</span>
                         </div>
-                    </article>
-                </a>
+                        <a href="pages/user/movie-detail.html" class="card-action-btn">View Movie &amp; Reviews →</a>
+                    </div>
+                </article>
 
                 <!-- Movie 2: Inception -->
-                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for Inception">
-                    <article class="movie-card">
-                        <div class="poster poster--inception">
-                            <div class="poster-center-monogram">INC</div>
-                            <span class="poster-top-badge">#M002 &bull; 2010</span>
-                            <div class="poster-hover-overlay">
-                                <span class="poster-hover-btn">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                    </svg>
-                                    View Movie
-                                </span>
-                            </div>
-                            <div class="poster-art-info">
-                                <h4 class="poster-art-title">Inception</h4>
-                                <div class="poster-art-meta">
-                                    <span>Dir. Christopher Nolan</span>
-                                </div>
-                            </div>
+                <article class="catalog-card">
+                    <div class="card-poster-wrapper">
+                        <span class="poster-badge-id">ID: 2</span>
+                        <span class="poster-badge-year">2010</span>
+                        <a href="pages/user/movie-detail.html" aria-label="View Inception details">
+                            <!-- Custom SVG Poster Art (from movies-list.html) -->
+                            <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Inception Movie Poster">
+                                <defs>
+                                    <linearGradient id="inc-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#081426"/>
+                                        <stop offset="50%" stop-color="#102542"/>
+                                        <stop offset="100%" stop-color="#060d17"/>
+                                    </linearGradient>
+                                    <radialGradient id="inc-spin" cx="50%" cy="45%" r="45%">
+                                        <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+                                        <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+                                    </radialGradient>
+                                </defs>
+                                <rect width="300" height="450" fill="url(#inc-bg)"/>
+                                <circle cx="150" cy="200" r="110" fill="url(#inc-spin)"/>
+                                <circle cx="150" cy="200" r="95" fill="none" stroke="#2563eb" stroke-width="2" stroke-dasharray="25 15 40 10" opacity="0.6"/>
+                                <circle cx="150" cy="200" r="70" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="30 20 15 15" opacity="0.75"/>
+                                <circle cx="150" cy="200" r="45" fill="none" stroke="#93c5fd" stroke-width="2" stroke-dasharray="15 10 25 8" opacity="0.85"/>
+                                <polygon points="150,140 162,185 178,192 153,245 150,265 147,245 122,192 138,185" fill="#f8fafc" opacity="0.95"/>
+                                <text x="150" y="70" text-anchor="middle" fill="#93c5fd" font-size="11" letter-spacing="3" font-family="'Segoe UI', sans-serif">CHRISTOPHER NOLAN</text>
+                                <text x="150" y="405" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="900" letter-spacing="4" font-family="'Segoe UI', sans-serif">INCEPTION</text>
+                                <text x="150" y="425" text-anchor="middle" fill="#38bdf8" font-size="9" letter-spacing="2" font-weight="600" font-family="'Segoe UI', sans-serif">YOUR MIND IS THE SCENE OF THE CRIME</text>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">
+                            <a href="pages/user/movie-detail.html">Inception</a>
+                        </h2>
+                        <p class="card-director">Director: <strong>Christopher Nolan</strong></p>
+                        <div class="genre-badges-row">
+                            <span class="genre-tag genre-scifi">Sci-Fi</span>
+                            <span class="genre-tag genre-action">Action</span>
                         </div>
-                        <div class="movie-meta-below">
-                            <h3>Inception</h3>
-                            <div class="movie-meta-sub">
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Sci-Fi</span>
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Action</span>
-                                <span>&bull; 2010</span>
+                        <div class="card-rating-row">
+                            <div class="star-score">
+                                <span class="stars-visual">⭐</span>
+                                <span>4.8 / 5.0</span>
                             </div>
-                            <span class="rating">&#9733; 8.8 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(148 min)</small></span>
+                            <span class="review-tally">1,230 reviews</span>
                         </div>
-                    </article>
-                </a>
+                        <a href="pages/user/movie-detail.html" class="card-action-btn">View Movie &amp; Reviews →</a>
+                    </div>
+                </article>
 
-                <!-- Movie 3: The Shawshank Redemption -->
-                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for The Shawshank Redemption">
-                    <article class="movie-card">
-                        <div class="poster poster--shawshank">
-                            <div class="poster-center-monogram">SHA</div>
-                            <span class="poster-top-badge">#M003 &bull; 1994</span>
-                            <div class="poster-hover-overlay">
-                                <span class="poster-hover-btn">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                    </svg>
-                                    View Movie
-                                </span>
-                            </div>
-                            <div class="poster-art-info">
-                                <h4 class="poster-art-title">The Shawshank Redemption</h4>
-                                <div class="poster-art-meta">
-                                    <span>Dir. Frank Darabont</span>
-                                </div>
-                            </div>
+                <!-- Movie 3: Interstellar -->
+                <article class="catalog-card">
+                    <div class="card-poster-wrapper">
+                        <span class="poster-badge-id">ID: 3</span>
+                        <span class="poster-badge-year">2014</span>
+                        <a href="pages/user/movie-detail.html" aria-label="View Interstellar details">
+                            <!-- Custom SVG Poster Art (from movies-list.html) -->
+                            <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interstellar Movie Poster">
+                                <defs>
+                                    <linearGradient id="int-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#030712"/>
+                                        <stop offset="50%" stop-color="#0b1329"/>
+                                        <stop offset="100%" stop-color="#02040a"/>
+                                    </linearGradient>
+                                    <radialGradient id="int-blackhole" cx="50%" cy="45%" r="50%">
+                                        <stop offset="0%" stop-color="#000000"/>
+                                        <stop offset="35%" stop-color="#000000"/>
+                                        <stop offset="42%" stop-color="#fbbf24"/>
+                                        <stop offset="55%" stop-color="#f59e0b" stop-opacity="0.8"/>
+                                        <stop offset="70%" stop-color="#d97706" stop-opacity="0.2"/>
+                                        <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+                                    </radialGradient>
+                                </defs>
+                                <rect width="300" height="450" fill="url(#int-bg)"/>
+                                <circle cx="40" cy="50" r="1" fill="#fff" opacity="0.8"/>
+                                <circle cx="85" cy="110" r="1.5" fill="#fff" opacity="0.9"/>
+                                <circle cx="230" cy="70" r="1.2" fill="#fff" opacity="0.7"/>
+                                <circle cx="270" cy="140" r="1" fill="#fff" opacity="0.8"/>
+                                <circle cx="50" cy="270" r="1.3" fill="#fff" opacity="0.6"/>
+                                <circle cx="250" cy="300" r="1" fill="#fff" opacity="0.9"/>
+                                <circle cx="150" cy="190" r="115" fill="url(#int-blackhole)"/>
+                                <ellipse cx="150" cy="190" rx="125" ry="32" fill="none" stroke="#fbbf24" stroke-width="5" opacity="0.85"/>
+                                <ellipse cx="150" cy="190" rx="90" ry="20" fill="none" stroke="#fff" stroke-width="2" opacity="0.95"/>
+                                <circle cx="150" cy="190" r="42" fill="#000000"/>
+                                <text x="150" y="65" text-anchor="middle" fill="#fbbf24" font-size="11" letter-spacing="3" font-family="'Segoe UI', sans-serif">CHRISTOPHER NOLAN</text>
+                                <text x="150" y="405" text-anchor="middle" fill="#ffffff" font-size="21" font-weight="900" letter-spacing="4" font-family="'Segoe UI', sans-serif">INTERSTELLAR</text>
+                                <text x="150" y="425" text-anchor="middle" fill="#d97706" font-size="9" letter-spacing="2" font-weight="600" font-family="'Segoe UI', sans-serif">MANKIND WAS NEVER MEANT TO DIE HERE</text>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">
+                            <a href="pages/user/movie-detail.html">Interstellar</a>
+                        </h2>
+                        <p class="card-director">Director: <strong>Christopher Nolan</strong></p>
+                        <div class="genre-badges-row">
+                            <span class="genre-tag genre-scifi">Sci-Fi</span>
+                            <span class="genre-tag genre-drama">Drama</span>
                         </div>
-                        <div class="movie-meta-below">
-                            <h3>The Shawshank Redemption</h3>
-                            <div class="movie-meta-sub">
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Drama</span>
-                                <span>&bull; 1994</span>
+                        <div class="card-rating-row">
+                            <div class="star-score">
+                                <span class="stars-visual">⭐</span>
+                                <span>4.7 / 5.0</span>
                             </div>
-                            <span class="rating">&#9733; 9.3 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(142 min)</small></span>
+                            <span class="review-tally">1,150 reviews</span>
                         </div>
-                    </article>
-                </a>
+                        <a href="pages/user/movie-detail.html" class="card-action-btn">View Movie &amp; Reviews →</a>
+                    </div>
+                </article>
 
                 <!-- Movie 4: Pulp Fiction -->
-                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for Pulp Fiction">
-                    <article class="movie-card">
-                        <div class="poster poster--pulp">
-                            <div class="poster-center-monogram">PUL</div>
-                            <span class="poster-top-badge">#M004 &bull; 1994</span>
-                            <div class="poster-hover-overlay">
-                                <span class="poster-hover-btn">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                    </svg>
-                                    View Movie
-                                </span>
-                            </div>
-                            <div class="poster-art-info">
-                                <h4 class="poster-art-title">Pulp Fiction</h4>
-                                <div class="poster-art-meta">
-                                    <span>Dir. Quentin Tarantino</span>
-                                </div>
-                            </div>
+                <article class="catalog-card">
+                    <div class="card-poster-wrapper">
+                        <span class="poster-badge-id">ID: 4</span>
+                        <span class="poster-badge-year">1994</span>
+                        <a href="pages/user/movie-detail.html" aria-label="View Pulp Fiction details">
+                            <!-- Custom SVG Poster Art (from movies-list.html) -->
+                            <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pulp Fiction Movie Poster">
+                                <defs>
+                                    <linearGradient id="pulp-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#18181b"/>
+                                        <stop offset="60%" stop-color="#09090b"/>
+                                        <stop offset="100%" stop-color="#000000"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="300" height="450" fill="url(#pulp-bg)"/>
+                                <rect x="20" y="25" width="260" height="340" fill="none" stroke="#eab308" stroke-width="4"/>
+                                <rect x="25" y="30" width="250" height="330" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+                                <circle cx="150" cy="180" r="70" fill="#dc2626" opacity="0.85"/>
+                                <polygon points="120,220 180,220 165,160 135,160" fill="#09090b"/>
+                                <circle cx="150" cy="145" r="18" fill="#09090b"/>
+                                <text x="150" y="60" text-anchor="middle" fill="#facc15" font-size="11" letter-spacing="2" font-weight="bold" font-family="'Segoe UI', sans-serif">10 CENTS NOVEL NOIR</text>
+                                <text x="150" y="295" text-anchor="middle" fill="#eab308" font-size="28" font-weight="900" font-family="Impact, sans-serif" letter-spacing="2">PULP</text>
+                                <text x="150" y="335" text-anchor="middle" fill="#dc2626" font-size="28" font-weight="900" font-family="Impact, sans-serif" letter-spacing="2">FICTION</text>
+                                <text x="150" y="415" text-anchor="middle" fill="#f43f5e" font-size="12" letter-spacing="2" font-weight="bold" font-family="'Segoe UI', sans-serif">A FILM BY QUENTIN TARANTINO</text>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">
+                            <a href="pages/user/movie-detail.html">Pulp Fiction</a>
+                        </h2>
+                        <p class="card-director">Director: <strong>Quentin Tarantino</strong></p>
+                        <div class="genre-badges-row">
+                            <span class="genre-tag genre-crime">Crime</span>
+                            <span class="genre-tag genre-drama">Drama</span>
                         </div>
-                        <div class="movie-meta-below">
-                            <h3>Pulp Fiction</h3>
-                            <div class="movie-meta-sub">
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Crime</span>
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Drama</span>
-                                <span>&bull; 1994</span>
+                        <div class="card-rating-row">
+                            <div class="star-score">
+                                <span class="stars-visual">⭐</span>
+                                <span>4.6 / 5.0</span>
                             </div>
-                            <span class="rating">&#9733; 8.9 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(154 min)</small></span>
+                            <span class="review-tally">980 reviews</span>
                         </div>
-                    </article>
-                </a>
+                        <a href="pages/user/movie-detail.html" class="card-action-btn">View Movie &amp; Reviews →</a>
+                    </div>
+                </article>
 
-                <!-- Movie 5: The Grand Budapest Hotel -->
-                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for The Grand Budapest Hotel">
-                    <article class="movie-card">
-                        <div class="poster poster--budapest">
-                            <div class="poster-center-monogram">BUD</div>
-                            <span class="poster-top-badge">#M005 &bull; 2014</span>
-                            <div class="poster-hover-overlay">
-                                <span class="poster-hover-btn">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                    </svg>
-                                    View Movie
-                                </span>
-                            </div>
-                            <div class="poster-art-info">
-                                <h4 class="poster-art-title">The Grand Budapest Hotel</h4>
-                                <div class="poster-art-meta">
-                                    <span>Dir. Wes Anderson</span>
-                                </div>
-                            </div>
+                <!-- Movie 5: The Shawshank Redemption -->
+                <article class="catalog-card">
+                    <div class="card-poster-wrapper">
+                        <span class="poster-badge-id">ID: 5</span>
+                        <span class="poster-badge-year">1994</span>
+                        <a href="pages/user/movie-detail.html" aria-label="View The Shawshank Redemption details">
+                            <!-- Custom SVG Poster Art (from movies-list.html) -->
+                            <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Shawshank Redemption Movie Poster">
+                                <defs>
+                                    <linearGradient id="shaw-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#0f172a"/>
+                                        <stop offset="50%" stop-color="#1e293b"/>
+                                        <stop offset="100%" stop-color="#020617"/>
+                                    </linearGradient>
+                                    <linearGradient id="shaw-beam" x1="50%" y1="0%" x2="50%" y2="100%">
+                                        <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.5"/>
+                                        <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="300" height="450" fill="url(#shaw-bg)"/>
+                                <line x1="40" y1="20" x2="20" y2="100" stroke="#38bdf8" stroke-width="0.8" opacity="0.4"/>
+                                <line x1="120" y1="40" x2="100" y2="140" stroke="#38bdf8" stroke-width="0.8" opacity="0.3"/>
+                                <line x1="220" y1="30" x2="200" y2="130" stroke="#38bdf8" stroke-width="0.8" opacity="0.4"/>
+                                <line x1="270" y1="80" x2="250" y2="180" stroke="#38bdf8" stroke-width="0.8" opacity="0.3"/>
+                                <polygon points="150,0 80,300 220,300" fill="url(#shaw-beam)"/>
+                                <path d="M150,150 C155,150 159,146 159,140 C159,134 155,130 150,130 C145,130 141,134 141,140 C141,146 145,150 150,150 Z M150,155 C135,158 100,165 90,150 L85,155 C98,175 130,172 145,170 L145,230 L135,290 L148,290 L150,235 L152,235 L154,290 L167,290 L157,230 L157,170 C172,172 204,175 217,155 L212,150 C202,165 167,158 152,155 Z" fill="#ffffff" opacity="0.95"/>
+                                <text x="150" y="70" text-anchor="middle" fill="#94a3b8" font-size="11" letter-spacing="3" font-family="'Segoe UI', sans-serif">FRANK DARABONT</text>
+                                <text x="150" y="380" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="900" letter-spacing="2" font-family="'Segoe UI', sans-serif">THE SHAWSHANK</text>
+                                <text x="150" y="405" text-anchor="middle" fill="#38bdf8" font-size="19" font-weight="900" letter-spacing="3" font-family="'Segoe UI', sans-serif">REDEMPTION</text>
+                                <text x="150" y="425" text-anchor="middle" fill="#94a3b8" font-size="9" letter-spacing="1" font-family="'Segoe UI', sans-serif">FEAR CAN HOLD YOU PRISONER. HOPE SETS YOU FREE.</text>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">
+                            <a href="pages/user/movie-detail.html">The Shawshank Redemption</a>
+                        </h2>
+                        <p class="card-director">Director: <strong>Frank Darabont</strong></p>
+                        <div class="genre-badges-row">
+                            <span class="genre-tag genre-drama">Drama</span>
                         </div>
-                        <div class="movie-meta-below">
-                            <h3>The Grand Budapest Hotel</h3>
-                            <div class="movie-meta-sub">
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Comedy</span>
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Drama</span>
-                                <span>&bull; 2014</span>
+                        <div class="card-rating-row">
+                            <div class="star-score">
+                                <span class="stars-visual">⭐</span>
+                                <span>4.9 / 5.0</span>
                             </div>
-                            <span class="rating">&#9733; 8.1 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(99 min)</small></span>
+                            <span class="review-tally">1,620 reviews</span>
                         </div>
-                    </article>
-                </a>
+                        <a href="pages/user/movie-detail.html" class="card-action-btn">View Movie &amp; Reviews →</a>
+                    </div>
+                </article>
 
-                <!-- Movie 6: Parasite -->
-                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for Parasite">
-                    <article class="movie-card">
-                        <div class="poster poster--parasite">
-                            <div class="poster-center-monogram">PAR</div>
-                            <span class="poster-top-badge">#M006 &bull; 2019</span>
-                            <div class="poster-hover-overlay">
-                                <span class="poster-hover-btn">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                    </svg>
-                                    View Movie
-                                </span>
-                            </div>
-                            <div class="poster-art-info">
-                                <h4 class="poster-art-title">Parasite</h4>
-                                <div class="poster-art-meta">
-                                    <span>Dir. Bong Joon-ho</span>
-                                </div>
-                            </div>
+                <!-- Movie 6: The Godfather -->
+                <article class="catalog-card">
+                    <div class="card-poster-wrapper">
+                        <span class="poster-badge-id">ID: 6</span>
+                        <span class="poster-badge-year">1972</span>
+                        <a href="pages/user/movie-detail.html" aria-label="View The Godfather details">
+                            <!-- Custom SVG Poster Art (from movies-list.html) -->
+                            <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Godfather Movie Poster">
+                                <defs>
+                                    <linearGradient id="god-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#0a0a0a"/>
+                                        <stop offset="60%" stop-color="#141414"/>
+                                        <stop offset="100%" stop-color="#000000"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="300" height="450" fill="url(#god-bg)"/>
+                                <rect x="110" y="100" width="80" height="6" fill="#e5e5e5"/>
+                                <rect x="147" y="70" width="6" height="65" fill="#e5e5e5"/>
+                                <line x1="115" y1="106" x2="105" y2="240" stroke="#a3a3a3" stroke-width="1.2" opacity="0.7"/>
+                                <line x1="140" y1="106" x2="135" y2="240" stroke="#a3a3a3" stroke-width="1.2" opacity="0.7"/>
+                                <line x1="160" y1="106" x2="165" y2="240" stroke="#a3a3a3" stroke-width="1.2" opacity="0.7"/>
+                                <line x1="185" y1="106" x2="195" y2="240" stroke="#a3a3a3" stroke-width="1.2" opacity="0.7"/>
+                                <circle cx="150" cy="220" r="16" fill="#be123c"/>
+                                <path d="M150,236 C150,260 148,275 145,290" stroke="#15803d" stroke-width="3" fill="none"/>
+                                <path d="M148,260 C138,255 132,260 135,268 C142,268 147,264 148,260 Z" fill="#15803d"/>
+                                <text x="150" y="55" text-anchor="middle" fill="#d4d4d8" font-size="11" letter-spacing="3" font-family="'Segoe UI', sans-serif">FRANCIS FORD COPPOLA</text>
+                                <text x="150" y="380" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="900" font-family="Georgia, serif" letter-spacing="3">The Godfather</text>
+                                <text x="150" y="415" text-anchor="middle" fill="#e11d48" font-size="9" letter-spacing="2" font-weight="700" font-family="'Segoe UI', sans-serif">AN OFFER YOU CANNOT REFUSE</text>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">
+                            <a href="pages/user/movie-detail.html">The Godfather</a>
+                        </h2>
+                        <p class="card-director">Director: <strong>Francis Ford Coppola</strong></p>
+                        <div class="genre-badges-row">
+                            <span class="genre-tag genre-crime">Crime</span>
+                            <span class="genre-tag genre-drama">Drama</span>
                         </div>
-                        <div class="movie-meta-below">
-                            <h3>Parasite</h3>
-                            <div class="movie-meta-sub">
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Thriller</span>
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Drama</span>
-                                <span>&bull; 2019</span>
+                        <div class="card-rating-row">
+                            <div class="star-score">
+                                <span class="stars-visual">⭐</span>
+                                <span>4.9 / 5.0</span>
                             </div>
-                            <span class="rating">&#9733; 8.5 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(132 min)</small></span>
+                            <span class="review-tally">1,510 reviews</span>
                         </div>
-                    </article>
-                </a>
+                        <a href="pages/user/movie-detail.html" class="card-action-btn">View Movie &amp; Reviews →</a>
+                    </div>
+                </article>
 
-                <!-- Movie 7: Interstellar -->
-                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for Interstellar">
-                    <article class="movie-card">
-                        <div class="poster poster--interstellar">
-                            <div class="poster-center-monogram">INT</div>
-                            <span class="poster-top-badge">#M007 &bull; 2014</span>
-                            <div class="poster-hover-overlay">
-                                <span class="poster-hover-btn">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                    </svg>
-                                    View Movie
-                                </span>
-                            </div>
-                            <div class="poster-art-info">
-                                <h4 class="poster-art-title">Interstellar</h4>
-                                <div class="poster-art-meta">
-                                    <span>Dir. Christopher Nolan</span>
-                                </div>
-                            </div>
+                <!-- Movie 7: Spirited Away -->
+                <article class="catalog-card">
+                    <div class="card-poster-wrapper">
+                        <span class="poster-badge-id">ID: 7</span>
+                        <span class="poster-badge-year">2001</span>
+                        <a href="pages/user/movie-detail.html" aria-label="View Spirited Away details">
+                            <!-- Custom SVG Poster Art (from movies-list.html) -->
+                            <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Spirited Away Movie Poster">
+                                <defs>
+                                    <linearGradient id="spirit-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#1e1b4b"/>
+                                        <stop offset="50%" stop-color="#4c0519"/>
+                                        <stop offset="100%" stop-color="#0f172a"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="300" height="450" fill="url(#spirit-bg)"/>
+                                <rect x="70" y="140" width="160" height="10" rx="3" fill="#e11d48"/>
+                                <rect x="60" y="125" width="180" height="12" rx="4" fill="#be123c"/>
+                                <rect x="90" y="140" width="14" height="160" fill="#be123c"/>
+                                <rect x="196" y="140" width="14" height="160" fill="#be123c"/>
+                                <rect x="80" y="175" width="140" height="7" fill="#be123c"/>
+                                <circle cx="150" cy="205" r="16" fill="#facc15" opacity="0.95"/>
+                                <circle cx="150" cy="205" r="30" fill="#f59e0b" opacity="0.25"/>
+                                <text x="150" y="65" text-anchor="middle" fill="#fcd34d" font-size="11" letter-spacing="3" font-family="'Segoe UI', sans-serif">HAYAO MIYAZAKI • STUDIO GHIBLI</text>
+                                <text x="150" y="380" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="900" letter-spacing="3" font-family="'Segoe UI', sans-serif">SPIRITED AWAY</text>
+                                <text x="150" y="415" text-anchor="middle" fill="#fda4af" font-size="9" letter-spacing="2" font-weight="600" font-family="'Segoe UI', sans-serif">THE TUNNEL LED TO A MAGICAL WORLD</text>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">
+                            <a href="pages/user/movie-detail.html">Spirited Away</a>
+                        </h2>
+                        <p class="card-director">Director: <strong>Hayao Miyazaki</strong></p>
+                        <div class="genre-badges-row">
+                            <span class="genre-tag genre-animation">Animation</span>
+                            <span class="genre-tag genre-drama">Adventure</span>
                         </div>
-                        <div class="movie-meta-below">
-                            <h3>Interstellar</h3>
-                            <div class="movie-meta-sub">
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Sci-Fi</span>
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Adventure</span>
-                                <span>&bull; 2014</span>
+                        <div class="card-rating-row">
+                            <div class="star-score">
+                                <span class="stars-visual">⭐</span>
+                                <span>4.6 / 5.0</span>
                             </div>
-                            <span class="rating">&#9733; 8.7 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(169 min)</small></span>
+                            <span class="review-tally">890 reviews</span>
                         </div>
-                    </article>
-                </a>
+                        <a href="pages/user/movie-detail.html" class="card-action-btn">View Movie &amp; Reviews →</a>
+                    </div>
+                </article>
 
-                <!-- Movie 8: La La Land -->
-                <a href="pages/user/movie-detail.html" class="movie-card-link" title="View details for La La Land">
-                    <article class="movie-card">
-                        <div class="poster poster--lalaland">
-                            <div class="poster-center-monogram">LLL</div>
-                            <span class="poster-top-badge">#M008 &bull; 2016</span>
-                            <div class="poster-hover-overlay">
-                                <span class="poster-hover-btn">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                    </svg>
-                                    View Movie
-                                </span>
-                            </div>
-                            <div class="poster-art-info">
-                                <h4 class="poster-art-title">La La Land</h4>
-                                <div class="poster-art-meta">
-                                    <span>Dir. Damien Chazelle</span>
-                                </div>
-                            </div>
+                <!-- Movie 8: Parasite -->
+                <article class="catalog-card">
+                    <div class="card-poster-wrapper">
+                        <span class="poster-badge-id">ID: 8</span>
+                        <span class="poster-badge-year">2019</span>
+                        <a href="pages/user/movie-detail.html" aria-label="View Parasite details">
+                            <!-- Custom SVG Poster Art (from movies-list.html) -->
+                            <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parasite Movie Poster">
+                                <defs>
+                                    <linearGradient id="para-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#022c22"/>
+                                        <stop offset="60%" stop-color="#064e3b"/>
+                                        <stop offset="100%" stop-color="#021c16"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="300" height="450" fill="url(#para-bg)"/>
+                                <polygon points="40,320 80,320 80,280 120,280 120,240 160,240 160,200 200,200 200,160 240,160 240,360 40,360" fill="#0f172a" opacity="0.85"/>
+                                <rect x="80" y="165" width="140" height="30" fill="#000000" rx="3"/>
+                                <text x="150" y="185" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="900" letter-spacing="4" font-family="'Segoe UI', sans-serif">PARASITE</text>
+                                <text x="150" y="65" text-anchor="middle" fill="#6ee7b7" font-size="11" letter-spacing="3" font-family="'Segoe UI', sans-serif">A FILM BY BONG JOON-HO</text>
+                                <text x="150" y="395" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="900" letter-spacing="4" font-family="'Segoe UI', sans-serif">PARASITE</text>
+                                <text x="150" y="420" text-anchor="middle" fill="#a7f3d0" font-size="9" letter-spacing="2" font-weight="600" font-family="'Segoe UI', sans-serif">ACT LIKE YOU OWN THE PLACE</text>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">
+                            <a href="pages/user/movie-detail.html">Parasite</a>
+                        </h2>
+                        <p class="card-director">Director: <strong>Bong Joon-ho</strong></p>
+                        <div class="genre-badges-row">
+                            <span class="genre-tag genre-drama">Drama</span>
+                            <span class="genre-tag genre-thriller">Thriller</span>
                         </div>
-                        <div class="movie-meta-below">
-                            <h3>La La Land</h3>
-                            <div class="movie-meta-sub">
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Drama</span>
-                                <span class="badge badge--genre" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;">Music</span>
-                                <span>&bull; 2016</span>
+                        <div class="card-rating-row">
+                            <div class="star-score">
+                                <span class="stars-visual">⭐</span>
+                                <span>4.7 / 5.0</span>
                             </div>
-                            <span class="rating">&#9733; 8.0 / 10 <small style="color: #888; font-weight: normal; margin-left: 2px;">(128 min)</small></span>
+                            <span class="review-tally">1,040 reviews</span>
                         </div>
-                    </article>
-                </a>
+                        <a href="pages/user/movie-detail.html" class="card-action-btn">View Movie &amp; Reviews →</a>
+                    </div>
+                </article>
             </div>
         </section>
 
