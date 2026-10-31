@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Reviews — CineReview</title>
+    <!-- Member 1 Shared Design Tokens & Layout -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <!-- Member 3 Review System Stylesheet -->
+    <link rel="stylesheet" href="../../css/pages/reviews.css">
+</head>
+<body>
+    <!-- Admin Navbar -->
+    <header class="navbar navbar--admin">
+        <a href="../../index.html" class="logo">
+            <span class="ticket-icon">🎟️</span> CineReview
+        </a>
+
+        <nav class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="manage-movies.html">Manage Movies</a>
+            <a href="add-movie.html">Add Movie</a>
+            <a href="manage-reviews.html" class="active" aria-current="page">Manage Reviews</a>
+        </nav>
+
+        <div class="user-nav-actions">
+            <span class="admin-role-tag">Role: <strong>Administrator</strong></span>
+            <a href="../auth/login.html" class="nav-logout-btn" title="Sign Out">Log out</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="rv-container">
+        <!-- Breadcrumbs Navigation -->
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="dashboard.html">Dashboard</a>
+            <span class="separator">/</span>
+            <span class="current">Manage Reviews</span>
+        </nav>
+
+        <header class="rv-page-header">
+            <div>
+                <h1>Manage Reviews</h1>
+                <p>Moderate community reviews. Accept a review to publish it, or reject it with a note explaining what the author should improve.</p>
+            </div>
+            <div class="rv-header-tag"><span>🛡️</span> 2 reviews awaiting moderation</div>
+        </header>
+
+        <!-- Moderation Summary -->
+        <section class="rv-summary rv-admin-summary" aria-label="Moderation summary">
+            <div class="rv-summary-item">
+                <span class="rv-summary-number">5</span>
+                <span class="rv-summary-label">Total Reviews</span>
+            </div>
+            <div class="rv-summary-item rv-summary-item--approved">
+                <span class="rv-summary-number">2</span>
+                <span class="rv-summary-label">Approved</span>
+            </div>
+            <div class="rv-summary-item rv-summary-item--pending">
+                <span class="rv-summary-number">2</span>
+                <span class="rv-summary-label">Pending</span>
+            </div>
+            <div class="rv-summary-item rv-summary-item--rejected">
+                <span class="rv-summary-number">1</span>
+                <span class="rv-summary-label">Rejected</span>
+            </div>
+        </section>
+
+        <div class="rv-table-legend">
+            <span><strong>Accept</strong> publishes the review.</span>
+            <span><strong>Reject</strong> needs a rejection note of at least 15 characters.</span>
+        </div>
+
+        <!-- Reviews Moderation Table (scrolls horizontally on small screens) -->
+        <div class="table-wrapper">
+            <table class="data-table">
+                <caption class="sr-only">All submitted community reviews with moderation actions</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Reviewer</th>
+                        <th scope="col">Movie</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Review</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Moderation</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- Review #1 -->
+                    <tr id="review-1">
+                        <td class="rv-cell-id">#1</td>
+                        <td class="rv-cell-user">john_doe</td>
+                        <td class="rv-cell-movie"><a href="../user/movie-detail.html">The Dark Knight</a><small>Action &bull; 2008</small></td>
+                        <td><span class="stars" role="img" aria-label="5 out of 5 stars"><span class="stars__filled">★★★★★</span></span></td>
+                        <td class="rv-cell-review"><strong>A masterclass in tension</strong>A masterclass in tension and moral conflict. Heath Ledger delivers a legendary performance.</td>
+                        <td><span class="badge badge--approved">Approved</span></td>
+                        <td class="rv-cell-moderation">
+                            <form class="table-actions" action="manage-reviews.html" method="get">
+                                <input type="hidden" name="review_id" value="1">
+                                <label class="sr-only" for="note-1">Rejection note for review #1</label>
+                                <textarea id="note-1" name="rejection_note" rows="2" minlength="15" maxlength="300" required
+                                          placeholder="Rejection note (required when rejecting)"></textarea>
+                                <div class="rv-btn-row">
+                                    <button type="submit" name="action" value="accept" class="btn btn--success btn--sm" formnovalidate>✔ Accept</button>
+                                    <button type="submit" name="action" value="reject" class="btn btn--danger btn--sm">✖ Reject</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    <!-- Review #2 -->
+                    <tr id="review-2">
+                        <td class="rv-cell-id">#2</td>
+                        <td class="rv-cell-user">sarah_m</td>
+                        <td class="rv-cell-movie"><a href="../user/movie-detail.html">Inception</a><small>Sci-Fi &bull; 2010</small></td>
+                        <td><span class="stars" role="img" aria-label="4 out of 5 stars"><span class="stars__filled">★★★★</span>☆</span></td>
+                        <td class="rv-cell-review"><strong>Dream logic done right</strong>Brilliantly conceived world-building and dream logic, accompanied by an iconic Hans Zimmer score.</td>
+                        <td><span class="badge badge--approved">Approved</span></td>
+                        <td class="rv-cell-moderation">
+                            <form class="table-actions" action="manage-reviews.html" method="get">
+                                <input type="hidden" name="review_id" value="2">
+                                <label class="sr-only" for="note-2">Rejection note for review #2</label>
+                                <textarea id="note-2" name="rejection_note" rows="2" minlength="15" maxlength="300" required
+                                          placeholder="Rejection note (required when rejecting)"></textarea>
+                                <div class="rv-btn-row">
+                                    <button type="submit" name="action" value="accept" class="btn btn--success btn--sm" formnovalidate>✔ Accept</button>
+                                    <button type="submit" name="action" value="reject" class="btn btn--danger btn--sm">✖ Reject</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    <!-- Review #3 -->
+                    <tr id="review-3">
+                        <td class="rv-cell-id">#3</td>
+                        <td class="rv-cell-user">moviefan99</td>
+                        <td class="rv-cell-movie"><a href="../user/movie-detail.html">Pulp Fiction</a><small>Thriller &bull; 1994</small></td>
+                        <td><span class="stars" role="img" aria-label="5 out of 5 stars"><span class="stars__filled">★★★★★</span></span></td>
+                        <td class="rv-cell-review"><strong>Storytelling at its finest</strong>Non-linear storytelling at its absolute finest. The dialogue crackles with personality.</td>
+                        <td><span class="badge badge--pending">Pending</span></td>
+                        <td class="rv-cell-moderation">
+                            <form class="table-actions" action="manage-reviews.html" method="get">
+                                <input type="hidden" name="review_id" value="3">
+                                <label class="sr-only" for="note-3">Rejection note for review #3</label>
+                                <textarea id="note-3" name="rejection_note" rows="2" minlength="15" maxlength="300" required
+                                          placeholder="Rejection note (required when rejecting)"></textarea>
+                                <div class="rv-btn-row">
+                                    <button type="submit" name="action" value="accept" class="btn btn--success btn--sm" formnovalidate>✔ Accept</button>
+                                    <button type="submit" name="action" value="reject" class="btn btn--danger btn--sm">✖ Reject</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    <!-- Review #4 -->
+                    <tr id="review-4">
+                        <td class="rv-cell-id">#4</td>
+                        <td class="rv-cell-user">alex_w</td>
+                        <td class="rv-cell-movie"><a href="../user/movie-detail.html">The Grand Budapest Hotel</a><small>Comedy &bull; 2014</small></td>
+                        <td><span class="stars" role="img" aria-label="3 out of 5 stars"><span class="stars__filled">★★★</span>☆☆</span></td>
+                        <td class="rv-cell-review"><strong>Not really for me</strong>It looks nice but I found it boring and a bit slow.</td>
+                        <td><span class="badge badge--rejected">Rejected</span></td>
+                        <td class="rv-cell-moderation">
+                            <form class="table-actions" action="manage-reviews.html" method="get">
+                                <input type="hidden" name="review_id" value="4">
+                                <label class="sr-only" for="note-4">Rejection note for review #4</label>
+                                <textarea id="note-4" name="rejection_note" rows="2" minlength="15" maxlength="300" required
+                                          placeholder="Rejection note (required when rejecting)">Review does not meet critical criteria. Please expand with specific commentary on direction and narrative.</textarea>
+                                <div class="rv-btn-row">
+                                    <button type="submit" name="action" value="accept" class="btn btn--success btn--sm" formnovalidate>✔ Accept</button>
+                                    <button type="submit" name="action" value="reject" class="btn btn--danger btn--sm">✖ Reject</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    <!-- Review #5 -->
+                    <tr id="review-5">
+                        <td class="rv-cell-id">#5</td>
+                        <td class="rv-cell-user">cinephile</td>
+                        <td class="rv-cell-movie"><a href="../user/movie-detail.html">Parasite</a><small>Thriller &bull; 2019</small></td>
+                        <td><span class="stars" role="img" aria-label="5 out of 5 stars"><span class="stars__filled">★★★★★</span></span></td>
+                        <td class="rv-cell-review"><strong>Sharp, biting and unpredictable</strong>A sharp, biting social satire that switches genres effortlessly. Completely unpredictable.</td>
+                        <td><span class="badge badge--pending">Pending</span></td>
+                        <td class="rv-cell-moderation">
+                            <form class="table-actions" action="manage-reviews.html" method="get">
+                                <input type="hidden" name="review_id" value="5">
+                                <label class="sr-only" for="note-5">Rejection note for review #5</label>
+                                <textarea id="note-5" name="rejection_note" rows="2" minlength="15" maxlength="300" required
+                                          placeholder="Rejection note (required when rejecting)"></textarea>
+                                <div class="rv-btn-row">
+                                    <button type="submit" name="action" value="accept" class="btn btn--success btn--sm" formnovalidate>✔ Accept</button>
+                                    <button type="submit" name="action" value="reject" class="btn btn--danger btn--sm">✖ Reject</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <h2>Great MOVIES deserve<br>great conversations!</h2>
+                <p>Read our expert reviews. Join the community. Let the silver screen ignite your imagination.<br>Because moments on screen become discussions off screen.</p>
+                <div class="social-icons">
+                    <span class="icon" title="Facebook">f</span>
+                    <span class="icon" title="Twitter / X">t</span>
+                    <span class="icon" title="LinkedIn">in</span>
+                    <span class="icon" title="YouTube">yt</span>
+                </div>
+                <p class="copyright">© 2026 CineReview. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="../user/search-movies.html?genre=Action">Action</a></li>
+                        <li><a href="../user/search-movies.html?genre=Sci-Fi">Sci-Fi</a></li>
+                        <li><a href="../user/search-movies.html?genre=Drama">Drama</a></li>
+                        <li><a href="../user/search-movies.html?genre=Thriller">Thriller</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="../user/movies-list.html">Movie Catalog</a></li>
+                        <li><a href="../user/submit-review.html">Write a Review</a></li>
+                        <li><a href="../user/my-reviews.html">My Reviews</a></li>
+                        <li><a href="../auth/login.html">Sign In</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home Page</a></li>
+                        <li><a href="../user/search-movies.html">Advanced Search</a></li>
+                        <li><a href="dashboard.html">Admin Portal</a></li>
+                        <li><a href="../../cover-page.html">Cover Page</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-right-logo">
+                <div class="logo-box">🎟️ CINE REVIEW</div>
+                <p class="address">Faculty of Computers &amp; Artificial Intelligence<br>Web Engineering Project<br>Cairo University</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
