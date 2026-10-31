@@ -1,0 +1,806 @@
+/* ==========================================================================
+   CineReview — Review System & Content Moderation Stylesheet
+   Owned by: Member 3
+   Pages: submit-review.html, my-reviews.html, manage-reviews.html
+   Loads after: css/variables.css, css/layout.css, css/components.css
+   No JavaScript required (100% Pure CSS3 & Semantic HTML5)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Base (same base as the other page stylesheets)
+   -------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-base, #121212);
+    color: var(--text-main, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+}
+
+main { flex: 1; }
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+ul { list-style: none; }
+
+img, svg { display: block; max-width: 100%; }
+
+.film-strip { display: none !important; }
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   2. Navbars (User navbar + Admin navbar variant)
+   -------------------------------------------------------------------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    gap: 1.2rem;
+    background-color: var(--bg-surface, #1a1a1a);
+    border-bottom: 1px solid #2a2a2a;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .logo,
+.navbar .nav-links a,
+.nav-logout-btn,
+.user-profile-badge,
+.admin-role-tag { white-space: nowrap; }
+
+.navbar .search-bar { width: 260px; flex: 0 1 260px; }
+
+.navbar--admin { border-bottom: 2px solid var(--accent-secondary, #e54747); }
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    font-size: 0.92rem;
+}
+
+.navbar .nav-links a {
+    color: var(--text-muted, #cccccc);
+    font-weight: 500;
+    padding: 0.3rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+    color: var(--accent-primary, #e58d47);
+    border-bottom-color: var(--accent-primary, #e58d47);
+}
+
+.navbar .nav-btn-highlight {
+    background-color: var(--accent-primary, #e58d47);
+    color: #000000 !important;
+    padding: 0.45rem 1rem !important;
+    border-radius: var(--pill, 999px);
+    font-weight: 700 !important;
+    border-bottom: none !important;
+}
+
+.navbar .nav-btn-highlight:hover {
+    background-color: #f7a462;
+    color: #000 !important;
+}
+
+/* Keep the quick-search field in the navbar compact (overrides global input rule) */
+.navbar .search-bar input[type="text"] {
+    height: auto;
+    padding: 0.2rem;
+    border: none;
+    border-radius: 0;
+    font-size: 0.9rem;
+    font-weight: 400;
+    background: transparent;
+    transition: none;
+}
+
+.navbar .search-bar input[type="text"]:focus {
+    border: none;
+    box-shadow: none;
+}
+
+.user-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-profile-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.25rem 0.75rem 0.25rem 0.35rem;
+    background-color: #262626;
+    border: 1px solid #3a3a3a;
+    border-radius: var(--pill, 999px);
+    font-size: 0.85rem;
+    color: #eeeeee;
+}
+
+.user-profile-badge .avatar-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--accent-primary, #e58d47);
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.admin-role-tag {
+    font-size: 0.85rem;
+    color: var(--text-muted, #cccccc);
+    padding: 0.3rem 0.8rem;
+    background-color: rgba(229, 71, 71, 0.12);
+    border: 1px solid rgba(229, 71, 71, 0.4);
+    border-radius: var(--pill, 999px);
+}
+
+.admin-role-tag strong { color: #ff8a8a; }
+
+.nav-logout-btn {
+    font-size: 0.8rem;
+    color: var(--text-dim, #aaaaaa);
+    padding: 0.35rem 0.7rem;
+    border: 1px solid #333;
+    border-radius: var(--radius-sm, 4px);
+}
+
+.nav-logout-btn:hover {
+    color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+/* --------------------------------------------------------------------------
+   3. Page container, breadcrumbs & page header
+   -------------------------------------------------------------------------- */
+.rv-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+    width: 100%;
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-dim, #aaaaaa);
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumbs a:hover { color: var(--accent-primary, #e58d47); }
+.breadcrumbs .separator { color: #555; }
+.breadcrumbs .current { color: var(--text-main, #ffffff); font-weight: 600; }
+
+.rv-page-header {
+    background: linear-gradient(135deg, rgba(229, 71, 71, 0.12) 0%, rgba(18, 18, 18, 0.95) 70%), var(--bg-surface, #1a1a1a);
+    border: 1px solid #2a2a2a;
+    border-radius: var(--radius-lg, 20px);
+    padding: 2.2rem 2.5rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.rv-page-header h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--text-main, #ffffff);
+}
+
+.rv-page-header p {
+    color: var(--text-muted, #cccccc);
+    font-size: 1rem;
+    max-width: 620px;
+}
+
+.rv-header-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(229, 141, 71, 0.15);
+    border: 1px solid var(--accent-primary, #e58d47);
+    color: var(--accent-primary, #e58d47);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--pill, 999px);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Shared reusable pieces: buttons, badges, alerts, stars
+   -------------------------------------------------------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.75rem 1.6rem;
+    border-radius: var(--pill, 999px);
+    border: 1px solid transparent;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn--primary { background-color: var(--accent-primary, #e58d47); color: #000000; }
+.btn--primary:hover { background-color: #f7a462; }
+
+.btn--secondary { background-color: transparent; color: var(--text-muted, #cccccc); border-color: #3a3a3a; }
+.btn--secondary:hover { color: #ffffff; border-color: #777777; }
+
+.btn--success { background-color: rgba(46, 204, 113, 0.15); color: #4ade80; border-color: rgba(46, 204, 113, 0.45); }
+.btn--success:hover { background-color: #2ecc71; color: #000000; }
+
+.btn--danger { background-color: rgba(229, 71, 71, 0.15); color: #ff8a8a; border-color: rgba(229, 71, 71, 0.45); }
+.btn--danger:hover { background-color: var(--accent-secondary, #e54747); color: #ffffff; }
+
+.btn--sm { padding: 0.45rem 1rem; font-size: 0.8rem; }
+
+.btn:focus-visible,
+.rv-star-input input:focus-visible + label {
+    outline: 2px solid #5b8def;
+    outline-offset: 2px;
+}
+
+/* Status badges */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    border-radius: var(--pill, 999px);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.badge--approved { background-color: rgba(46, 204, 113, 0.15); color: #4ade80; border-color: rgba(46, 204, 113, 0.4); }
+.badge--pending  { background-color: rgba(229, 141, 71, 0.15); color: #f5a973; border-color: rgba(229, 141, 71, 0.45); }
+.badge--rejected { background-color: rgba(229, 71, 71, 0.15);  color: #ff8a8a; border-color: rgba(229, 71, 71, 0.45); }
+.badge--genre    { background-color: #242424; color: #b5b5b5; border-color: #333333; border-radius: 4px; }
+
+/* Alerts / notices */
+.alert {
+    padding: 0.9rem 1.2rem;
+    border-radius: var(--radius-md, 8px);
+    border: 1px solid transparent;
+    border-left-width: 4px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.alert strong { display: block; margin-bottom: 0.15rem; }
+.alert--success { background-color: rgba(46, 204, 113, 0.1); border-color: rgba(46, 204, 113, 0.4); color: #b7f5d0; }
+.alert--danger  { background-color: rgba(229, 71, 71, 0.1);  border-color: rgba(229, 71, 71, 0.45); color: #ffc2c2; }
+.alert--info    { background-color: rgba(164, 200, 225, 0.1); border-color: rgba(164, 200, 225, 0.4); color: #d3e6f3; }
+
+/* Star rating display */
+.stars {
+    color: #4a4a4a;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+.stars__filled { color: var(--accent-primary, #e58d47); }
+
+.rating-value {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent-primary, #e58d47);
+}
+
+/* --------------------------------------------------------------------------
+   5. submit-review.html — Review form
+   -------------------------------------------------------------------------- */
+.rv-submit-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.rv-form-card,
+.rv-side-card {
+    background-color: var(--bg-surface, #1a1a1a);
+    border: 1px solid #2c2c2c;
+    border-radius: var(--radius-lg, 20px);
+    padding: 2rem;
+}
+
+.rv-form-card { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); }
+
+.rv-form-card > h2,
+.rv-side-card > h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #282828;
+}
+
+.rv-side-card { position: sticky; top: 90px; }
+.rv-side-card > h2 { margin-bottom: 1rem; }
+
+.rv-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    min-width: 0;
+}
+
+.rv-label,
+.rv-field legend {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted, #cccccc);
+    padding: 0;
+}
+
+.rv-required { color: var(--accent-secondary, #e54747); }
+
+.rv-hint {
+    font-size: 0.78rem;
+    color: var(--text-dim, #aaaaaa);
+}
+
+/* Inputs — selectors are deliberately specific so they win over the global input rules */
+.rv-form select.rv-control,
+.rv-form input[type="text"].rv-control,
+.rv-form textarea.rv-control {
+    width: 100%;
+    background-color: #222222;
+    border: 1px solid #383838;
+    border-radius: var(--radius-md, 8px);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 400;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rv-form select.rv-control,
+.rv-form input[type="text"].rv-control {
+    height: 48px;
+    padding: 0 1rem;
+}
+
+.rv-form textarea.rv-control {
+    padding: 0.9rem 1rem;
+    min-height: 180px;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+.rv-form select.rv-control:focus,
+.rv-form input[type="text"].rv-control:focus,
+.rv-form textarea.rv-control:focus {
+    border-color: var(--accent-primary, #e58d47);
+    box-shadow: 0 0 0 3px rgba(229, 141, 71, 0.2);
+}
+
+.rv-form input[type="text"].rv-control:user-invalid,
+.rv-form textarea.rv-control:user-invalid,
+.rv-form select.rv-control:user-invalid {
+    border-color: var(--accent-secondary, #e54747);
+}
+
+.rv-form .rv-control::placeholder { color: #666666; }
+
+/* CSS-only 5-star rating input.
+   Radios are written 5 → 1 in the HTML; flex-direction: row-reverse shows them 1 → 5.
+   The general sibling combinator (~) then lights up the checked star and every star before it. */
+.rv-star-input {
+    position: relative;
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-self: flex-start;
+    gap: 0.2rem;
+}
+
+.rv-star-input input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+}
+
+.rv-star-input label {
+    font-size: 2.6rem;
+    line-height: 1;
+    color: #444444;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.rv-star-input label:hover,
+.rv-star-input label:hover ~ label,
+.rv-star-input input:checked ~ label {
+    color: var(--accent-primary, #e58d47);
+}
+
+.rv-star-input label:hover { transform: scale(1.12); }
+
+.rv-star-scale {
+    display: flex;
+    justify-content: space-between;
+    max-width: 280px;
+    font-size: 0.75rem;
+    color: var(--text-dim, #aaaaaa);
+}
+
+/* Confirmation checkbox */
+.rv-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: 0.9rem;
+    color: var(--text-muted, #cccccc);
+    cursor: pointer;
+}
+
+.rv-check input {
+    width: 18px;
+    height: 18px;
+    margin-top: 0.15rem;
+    accent-color: var(--accent-primary, #e58d47);
+    flex: none;
+}
+
+.rv-form-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid #282828;
+}
+
+.rv-form-actions .rv-spacer { flex: 1; }
+
+/* Guidelines side card */
+.rv-guide-list { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.4rem; }
+
+.rv-guide-list li {
+    display: flex;
+    gap: 0.7rem;
+    font-size: 0.88rem;
+    color: var(--text-muted, #cccccc);
+    line-height: 1.5;
+}
+
+.rv-guide-list .rv-guide-icon {
+    flex: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color: rgba(229, 141, 71, 0.15);
+    color: var(--accent-primary, #e58d47);
+}
+
+.rv-status-legend { display: flex; flex-direction: column; gap: 0.7rem; font-size: 0.82rem; color: var(--text-dim, #aaaaaa); }
+.rv-status-legend div { display: flex; align-items: flex-start; gap: 0.6rem; }
+.rv-status-legend .badge { flex: none; min-width: 78px; text-align: center; }
+
+/* --------------------------------------------------------------------------
+   6. my-reviews.html — Personal review history
+   -------------------------------------------------------------------------- */
+.rv-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.rv-summary-item {
+    background-color: var(--bg-surface, #1a1a1a);
+    border: 1px solid #2a2a2a;
+    border-radius: var(--radius-md, 8px);
+    padding: 1.1rem 1.3rem;
+    border-top: 3px solid #555;
+}
+
+.rv-summary-item--approved { border-top-color: #2ecc71; }
+.rv-summary-item--pending  { border-top-color: var(--accent-primary, #e58d47); }
+.rv-summary-item--rejected { border-top-color: var(--accent-secondary, #e54747); }
+
+.rv-summary-number { display: block; font-size: 2rem; font-weight: 800; line-height: 1.1; }
+.rv-summary-label  { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim, #aaaaaa); }
+
+.rv-review-list { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 3rem; }
+
+.rv-review-card {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1.5rem;
+    background-color: var(--bg-surface, #1a1a1a);
+    border: 1px solid #2a2a2a;
+    border-left: 4px solid #555;
+    border-radius: var(--radius-md, 8px);
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+}
+
+.rv-review-card--approved { border-left-color: #2ecc71; }
+.rv-review-card--pending  { border-left-color: var(--accent-primary, #e58d47); }
+.rv-review-card--rejected { border-left-color: var(--accent-secondary, #e54747); }
+
+/* Poster thumbnail (pure CSS, keeps the 2:3 poster ratio) */
+.rv-thumb {
+    aspect-ratio: 2 / 3;
+    border-radius: var(--radius-sm, 4px);
+    border: 1px solid #333333;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: linear-gradient(160deg, #2b3a4a 0%, #0d0d0d 100%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.rv-thumb--dark-knight { background: linear-gradient(160deg, #3a2a14 0%, #05070a 100%); }
+.rv-thumb--inception   { background: linear-gradient(160deg, #1d3b5c 0%, #05070a 100%); }
+.rv-thumb--pulp        { background: linear-gradient(160deg, #5c1818 0%, #0a0a0a 100%); }
+.rv-thumb--budapest    { background: linear-gradient(160deg, #9c3b7a 0%, #1c0f18 100%); }
+.rv-thumb--parasite    { background: linear-gradient(160deg, #2e663a 0%, #07110a 100%); }
+
+.rv-review-main { min-width: 0; display: flex; flex-direction: column; gap: 0.8rem; }
+
+.rv-review-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.rv-movie-title { font-size: 1.25rem; font-weight: 700; line-height: 1.25; }
+.rv-movie-title a:hover { color: var(--accent-primary, #e58d47); }
+.rv-movie-meta { font-size: 0.82rem; color: var(--text-dim, #aaaaaa); margin-top: 0.2rem; }
+
+.rv-rating-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.rv-rating-line time,
+.rv-rating-line .rv-date { font-size: 0.8rem; color: var(--text-dim, #aaaaaa); }
+
+.rv-review-title { font-size: 1.05rem; font-weight: 700; }
+
+.rv-review-text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #d0d0d0;
+    font-style: italic;
+}
+
+.rv-review-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid #262626;
+}
+
+.rv-review-note { font-size: 0.82rem; color: var(--text-dim, #aaaaaa); }
+
+.rv-empty-hint { text-align: center; color: var(--text-dim, #aaaaaa); font-size: 0.9rem; }
+
+/* --------------------------------------------------------------------------
+   7. manage-reviews.html — Admin moderation table
+   -------------------------------------------------------------------------- */
+.rv-admin-summary { grid-template-columns: repeat(4, 1fr); }
+
+.table-wrapper {
+    position: relative; /* keeps the visually-hidden labels inside the scroll area */
+    width: 100%;
+    overflow-x: auto;
+    background-color: var(--bg-surface, #1a1a1a);
+    border: 1px solid #2a2a2a;
+    border-radius: var(--radius-md, 8px);
+    margin-bottom: 2.5rem;
+}
+
+.data-table {
+    width: 100%;
+    min-width: 1020px;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.data-table th {
+    text-align: left;
+    padding: 0.9rem 1rem;
+    background-color: #202020;
+    color: var(--text-dim, #aaaaaa);
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    border-bottom: 1px solid #333333;
+    white-space: nowrap;
+}
+
+.data-table td {
+    padding: 1rem;
+    vertical-align: top;
+    border-bottom: 1px solid #262626;
+}
+
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background-color: #1f1f1f; }
+
+.rv-cell-id { color: var(--text-dim, #aaaaaa); font-weight: 700; }
+.rv-cell-user { font-weight: 700; white-space: nowrap; }
+.rv-cell-movie a { font-weight: 600; }
+.rv-cell-movie a:hover { color: var(--accent-primary, #e58d47); }
+.rv-cell-movie small { display: block; color: var(--text-dim, #aaaaaa); font-size: 0.75rem; margin-top: 0.15rem; }
+.rv-cell-review { min-width: 240px; max-width: 320px; color: #cccccc; line-height: 1.55; }
+.rv-cell-review strong { display: block; color: #ffffff; margin-bottom: 0.2rem; }
+.rv-cell-moderation { min-width: 280px; }
+
+.table-actions { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.table-actions textarea {
+    width: 100%;
+    min-height: 62px;
+    padding: 0.5rem 0.7rem;
+    background-color: #222222;
+    border: 1px solid #383838;
+    border-radius: var(--radius-sm, 4px);
+    color: #ffffff;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    resize: vertical;
+    outline: none;
+}
+
+.table-actions textarea:focus {
+    border-color: var(--accent-primary, #e58d47);
+    box-shadow: 0 0 0 3px rgba(229, 141, 71, 0.2);
+}
+
+.table-actions textarea::placeholder { color: #666666; }
+
+.table-actions .rv-btn-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.rv-table-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    font-size: 0.82rem;
+    color: var(--text-dim, #aaaaaa);
+    margin-bottom: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. Unified footer (same markup and look as the other pages)
+   -------------------------------------------------------------------------- */
+.footer-left h2 {
+    font-size: 1.8rem;
+    color: var(--accent-primary, #e58d47);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.footer-left p {
+    font-size: 0.85rem;
+    color: #dddddd;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.footer .copyright { font-size: 0.75rem; color: #999999; margin-bottom: 0; }
+
+.link-column h4 { font-size: 0.9rem; margin-bottom: 1.2rem; color: #ffffff; }
+.link-column ul li { margin-bottom: 0.8rem; }
+.link-column ul li a { font-size: 0.8rem; color: #bbbbbb; }
+.link-column ul li a:hover { color: var(--accent-primary, #e58d47); }
+
+.footer-right-logo .logo-box {
+    margin-bottom: 1rem;
+    background-color: var(--accent-primary, #e58d47);
+    color: #000000;
+    border: none;
+}
+
+.footer .address { text-align: right; font-size: 0.75rem; color: #bbbbbb; line-height: 1.5; }
+
+/* --------------------------------------------------------------------------
+   9. Responsive breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 1080px) {
+    .rv-submit-layout { grid-template-columns: 1fr; }
+    .rv-side-card { position: static; }
+}
+
+@media (max-width: 860px) {
+    .navbar { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
+    .navbar .search-bar { order: 3; width: 100%; }
+    .navbar .nav-links { gap: 1rem; font-size: 0.85rem; flex-wrap: wrap; }
+
+    .rv-container { padding: 1.5rem 1rem 3rem; }
+    .rv-summary,
+    .rv-admin-summary { grid-template-columns: repeat(2, 1fr); }
+
+    .footer { padding: 2.5rem 1.5rem; }
+    .footer-top { flex-direction: column; gap: 2rem; }
+    .footer-links { flex-wrap: wrap; gap: 2rem; justify-content: flex-start; }
+    .footer-right-logo { align-items: flex-start; }
+    .footer .address { text-align: left; }
+}
+
+@media (max-width: 600px) {
+    .rv-page-header { padding: 1.5rem; }
+    .rv-page-header h1 { font-size: 1.6rem; }
+    .rv-form-card,
+    .rv-side-card { padding: 1.4rem; }
+    .rv-review-card { grid-template-columns: 1fr; }
+    .rv-thumb { display: none; }
+    .rv-star-input label { font-size: 2.2rem; }
+    .rv-form-actions .btn { width: 100%; }
+    .rv-form-actions .rv-spacer { display: none; }
+}
