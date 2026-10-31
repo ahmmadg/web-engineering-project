@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Reviews — CineReview</title>
+    <title>Manage Reviews — Admin — CineReview</title>
     <!-- Member 1 Shared Design Tokens & Layout -->
+    <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/components.css">
@@ -12,21 +13,53 @@
     <link rel="stylesheet" href="../../css/pages/reviews.css">
 </head>
 <body>
-    <!-- Admin Navbar -->
+
+    <!-- Phase 1 Required Evaluator Bar: 3 Static Navbars Demonstration -->
+    <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
+        <div class="navbar-eval-title">
+            <span>&#9881; Phase 1 Grading Strip: 3 Static Navbars</span>
+        </div>
+        <div class="navbar-eval-links">
+            <span style="color:#aaa;">Preview State:</span>
+            <a href="../../index.html" class="navbar-eval-btn">&#9675; 1. Guest View (Home)</a>
+            <a href="../user/movies-list.html" class="navbar-eval-btn">&#9675; 2. User View (Catalog)</a>
+            <span class="navbar-eval-btn is-active">&#9679; 3. Admin View (Reviews)</span>
+            <a href="../../cover-page.html" class="navbar-eval-btn navbar-eval-btn--cover">&#128196; Cover Page</a>
+        </div>
+    </aside>
+
+    <!-- State 3: Shared Admin Navigation Bar -->
     <header class="navbar navbar--admin">
         <a href="../../index.html" class="logo">
-            <span class="ticket-icon">🎟️</span> CineReview
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M7 8v8"/>
+                <path d="M17 8v8"/>
+                <path d="M2 12h20"/>
+            </svg>
+            <span>CineReview <small style="font-size: 0.7rem; color: #ff8585; margin-left: 4px; font-weight: normal;">ADMIN</small></span>
         </a>
+
+        <!-- Quick Search Bar (Pure HTML Form - No JS) -->
+        <form action="../user/search-movies.html" method="get" class="search-bar">
+            <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
+            <button type="submit" class="search-btn" title="Search" aria-label="Search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </form>
 
         <nav class="nav-links">
             <a href="dashboard.html">Dashboard</a>
             <a href="manage-movies.html">Manage Movies</a>
             <a href="add-movie.html">Add Movie</a>
-            <a href="manage-reviews.html" class="active" aria-current="page">Manage Reviews</a>
+            <a href="manage-reviews.html" class="active">Manage Reviews</a>
         </nav>
 
         <div class="user-nav-actions">
-            <span class="admin-role-tag">Role: <strong>Administrator</strong></span>
+            <span class="admin-role-tag">Admin Mode</span>
             <a href="../auth/login.html" class="nav-logout-btn" title="Sign Out">Log out</a>
         </div>
     </header>
@@ -243,8 +276,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="footer-right-logo">
-                <div class="logo-box">🎟️ CINE REVIEW</div>
+            <div class="footer-right-log&#10004;>
+                <div class="log&#10006;box">🎟️ CINE REVIEW</div>
                 <p class="address">Faculty of Computers &amp; Artificial Intelligence<br>Web Engineering Project<br>Cairo University</p>
             </div>
         </div>
