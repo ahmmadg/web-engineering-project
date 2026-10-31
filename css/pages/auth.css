@@ -12,57 +12,13 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-/* Minimal Top Escape Route */
-.auth-nav-escape {
-  width: 100%;
-  max-width: 1050px;
-  margin: 1.25rem auto 0;
-  padding: 0 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.auth-nav-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.88rem;
-  color: #8b949e;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-  padding: 0.35rem 0.65rem;
-  border-radius: 4px;
-}
-
-.auth-nav-back:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.auth-nav-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.auth-nav-brand svg {
-  color: var(--accent-secondary, #e54747);
-}
-
-/* Split Screen Card Layout (Original Large Size & Colors) */
+/* Split Screen Card Layout */
 .auth-container {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1.5rem 3rem;
+  padding: 2.5rem 1.5rem;
 }
 
 .auth-card {
@@ -148,7 +104,6 @@
   font-size: 0.92rem;
   transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
-  box-sizing: border-box;
 }
 
 .auth-field input:focus {
@@ -163,7 +118,7 @@
 /* Checkbox & Role Toggle Box */
 .auth-checkbox-group {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
   font-size: 0.85rem;
   color: var(--text-muted, #cccccc);
@@ -174,6 +129,7 @@
   accent-color: var(--accent-secondary, #e54747);
   width: 17px;
   height: 17px;
+  margin-top: 2px;
   cursor: pointer;
 }
 
@@ -187,6 +143,13 @@
 .auth-admin-toggle .toggle-label {
   font-weight: 600;
   color: #ffffff;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.auth-admin-toggle .toggle-hint {
+  font-size: 0.78rem;
+  color: var(--text-dim, #aaaaaa);
   display: block;
 }
 
@@ -213,7 +176,7 @@
   transform: scale(0.99);
 }
 
-/* Cinema Hero Art */
+/* Pure Minimalist Visual Hero (No AI sentences / marketing slogans) */
 .auth-hero {
   position: relative;
   background-color: #0b0d11;
@@ -230,8 +193,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.55;
-  filter: saturate(1.1) brightness(0.95);
+  opacity: 0.45;
+  filter: saturate(1.1) brightness(0.9);
 }
 
 .auth-hero-overlay {
@@ -240,7 +203,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(18, 21, 27, 0.2) 0%, rgba(18, 21, 27, 0.8) 100%);
+  background: linear-gradient(180deg, rgba(18, 21, 27, 0.3) 0%, rgba(18, 21, 27, 0.85) 100%);
 }
 
 .auth-hero-watermark {
@@ -250,15 +213,15 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .auth-hero-watermark svg {
   color: var(--accent-secondary, #e54747);
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 /* Responsive Media Queries */
@@ -279,4 +242,35 @@
   .auth-form .row {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* --------------------------------------------------------------------------
+   Minimalist Escape Link (Back to Home)
+   -------------------------------------------------------------------------- */
+.auth-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #8b949e;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.auth-back-link:hover {
+  color: #ffffff;
+  transform: translateX(-3px);
+}
+
+.auth-back-link svg {
+  color: var(--accent-secondary, #e54747);
+  transition: transform 0.2s ease;
+}
+
+.auth-back-link:hover svg {
+  transform: translateX(-2px);
 }
