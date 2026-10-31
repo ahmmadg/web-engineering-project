@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Local Web Server",
+            "type": "shell",
+            "command": "npx --yes serve -l 3000 \"${workspaceFolder}\"",
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^$"
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": ".*",
+                    "endsPattern": ".*Accepting connections.*"
+                }
+            }
+        }
+    ]
+}
