@@ -10,6 +10,22 @@
 </head>
 <body class="auth-wrapper">
 
+  <!-- Top Escape Navigation (Never trapped) -->
+  <nav class="auth-nav-escape" aria-label="Auth Navigation">
+    <a href="../../index.html" class="auth-nav-brand">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M7 8v8"/>
+        <path d="M17 8v8"/>
+        <path d="M2 12h20"/>
+      </svg>
+      <span>CineReview</span>
+    </a>
+    <a href="../../index.html" class="auth-nav-back">
+      &larr; Back to Home
+    </a>
+  </nav>
+
   <!-- Split Screen Authentication Card -->
   <main class="auth-container">
     <div class="auth-card">
@@ -21,7 +37,8 @@
           <p>Don't have an account yet? <a href="signup.html">Sign up here</a></p>
         </div>
 
-        <form class="auth-form" action="../../index.html" method="post">
+        <!-- In Phase 1 static demo, submits via GET to the catalog page -->
+        <form class="auth-form" action="../user/movies-list.html" method="get">
 
           <!-- Identifier (Username or Email) -->
           <div class="auth-field">
@@ -46,18 +63,13 @@
         </form>
       </section>
 
-      <!-- Minimalist Cinema Hero -->
+      <!-- Clean Cinema Artwork -->
       <aside class="auth-hero" aria-hidden="true">
         <img class="auth-hero-img" src="../../Gemini_Generated_Image_mzmgvhmzmgvhmzmg.jfif" alt="Cinema theater backdrop">
         <div class="auth-hero-overlay"></div>
-        <div class="auth-hero-watermark">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2"/>
-            <path d="M7 8v8"/>
-            <path d="M17 8v8"/>
-            <path d="M2 12h20"/>
-          </svg>
-          <span>CineReview</span>
+        <div class="auth-hero-caption">
+          <h3>CineReview</h3>
+          <p>Community ratings &amp; verified reviews</p>
         </div>
       </aside>
 
