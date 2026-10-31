@@ -1,0 +1,295 @@
+/* ==========================================================================
+   CineReview - Authentication Stylesheet (css/pages/auth.css)
+   Clean, modern split-screen layout for Login & Signup
+   ========================================================================== */
+
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-base, #121212);
+  color: var(--text-main, #ffffff);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Minimal Top Brand Bar */
+.auth-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2.5rem;
+  background: rgba(18, 18, 18, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent-secondary, #e54747);
+  letter-spacing: 0.05em;
+}
+
+.auth-brand svg {
+  color: var(--accent-secondary, #e54747);
+}
+
+.auth-topbar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-muted, #cccccc);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--pill, 999px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+}
+
+.auth-topbar-link:hover {
+  color: #fff;
+  border-color: var(--accent-secondary, #e54747);
+  background: rgba(229, 71, 71, 0.1);
+}
+
+/* Split Screen Card Layout */
+.auth-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 1100px;
+  min-height: 640px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bg-surface, #1a1a1a);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+/* Form Panel */
+.auth-panel {
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-header {
+  margin-bottom: 2rem;
+}
+
+.auth-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.02em;
+}
+
+.auth-header p {
+  color: var(--text-dim, #aaaaaa);
+  font-size: 0.95rem;
+}
+
+.auth-header p a {
+  color: var(--accent-secondary, #e54747);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Form Controls */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.auth-form .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.auth-field label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted, #cccccc);
+}
+
+.auth-field input[type="text"],
+.auth-field input[type="email"],
+.auth-field input[type="password"] {
+  width: 100%;
+  height: 48px;
+  padding: 0 1rem;
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.auth-field input:focus {
+  border-color: var(--accent-secondary, #e54747);
+  box-shadow: 0 0 0 3px rgba(229, 71, 71, 0.2);
+}
+
+.auth-field input::placeholder {
+  color: #666666;
+}
+
+/* Checkbox & Role Toggle Box */
+.auth-checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: var(--text-muted, #cccccc);
+  cursor: pointer;
+}
+
+.auth-checkbox-group input[type="checkbox"] {
+  accent-color: var(--accent-secondary, #e54747);
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.auth-admin-toggle {
+  background: rgba(229, 71, 71, 0.08);
+  border: 1px solid rgba(229, 71, 71, 0.25);
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+}
+
+.auth-admin-toggle .toggle-label {
+  font-weight: 600;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.auth-admin-toggle .toggle-hint {
+  font-size: 0.8rem;
+  color: var(--text-dim, #aaaaaa);
+  display: block;
+}
+
+/* Primary Submit Button */
+.auth-btn-primary {
+  width: 100%;
+  height: 50px;
+  background: var(--accent-secondary, #e54747);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.auth-btn-primary:hover {
+  background: #cc3636;
+}
+
+.auth-btn-primary:active {
+  transform: scale(0.99);
+}
+
+/* Visual Hero Banner */
+.auth-hero {
+  position: relative;
+  background: linear-gradient(135deg, rgba(229, 71, 71, 0.25), rgba(18, 18, 18, 0.95)), #0f0f0f;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem;
+  overflow: hidden;
+}
+
+.auth-hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+  filter: saturate(1.2);
+}
+
+.auth-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.auth-hero-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: rgba(229, 71, 71, 0.3);
+  border: 1px solid var(--accent-secondary, #e54747);
+  border-radius: var(--pill, 999px);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.auth-hero-content h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.8rem;
+  color: #ffffff;
+}
+
+.auth-hero-content p {
+  font-size: 0.95rem;
+  color: var(--text-dim, #cccccc);
+  line-height: 1.5;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  .auth-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .auth-hero {
+    display: none;
+  }
+  .auth-panel {
+    padding: 2.5rem 1.75rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .auth-form .row {
+    grid-template-columns: 1fr;
+  }
+  .auth-topbar {
+    padding: 1rem 1.25rem;
+  }
+}

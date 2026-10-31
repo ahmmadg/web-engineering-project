@@ -289,3 +289,211 @@ h1 {
     .white { background-color: #dcdcdc; }
     .pink { background-color: #9c3b7a; }
     .brown { background-color: #5c412b; }
+
+
+/* ==========================================================================
+   Cover Page Component Styles (University Academic Format)
+   ========================================================================== */
+
+.cover-body {
+    background-color: #0d0f12;
+    color: #e5e5e5;
+    padding: 2.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cover-wrapper {
+    width: 100%;
+    max-width: 900px;
+    background: #161920;
+    border: 1px solid #282e3d;
+    border-radius: 12px;
+    padding: 3rem 3.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.cover-header {
+    text-align: center;
+    border-bottom: 2px solid #282e3d;
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.cover-univ {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.35rem;
+}
+
+.cover-course {
+    font-size: 0.95rem;
+    color: #7d8b9e;
+    margin-bottom: 1.5rem;
+}
+
+.cover-badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.cover-badge {
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: rgba(229, 71, 71, 0.15);
+    color: #ff6b6b;
+    border: 1px solid rgba(229, 71, 71, 0.35);
+}
+
+.cover-badge-blue {
+    background: rgba(74, 144, 226, 0.15);
+    color: #70aeff;
+    border-color: rgba(74, 144, 226, 0.35);
+}
+
+.cover-title {
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.cover-subtitle {
+    font-size: 1.05rem;
+    color: #9aa5b5;
+}
+
+.cover-section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cover-table {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    border: 1px solid #282e3d;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cover-table th {
+    background: #1e232e;
+    color: #c4d1e0;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #282e3d;
+}
+
+.cover-table td {
+    padding: 0.9rem 1rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #212633;
+    color: #d1d5db;
+}
+
+.cover-table tr:last-child td {
+    border-bottom: none;
+}
+
+.cover-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.cover-member-role {
+    font-size: 0.8rem;
+    color: #7d8b9e;
+    display: block;
+    margin-top: 0.2rem;
+}
+
+.cover-leader-card {
+    background: #1c212b;
+    border: 1px solid #2e3646;
+    border-left: 4px solid #e54747;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.cover-leader-item label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #7d8b9e;
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.cover-leader-item span {
+    font-size: 0.95rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.cover-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.cover-nav-item {
+    background: #1b202a;
+    border: 1px solid #282e3d;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    transition: all 0.2s ease;
+}
+
+.cover-nav-item:hover {
+    border-color: #e54747;
+    background: #202735;
+    transform: translateY(-2px);
+}
+
+.cover-nav-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.cover-nav-desc {
+    font-size: 0.78rem;
+    color: #7d8b9e;
+}
+
+@media (max-width: 650px) {
+    .cover-wrapper {
+        padding: 2rem 1.25rem;
+    }
+    .cover-title {
+        font-size: 1.8rem;
+    }
+}

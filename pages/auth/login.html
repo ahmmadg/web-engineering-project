@@ -2,36 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../../css/pages/login.css">
-  <title>Log In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In — CineReview</title>
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/pages/auth.css">
 </head>
-<body>
-  <main class="card">
-    <section class="panel">
-        <h1>Log In</h1>
-        <p class="sub">Don't have an account? <a href="signup.html">Sign Up</a></p>
-  
-        <form action="../../index.html" method="post">
-          <div class="field">
-            <label for="email">Email Address</label>
-            <input id="email" name="email" type="email" placeholder="Email Address" autocomplete="email" required>
-          </div>
-  
-          <div class="field">
-            <label for="password">Password</label>
-            <div class="password">
-              <input id="password" name="password" type="password" placeholder="Password" autocomplete="new-password" required>
-            </div>
-          </div>
-  
-          <button type="submit" class="primary">Log In</button>
-        </form>
-    </section>
+<body class="auth-wrapper">
 
-    <aside class="hero" aria-hidden="true">
-        <img src="../../Gemini_Generated_Image_mzmgvhmzmgvhmzmg.jfif" alt="Hero picture">
+  <!-- Top Brand Navigation Bar -->
+  <header class="auth-topbar">
+    <a href="../../index.html" class="auth-brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M7 8v8"/>
+        <path d="M17 8v8"/>
+        <path d="M2 12h20"/>
+      </svg>
+      <span>CineReview</span>
+    </a>
+    <a href="../../index.html" class="auth-topbar-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>Back to Home</span>
+    </a>
+  </header>
+
+  <!-- Split Screen Authentication Card -->
+  <main class="auth-container">
+    <div class="auth-card">
+
+      <!-- Form Section -->
+      <section class="auth-panel" aria-labelledby="login-heading">
+        <div class="auth-header">
+          <h1 id="login-heading">Welcome Back</h1>
+          <p>Don't have an account yet? <a href="signup.html">Sign up here</a></p>
+        </div>
+
+        <form class="auth-form" action="../../index.html" method="post">
+
+          <!-- Identifier (Username or Email) -->
+          <div class="auth-field">
+            <label for="identifier">Username or Email</label>
+            <input type="text" id="identifier" name="identifier" placeholder="e.g. film_critic99 or alex@example.com" autocomplete="username" required>
+          </div>
+
+          <!-- Password -->
+          <div class="auth-field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+          </div>
+
+          <!-- Remember Me -->
+          <label class="auth-checkbox-group">
+            <input type="checkbox" name="remember" checked>
+            <span>Remember me on this browser</span>
+          </label>
+
+          <!-- Submit Button -->
+          <button type="submit" class="auth-btn-primary">Log In</button>
+        </form>
+      </section>
+
+      <!-- Visual Hero Section -->
+      <aside class="auth-hero" aria-hidden="true">
+        <img class="auth-hero-img" src="../../Gemini_Generated_Image_mzmgvhmzmgvhmzmg.jfif" alt="Cinema theater backdrop">
+        <div class="auth-hero-content">
+          <span class="auth-hero-badge">CineReview Platform</span>
+          <h2>Explore, Critique &amp; Rate.</h2>
+          <p>Access your personalized review dashboard, monitor moderation statuses, and discover trending films.</p>
+        </div>
       </aside>
+
+    </div>
   </main>
+
 </body>
 </html>

@@ -2,55 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../../css/pages/signup.css">
-  <title>Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — CineReview</title>
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/pages/auth.css">
 </head>
-<body>
-  <main class="card">
-    <aside class="hero" aria-hidden="true">
-      <img src="../../Gemini_Generated_Image_mzmgvhmzmgvhmzmg.jfif" alt="Hero picture">
-    </aside>
+<body class="auth-wrapper">
 
-    <section class="panel">
-        <h1>Create Account</h1>
-        <p class="sub">Already have an account? <a href="login.html">Log in</a></p>
-  
-        <form action="../../index.html" method="post">
-          <div class="row">
-            <div class="field">
-              <label for="first">First Name</label>
-              <input id="first" name="first" type="text" placeholder="First Name" autocomplete="given-name" required>
-            </div>
-            <div class="field">
-              <label for="last">Last Name</label>
-              <input id="last" name="last" type="text" placeholder="Last Name" autocomplete="family-name" required>
-            </div>
+  <!-- Top Brand Navigation Bar -->
+  <header class="auth-topbar">
+    <a href="../../index.html" class="auth-brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M7 8v8"/>
+        <path d="M17 8v8"/>
+        <path d="M2 12h20"/>
+      </svg>
+      <span>CineReview</span>
+    </a>
+    <a href="../../index.html" class="auth-topbar-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>Back to Home</span>
+    </a>
+  </header>
+
+  <!-- Split Screen Authentication Card -->
+  <main class="auth-container">
+    <div class="auth-card">
+
+      <!-- Form Section -->
+      <section class="auth-panel" aria-labelledby="signup-heading">
+        <div class="auth-header">
+          <h1 id="signup-heading">Create Account</h1>
+          <p>Already have an account? <a href="login.html">Log in here</a></p>
+        </div>
+
+        <form class="auth-form" action="../../index.html" method="post">
+
+          <!-- Username (Required by Assignment) -->
+          <div class="auth-field">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="e.g. film_critic99" autocomplete="username" minlength="3" maxlength="30" required>
           </div>
-  
-          <div class="field">
+
+          <!-- Email (Required by Assignment) -->
+          <div class="auth-field">
             <label for="email">Email Address</label>
-            <input id="email" name="email" type="email" placeholder="Email Address" autocomplete="email" required>
+            <input type="email" id="email" name="email" placeholder="e.g. alex@example.com" autocomplete="email" required>
           </div>
-  
-          <div class="field">
-            <label for="password">Password</label>
-            <div class="password">
-              <input id="password" name="password" type="password" placeholder="Password" autocomplete="new-password" required>
+
+          <!-- Password & Confirm Password (Required by Assignment) -->
+          <div class="row">
+            <div class="auth-field">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" placeholder="At least 6 chars" autocomplete="new-password" minlength="6" required>
+            </div>
+            <div class="auth-field">
+              <label for="confirm_password">Confirm Password</label>
+              <input type="password" id="confirm_password" name="confirm_password" placeholder="Repeat password" autocomplete="new-password" minlength="6" required>
             </div>
           </div>
-  
-          <button type="submit" class="primary">Create Account</button>
-  
-          <label class="terms">
-            <input type="checkbox" checked>
-            <span class="box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
-            </span>
-            <span>I agree to the <a href="#">Terms &amp; Condition</a></span>
+
+          <!-- is_admin Flag (Required by Assignment) -->
+          <div class="auth-admin-toggle">
+            <label class="auth-checkbox-group">
+              <input type="checkbox" id="is_admin" name="is_admin" value="true">
+              <div>
+                <span class="toggle-label">Register as Administrator</span>
+                <span class="toggle-hint">Grants access to movie management (CRUD) and review moderation</span>
+              </div>
+            </label>
+          </div>
+
+          <!-- Terms & Condition -->
+          <label class="auth-checkbox-group">
+            <input type="checkbox" name="terms" required checked>
+            <span>I agree to the <a href="#" style="color: inherit; text-decoration: underline;">Terms &amp; Conditions</a></span>
           </label>
+
+          <!-- Submit Button -->
+          <button type="submit" class="auth-btn-primary">Create CineReview Account</button>
         </form>
-    </section>
+      </section>
+
+      <!-- Visual Hero Section -->
+      <aside class="auth-hero" aria-hidden="true">
+        <img class="auth-hero-img" src="../../Gemini_Generated_Image_mzmgvhmzmgvhmzmg.jfif" alt="Cinema theater backdrop">
+        <div class="auth-hero-content">
+          <span class="auth-hero-badge">Join the community</span>
+          <h2>Your Voice in Cinema Matters.</h2>
+          <p>Rate the latest blockbusters, publish spoiler-free critiques, and join thousands of cinephiles shaping movie scores.</p>
+        </div>
+      </aside>
+
+    </div>
   </main>
+
 </body>
 </html>
