@@ -1,10 +1,3 @@
-/* ==========================================================================
-   CineReview — Home Page Stylesheet
-   Owned by: Member 1 (Refactored & Enhanced)
-   Loads after: css/reset.css, css/variables.css, css/layout.css, css/components.css
-   Pure CSS3 & Semantic HTML5 (No JavaScript)
-   ========================================================================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -38,9 +31,6 @@ ul {
     display: none;
 }
 
-/* --------------------------------------------------------------------------
-   Hero Section
-   -------------------------------------------------------------------------- */
 .hero {
     min-height: 540px;
     background-size: cover;
@@ -97,9 +87,6 @@ ul {
     flex-wrap: wrap;
 }
 
-/* --------------------------------------------------------------------------
-   Movie Catalog Section (4-column grid for 8 standardized titles)
-   -------------------------------------------------------------------------- */
 .movie-section {
     padding: 4rem 4rem;
     max-width: 1360px;
@@ -150,7 +137,6 @@ ul {
     gap: 2.2rem 1.8rem;
 }
 
-/* Movie Card Link Wrapper */
 .movie-card-link {
     display: flex;
     flex-direction: column;
@@ -170,9 +156,6 @@ ul {
     cursor: pointer;
 }
 
-/* --------------------------------------------------------------------------
-   CSS Gradient Movie Posters with Built-in Typography & Hover Overlay
-   -------------------------------------------------------------------------- */
 .poster {
     width: 100%;
     aspect-ratio: 2 / 3;
@@ -195,7 +178,6 @@ ul {
     border-color: rgba(229, 141, 71, 0.5);
 }
 
-/* Unique Curated Cinema Gradients per Movie */
 .poster--tdk {
     background: linear-gradient(165deg, #3a2a14 0%, #151821 55%, #05070a 100%);
 }
@@ -228,7 +210,6 @@ ul {
     background: linear-gradient(165deg, #532b8f 0%, #29144a 55%, #0e051a 100%);
 }
 
-/* Poster Card Inner Artwork Header & Footer */
 .poster-top-badge {
     align-self: flex-start;
     padding: 0.25rem 0.55rem;
@@ -276,7 +257,6 @@ ul {
     gap: 0.4rem;
 }
 
-/* Subtle Interactive Hover Overlay */
 .poster-hover-overlay {
     position: absolute;
     inset: 0;
@@ -309,7 +289,6 @@ ul {
     gap: 0.4rem;
 }
 
-/* Metadata Below Poster */
 .movie-meta-below {
     display: flex;
     flex-direction: column;
@@ -346,9 +325,6 @@ ul {
     font-weight: 700;
 }
 
-/* --------------------------------------------------------------------------
-   Promo Banner Section with Call to Action
-   -------------------------------------------------------------------------- */
 .promo-section {
     background: linear-gradient(135deg, rgba(20, 28, 40, 0.95) 0%, rgba(10, 12, 16, 0.95) 100%);
     padding: 4.5rem 2rem;
@@ -385,9 +361,6 @@ ul {
     flex-wrap: wrap;
 }
 
-/* --------------------------------------------------------------------------
-   Responsive Layout Breakpoints
-   -------------------------------------------------------------------------- */
 @media (max-width: 1120px) {
     .movie-grid {
         grid-template-columns: repeat(3, 1fr);
