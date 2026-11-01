@@ -3,29 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up — CineReview</title>
+  <title>Sign Up</title>
   <link rel="stylesheet" href="../../css/reset.css">
   <link rel="stylesheet" href="../../css/variables.css">
   <link rel="stylesheet" href="../../css/pages/auth.css">
 </head>
 <body class="auth-wrapper">
 
-  <!-- Split Screen Authentication Card -->
   <main class="auth-container">
     <div class="auth-card">
 
-      <!-- Form Section -->
       <section class="auth-panel" aria-labelledby="signup-heading">
-
-        <!-- Minimal Escape Link Back to Home -->
-        <a href="../../index.html" class="auth-back-link" title="Return to home page">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-          <span>Back to CineReview</span>
-        </a>
-
         <div class="auth-header">
           <h1 id="signup-heading">Create Account</h1>
           <p>Already have an account? <a href="login.html">Log in here</a></p>
@@ -33,19 +21,16 @@
 
         <form class="auth-form" action="../user/movies-list.html" method="get">
 
-          <!-- Username (Required by Assignment) -->
           <div class="auth-field">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="Choose a username" autocomplete="username" minlength="3" maxlength="30" required>
           </div>
 
-          <!-- Email (Required by Assignment) -->
           <div class="auth-field">
             <label for="email">Email Address</label>
             <input type="email" id="email" name="email" placeholder="name@example.com" autocomplete="email" required>
           </div>
 
-          <!-- Password & Confirm Password (Required by Assignment) -->
           <div class="row">
             <div class="auth-field">
               <label for="password">Password</label>
@@ -57,7 +42,6 @@
             </div>
           </div>
 
-          <!-- is_admin Flag (Required by Assignment) -->
           <div class="auth-admin-toggle">
             <label class="auth-checkbox-group">
               <input type="checkbox" id="is_admin" name="is_admin" value="true">
@@ -67,30 +51,18 @@
             </label>
           </div>
 
-          <!-- Terms & Condition -->
           <label class="auth-checkbox-group">
             <input type="checkbox" name="terms" required checked>
             <span>I agree to the <a href="#" style="color: inherit; text-decoration: underline;">Terms &amp; Conditions</a></span>
           </label>
 
-          <!-- Submit Button -->
           <button type="submit" class="auth-btn-primary">Create CineReview Account</button>
         </form>
       </section>
 
-      <!-- Minimalist Cinema Hero -->
       <aside class="auth-hero" aria-hidden="true">
         <img class="auth-hero-img" src="../../Gemini_Generated_Image_mzmgvhmzmgvhmzmg.jfif" alt="Cinema theater backdrop">
         <div class="auth-hero-overlay"></div>
-        <div class="auth-hero-watermark">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2"/>
-            <path d="M7 8v8"/>
-            <path d="M17 8v8"/>
-            <path d="M2 12h20"/>
-          </svg>
-          <span>CineReview</span>
-        </div>
       </aside>
 
     </div>

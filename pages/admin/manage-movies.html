@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Movies — Admin — CineReview</title>
-    <!-- Member 1 Shared Design Tokens & Layout -->
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/components.css">
-    <!-- Member 3 Shared Component Styles -->
     <link rel="stylesheet" href="../../css/pages/reviews.css">
-    <!-- Member 4 Admin Operations Stylesheet -->
     <link rel="stylesheet" href="../../css/pages/admin.css">
 </head>
 <body>
-
-    <!-- Phase 1 Required Evaluator Bar: 3 Static Navbars Demonstration -->
     <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
         <div class="navbar-eval-title">
             <span>&#9881; Phase 1 Grading Strip: 3 Static Navbars</span>
@@ -30,7 +25,6 @@
         </div>
     </aside>
 
-    <!-- State 3: Shared Admin Navigation Bar -->
     <header class="navbar navbar--admin">
         <a href="../../index.html" class="logo">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -41,8 +35,6 @@
             </svg>
             <span>CineReview <small style="font-size: 0.7rem; color: #ff8585; margin-left: 4px; font-weight: normal;">ADMIN</small></span>
         </a>
-
-        <!-- Quick Search Bar (Pure HTML Form - No JS) -->
         <form action="../user/search-movies.html" method="get" class="search-bar">
             <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
             <button type="submit" class="search-btn" title="Search" aria-label="Search">
@@ -65,10 +57,7 @@
             <a href="../auth/login.html" class="nav-logout-btn" title="Sign Out">Log out</a>
         </div>
     </header>
-
-    <!-- Main Content Area -->
     <main class="adm-container">
-        <!-- Breadcrumbs Navigation -->
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="dashboard.html">Dashboard</a>
             <span class="separator">/</span>
@@ -99,14 +88,11 @@
             </div>
         </header>
 
-        <!-- Legend / Guidelines Strip -->
         <div class="rv-table-legend">
             <span><strong>Edit</strong> opens record form pre-filled with data.</span>
             <span><strong>Delete</strong> safely requests record removal.</span>
             <span>Click any movie title to open the public detail view.</span>
         </div>
-
-        <!-- Movies Management Table -->
         <div class="table-wrapper">
             <table class="data-table">
                 <caption class="sr-only">Comprehensive list of all 8 movies registered in CineReview</caption>
@@ -121,7 +107,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Movie 1: The Dark Knight -->
                     <tr id="movie-m001">
                         <td class="rv-cell-id">#M001</td>
                         <td>
@@ -152,8 +137,6 @@
                             </div>
                         </td>
                     </tr>
-
-                    <!-- Movie 2: Inception -->
                     <tr id="movie-m002">
                         <td class="rv-cell-id">#M002</td>
                         <td>
@@ -184,8 +167,6 @@
                             </div>
                         </td>
                     </tr>
-
-                    <!-- Movie 3: The Shawshank Redemption -->
                     <tr id="movie-m003">
                         <td class="rv-cell-id">#M003</td>
                         <td>
@@ -216,7 +197,6 @@
                         </td>
                     </tr>
 
-                    <!-- Movie 4: Pulp Fiction -->
                     <tr id="movie-m004">
                         <td class="rv-cell-id">#M004</td>
                         <td>
@@ -248,7 +228,6 @@
                         </td>
                     </tr>
 
-                    <!-- Movie 5: The Grand Budapest Hotel -->
                     <tr id="movie-m005">
                         <td class="rv-cell-id">#M005</td>
                         <td>
@@ -280,7 +259,6 @@
                         </td>
                     </tr>
 
-                    <!-- Movie 6: Parasite -->
                     <tr id="movie-m006">
                         <td class="rv-cell-id">#M006</td>
                         <td>
@@ -312,7 +290,6 @@
                         </td>
                     </tr>
 
-                    <!-- Movie 7: Interstellar -->
                     <tr id="movie-m007">
                         <td class="rv-cell-id">#M007</td>
                         <td>
@@ -344,7 +321,6 @@
                         </td>
                     </tr>
 
-                    <!-- Movie 8: La La Land -->
                     <tr id="movie-m008">
                         <td class="rv-cell-id">#M008</td>
                         <td>
@@ -380,7 +356,6 @@
         </div>
     </main>
 
-    <!-- Unified Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-left">

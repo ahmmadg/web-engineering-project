@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard — CineReview</title>
-    <!-- Member 1 Shared Design Tokens & Layout -->
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/components.css">
-    <!-- Member 3 Shared Component Styles -->
     <link rel="stylesheet" href="../../css/pages/reviews.css">
-    <!-- Member 4 Admin Operations Stylesheet -->
     <link rel="stylesheet" href="../../css/pages/admin.css">
 </head>
 <body>
-
-    <!-- Phase 1 Required Evaluator Bar: 3 Static Navbars Demonstration -->
     <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
         <div class="navbar-eval-title">
             <span>&#9881; Phase 1 Grading Strip: 3 Static Navbars</span>
@@ -29,8 +24,6 @@
             <a href="../../cover-page.html" class="navbar-eval-btn navbar-eval-btn--cover">&#128196; Cover Page</a>
         </div>
     </aside>
-
-    <!-- State 3: Shared Admin Navigation Bar -->
     <header class="navbar navbar--admin">
         <a href="../../index.html" class="logo">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -41,8 +34,6 @@
             </svg>
             <span>CineReview <small style="font-size: 0.7rem; color: #ff8585; margin-left: 4px; font-weight: normal;">ADMIN</small></span>
         </a>
-
-        <!-- Quick Search Bar (Pure HTML Form - No JS) -->
         <form action="../user/search-movies.html" method="get" class="search-bar">
             <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
             <button type="submit" class="search-btn" title="Search" aria-label="Search">
@@ -66,9 +57,7 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="adm-container">
-        <!-- Breadcrumbs Navigation -->
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="../../index.html">Home</a>
             <span class="separator">/</span>
@@ -89,10 +78,8 @@
             </div>
         </header>
 
-        <!-- 4 KPI Metrics Summary Grid -->
         <section aria-label="Catalog & Moderation Key Performance Indicators">
             <div class="adm-kpi-grid">
-                <!-- Card 1: Total Movies -->
                 <div class="adm-kpi-card adm-kpi-card--movies">
                     <div class="adm-kpi-header">
                         <span class="adm-kpi-label">Total Movies</span>
@@ -116,7 +103,6 @@
                     </div>
                 </div>
 
-                <!-- Card 2: Total Reviews -->
                 <div class="adm-kpi-card adm-kpi-card--reviews">
                     <div class="adm-kpi-header">
                         <span class="adm-kpi-label">Total Reviews</span>
@@ -132,7 +118,6 @@
                     </div>
                 </div>
 
-                <!-- Card 3: Pending Reviews -->
                 <div class="adm-kpi-card adm-kpi-card--pending">
                     <div class="adm-kpi-header">
                         <span class="adm-kpi-label">Pending Reviews</span>
@@ -150,7 +135,6 @@
                     </div>
                 </div>
 
-                <!-- Card 4: Registered Users -->
                 <div class="adm-kpi-card adm-kpi-card--users">
                     <div class="adm-kpi-header">
                         <span class="adm-kpi-label">Registered Users</span>
@@ -172,7 +156,6 @@
             </div>
         </section>
 
-        <!-- Quick Admin Action Shortcuts -->
         <section class="adm-shortcuts-bar" aria-label="Quick management actions">
             <span class="adm-shortcuts-label">Quick Actions:</span>
             <a href="manage-movies.html" class="btn btn--secondary btn--sm">
@@ -205,7 +188,6 @@
             </a>
         </section>
 
-        <!-- Chronological Activity Log -->
         <section class="adm-activity-section" aria-labelledby="activity-log-heading">
             <div class="adm-section-header">
                 <h2 id="activity-log-heading">
@@ -218,7 +200,6 @@
             </div>
 
             <div class="adm-log-list">
-                <!-- Log Entry 1 -->
                 <div class="adm-log-entry">
                     <span class="adm-log-dot adm-log-dot--warning" title="Pending Moderation"></span>
                     <time class="adm-log-time">2026-10-31 18:24</time>
@@ -228,7 +209,6 @@
                     <span class="adm-log-tag adm-log-tag--review">Review Submitted</span>
                 </div>
 
-                <!-- Log Entry 2 -->
                 <div class="adm-log-entry">
                     <span class="adm-log-dot adm-log-dot--danger" title="Review Rejected"></span>
                     <time class="adm-log-time">2026-10-30 14:15</time>
@@ -238,7 +218,6 @@
                     <span class="adm-log-tag adm-log-tag--reject">Moderation Rejected</span>
                 </div>
 
-                <!-- Log Entry 3 -->
                 <div class="adm-log-entry">
                     <span class="adm-log-dot adm-log-dot--info" title="Catalog Updated"></span>
                     <time class="adm-log-time">2026-10-29 11:00</time>
@@ -248,7 +227,6 @@
                     <span class="adm-log-tag adm-log-tag--movie">Catalog Entry</span>
                 </div>
 
-                <!-- Log Entry 4 -->
                 <div class="adm-log-entry">
                     <span class="adm-log-dot adm-log-dot--warning" title="Pending Moderation"></span>
                     <time class="adm-log-time">2026-10-28 20:45</time>
@@ -258,7 +236,6 @@
                     <span class="adm-log-tag adm-log-tag--review">Review Submitted</span>
                 </div>
 
-                <!-- Log Entry 5 -->
                 <div class="adm-log-entry">
                     <span class="adm-log-dot adm-log-dot--success" title="User Registered"></span>
                     <time class="adm-log-time">2026-10-27 09:30</time>
@@ -268,7 +245,6 @@
                     <span class="adm-log-tag adm-log-tag--user">User Registration</span>
                 </div>
 
-                <!-- Log Entry 6 -->
                 <div class="adm-log-entry">
                     <span class="adm-log-dot adm-log-dot--success" title="Review Approved"></span>
                     <time class="adm-log-time">2026-10-26 16:10</time>
@@ -281,7 +257,6 @@
         </section>
     </main>
 
-    <!-- Unified Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-left">

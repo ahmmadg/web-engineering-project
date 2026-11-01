@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write a Review — CineReview</title>
-    <!-- Member 1 Shared Design Tokens & Layout -->
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/components.css">
-    <!-- Member 3 Review System Stylesheet -->
     <link rel="stylesheet" href="../../css/pages/reviews.css">
 </head>
 <body>
 
-    <!-- Phase 1 Required Evaluator Bar: 3 Static Navbars Demonstration -->
     <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
         <div class="navbar-eval-title">
             <span>&#9881; Phase 1 Grading Strip: 3 Static Navbars</span>
@@ -28,7 +25,6 @@
         </div>
     </aside>
 
-    <!-- State 2: Shared User Navigation Bar -->
     <header class="navbar">
         <a href="../../index.html" class="logo">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -40,7 +36,6 @@
             <span>CineReview</span>
         </a>
 
-        <!-- Quick Search Bar (Pure HTML Form - No JS) -->
         <form action="search-movies.html" method="get" class="search-bar">
             <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
             <button type="submit" class="search-btn" title="Search Movies" aria-label="Search">
@@ -71,9 +66,7 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="rv-container">
-        <!-- Breadcrumbs Navigation -->
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="../../index.html">Home</a>
             <span class="separator">/</span>
@@ -91,14 +84,10 @@
         </header>
 
         <div class="rv-submit-layout">
-
-            <!-- Review Submission Form (Pure HTML5 validation - No JS) -->
             <section class="rv-form-card" aria-labelledby="review-form-heading">
                 <h2 id="review-form-heading">Your Critique</h2>
 
                 <form class="rv-form" action="my-reviews.html" method="get">
-
-                    <!-- Movie selection -->
                     <div class="rv-field">
                         <label class="rv-label" for="movie_id">Movie <span class="rv-required" aria-hidden="true">*</span></label>
                         <select class="rv-control" id="movie_id" name="movie_id" required>
@@ -113,9 +102,6 @@
                             <option value="8">La La Land (2016)</option>
                         </select>
                     </div>
-
-                    <!-- CSS-only 5-star rating selector.
-                         Radios are listed 5 → 1 and displayed 1 → 5 with flex-direction: row-reverse. -->
                     <fieldset class="rv-field">
                         <legend>Your Rating <span class="rv-required" aria-hidden="true">*</span></legend>
                         <div class="rv-star-input">
@@ -140,7 +126,6 @@
                         </div>
                     </fieldset>
 
-                    <!-- Review title -->
                     <div class="rv-field">
                         <label class="rv-label" for="review_title">Review Title <span class="rv-required" aria-hidden="true">*</span></label>
                         <input class="rv-control" type="text" id="review_title" name="review_title"
@@ -148,7 +133,6 @@
                         <span class="rv-hint">5 – 80 characters.</span>
                     </div>
 
-                    <!-- Review body -->
                     <div class="rv-field">
                         <label class="rv-label" for="review_body">Your Review <span class="rv-required" aria-hidden="true">*</span></label>
                         <textarea class="rv-control" id="review_body" name="review_body" rows="8"
@@ -157,7 +141,6 @@
                         <span class="rv-hint">30 – 1000 characters. Please avoid major spoilers.</span>
                     </div>
 
-                    <!-- Honesty confirmation -->
                     <div class="rv-field">
                         <label class="rv-check" for="confirm_honest">
                             <input type="checkbox" id="confirm_honest" name="confirm_honest" value="yes" required>
@@ -165,7 +148,6 @@
                         </label>
                     </div>
 
-                    <!-- Action buttons -->
                     <div class="rv-form-actions">
                         <button type="submit" class="btn btn--primary">Submit Review</button>
                         <button type="reset" class="btn btn--secondary">Clear Form</button>
@@ -175,7 +157,6 @@
                 </form>
             </section>
 
-            <!-- Guidelines Side Panel -->
             <aside class="rv-side-card" aria-labelledby="guidelines-heading">
                 <h2 id="guidelines-heading">Review Guidelines</h2>
                 <ul class="rv-guide-list">
@@ -201,7 +182,6 @@
         </div>
     </main>
 
-    <!-- Unified Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-left">

@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dark Knight (2008) — Movie Details | CineReview</title>
-    <!-- Member 1 Shared Design Tokens & Layout -->
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/components.css">
-    <!-- Member 2 Movie Catalog & Detail Stylesheet -->
     <link rel="stylesheet" href="../../css/pages/movies.css">
 </head>
 <body>
-
-    <!-- Phase 1 Required Evaluator Bar: 3 Static Navbars Demonstration -->
     <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
         <div class="navbar-eval-title">
             <span>&#9881; Phase 1 Grading Strip: 3 Static Navbars</span>
@@ -28,7 +24,6 @@
         </div>
     </aside>
 
-    <!-- State 2: Shared User Navigation Bar -->
     <header class="navbar">
         <a href="../../index.html" class="logo">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -40,7 +35,6 @@
             <span>CineReview</span>
         </a>
 
-        <!-- Quick Search Bar (Pure HTML Form - No JS) -->
         <form action="search-movies.html" method="get" class="search-bar">
             <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
             <button type="submit" class="search-btn" title="Search Movies" aria-label="Search">
@@ -71,10 +65,8 @@
         </div>
     </header>
 
-    <!-- Movie Detail Hero Backdrop Area -->
     <div class="detail-hero-backdrop">
         <div class="movies-container" style="padding-bottom: 0;">
-            <!-- Breadcrumbs -->
             <nav class="breadcrumbs" aria-label="Breadcrumb">
                 <a href="../../index.html">Home</a>
                 <span class="separator">/</span>
@@ -83,12 +75,9 @@
                 <span class="current">The Dark Knight (2008)</span>
             </nav>
 
-            <!-- Main Detail Layout Grid -->
             <div class="detail-layout-grid">
 
-                <!-- Left Column: Large Poster & Technical Metadata Specifications -->
                 <aside class="detail-poster-column">
-                    <!-- High-Resolution Large Poster Artwork -->
                     <div class="detail-poster-card">
                         <svg viewBox="0 0 340 510" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Dark Knight Master Poster">
                             <defs>
@@ -105,18 +94,13 @@
                             </defs>
                             <rect width="340" height="510" fill="url(#detail-tdk-bg)"/>
                             <circle cx="170" cy="210" r="150" fill="url(#detail-glow)"/>
-                            <!-- City Buildings Skyline -->
                             <path d="M0,510 L0,410 L30,410 L30,360 L60,360 L60,430 L95,430 L95,340 L115,340 L115,310 L130,310 L130,430 L160,430 L160,280 L185,280 L185,430 L215,430 L215,330 L240,330 L240,390 L270,390 L270,350 L300,350 L300,420 L340,420 L340,510 Z" fill="#04060a" opacity="0.95"/>
-                            <!-- Glowing Bat Emblem Silhouette -->
                             <path d="M170,175 C182,158 205,152 222,166 C238,158 266,172 272,197 C250,191 233,206 225,225 C210,210 193,214 170,237 C147,214 130,210 115,225 C107,206 90,191 68,197 C74,172 102,158 118,166 C135,152 158,158 170,175 Z" fill="#e58d47" opacity="0.95"/>
-                            <!-- Movie Title Artwork -->
                             <text x="170" y="80" text-anchor="middle" fill="#94a3b8" font-size="12" letter-spacing="4" font-family="'Segoe UI', sans-serif">LEGENDARY PICTURES PRESENTS</text>
                             <text x="170" y="455" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="900" letter-spacing="3" font-family="'Segoe UI', sans-serif">THE DARK KNIGHT</text>
                             <text x="170" y="480" text-anchor="middle" fill="#e58d47" font-size="11" letter-spacing="4" font-weight="700" font-family="'Segoe UI', sans-serif">WELCOME TO A WORLD WITHOUT RULES</text>
                         </svg>
                     </div>
-
-                    <!-- Metadata Summary Specifications Card -->
                     <div class="specs-card">
                         <h3>Movie Specifications</h3>
                         <dl class="specs-list">
@@ -153,9 +137,7 @@
                     </div>
                 </aside>
 
-                <!-- Right Column: Title, Metadata, Rating, Synopsis, Cast, Reviews -->
                 <section class="detail-main-column">
-                    <!-- Header Tags -->
                     <div class="detail-header-tags">
                         <span class="genre-tag genre-action">Action</span>
                         <span class="genre-tag genre-crime">Crime</span>
@@ -163,11 +145,9 @@
                         <span class="genre-tag genre-thriller">Thriller</span>
                     </div>
 
-                    <!-- Movie Title & Tagline -->
                     <h1 class="detail-title">The Dark Knight</h1>
                     <p class="detail-tagline">"Why so serious&mdash;</p>
 
-                    <!-- Metadata Quick Strip -->
                     <div class="detail-meta-strip">
                         <div class="meta-item">Release Year: <strong>2008</strong></div>
                         <span class="meta-divider">•</span>
@@ -178,7 +158,6 @@
                         <div class="meta-item">Director: <strong>Christopher Nolan</strong></div>
                     </div>
 
-                    <!-- Average Rating Banner & "Write a Review" Call to Action -->
                     <div class="rating-showcase-box">
                         <div class="rating-big-group">
                             <div class="rating-big-number">
@@ -190,13 +169,11 @@
                             </div>
                         </div>
 
-                        <!-- Write a Review Button (Links to Member 3 Review Submission Page) -->
                         <a href="submit-review.html?movie_id=1" class="btn-write-review-hero" title="Submit a Critique for The Dark Knight">
                             <span>✍️</span> Write a Review
                         </a>
                     </div>
 
-                    <!-- CSS-Only Rating Breakdown Meter -->
                     <div class="rating-meters-wrapper" aria-label="Rating distribution breakdown">
                         <div class="meter-row">
                             <span style="width: 45px;">5 Stars</span>
@@ -235,7 +212,6 @@
                         </div>
                     </div>
 
-                    <!-- Detailed Synopsis Section -->
                     <article class="detail-section">
                         <h2 class="detail-section-title">Synopsis &amp; Overview</h2>
                         <p class="synopsis-text">
@@ -246,11 +222,9 @@
                         </p>
                     </article>
 
-                    <!-- Director & Key Cast Section -->
                     <section class="detail-section">
                         <h2 class="detail-section-title">Director &amp; Key Cast</h2>
                         <div class="cast-grid">
-                            <!-- Director -->
                             <div class="cast-card">
                                 <div class="cast-avatar">🎬</div>
                                 <div class="cast-info">
@@ -258,7 +232,6 @@
                                     <p class="character-name">Director / Writer</p>
                                 </div>
                             </div>
-                            <!-- Christian Bale -->
                             <div class="cast-card">
                                 <div class="cast-avatar">🦇</div>
                                 <div class="cast-info">
@@ -266,7 +239,6 @@
                                     <p class="character-name">Bruce Wayne / Batman</p>
                                 </div>
                             </div>
-                            <!-- Heath Ledger -->
                             <div class="cast-card">
                                 <div class="cast-avatar">🃏</div>
                                 <div class="cast-info">
@@ -274,7 +246,6 @@
                                     <p class="character-name">The Joker</p>
                                 </div>
                             </div>
-                            <!-- Aaron Eckhart -->
                             <div class="cast-card">
                                 <div class="cast-avatar">⚖️</div>
                                 <div class="cast-info">
@@ -282,7 +253,6 @@
                                     <p class="character-name">Harvey Dent / Two-Face</p>
                                 </div>
                             </div>
-                            <!-- Michael Caine -->
                             <div class="cast-card">
                                 <div class="cast-avatar">☕</div>
                                 <div class="cast-info">
@@ -290,7 +260,6 @@
                                     <p class="character-name">Alfred Pennyworth</p>
                                 </div>
                             </div>
-                            <!-- Gary Oldman -->
                             <div class="cast-card">
                                 <div class="cast-avatar">🚨</div>
                                 <div class="cast-info">
@@ -298,7 +267,6 @@
                                     <p class="character-name">Lt. James Gordon</p>
                                 </div>
                             </div>
-                            <!-- Morgan Freeman -->
                             <div class="cast-card">
                                 <div class="cast-avatar">🔬</div>
                                 <div class="cast-info">
@@ -306,7 +274,6 @@
                                     <p class="character-name">Lucius Fox</p>
                                 </div>
                             </div>
-                            <!-- Maggie Gyllenhaal -->
                             <div class="cast-card">
                                 <div class="cast-avatar">⚖️</div>
                                 <div class="cast-info">
@@ -317,7 +284,6 @@
                         </div>
                     </section>
 
-                    <!-- User Reviews Section -->
                     <section class="detail-section" id="community-reviews">
                         <div class="reviews-section-header">
                             <div>
@@ -329,10 +295,7 @@
                             </a>
                         </div>
 
-                        <!-- Review Cards List -->
                         <div class="reviews-list">
-
-                            <!-- Review 1 -->
                             <article class="review-critique-card">
                                 <header class="review-critique-header">
                                     <div class="reviewer-meta">
@@ -358,7 +321,6 @@
                                 </footer>
                             </article>
 
-                            <!-- Review 2 -->
                             <article class="review-critique-card">
                                 <header class="review-critique-header">
                                     <div class="reviewer-meta">
@@ -384,7 +346,6 @@
                                 </footer>
                             </article>
 
-                            <!-- Review 3 -->
                             <article class="review-critique-card">
                                 <header class="review-critique-header">
                                     <div class="reviewer-meta">
@@ -412,7 +373,6 @@
 
                         </div>
 
-                        <!-- Call-to-Action Card -->
                         <div class="cta-review-banner">
                             <h3>Have you watched The Dark Knight?</h3>
                             <p>Share your perspective with thousands of cinephiles. Write a critique, assign a star rating, and contribute to the community consensus.</p>
@@ -427,7 +387,6 @@
         </div>
     </div>
 
-    <!-- Standard CineReview Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-left">

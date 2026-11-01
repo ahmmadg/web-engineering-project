@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Movie — Admin — CineReview</title>
-    <!-- Member 1 Shared Design Tokens & Layout -->
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/components.css">
-    <!-- Member 3 Shared Component Styles -->
     <link rel="stylesheet" href="../../css/pages/reviews.css">
-    <!-- Member 4 Admin Operations Stylesheet -->
     <link rel="stylesheet" href="../../css/pages/admin.css">
 </head>
 <body>
-
-    <!-- Phase 1 Required Evaluator Bar: 3 Static Navbars Demonstration -->
     <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
         <div class="navbar-eval-title">
             <span>&#9881; Phase 1 Grading Strip: 3 Static Navbars</span>
@@ -30,7 +25,6 @@
         </div>
     </aside>
 
-    <!-- State 3: Shared Admin Navigation Bar -->
     <header class="navbar navbar--admin">
         <a href="../../index.html" class="logo">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -41,8 +35,6 @@
             </svg>
             <span>CineReview <small style="font-size: 0.7rem; color: #ff8585; margin-left: 4px; font-weight: normal;">ADMIN</small></span>
         </a>
-
-        <!-- Quick Search Bar (Pure HTML Form - No JS) -->
         <form action="../user/search-movies.html" method="get" class="search-bar">
             <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
             <button type="submit" class="search-btn" title="Search" aria-label="Search">
@@ -66,9 +58,7 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="adm-container">
-        <!-- Breadcrumbs Navigation -->
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="dashboard.html">Dashboard</a>
             <span class="separator">/</span>
@@ -92,9 +82,7 @@
             </div>
         </header>
 
-        <!-- 2-Column Form Layout -->
         <div class="adm-form-layout">
-            <!-- Form Card -->
             <div class="adm-form-card">
                 <h2 class="adm-card-title">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -106,7 +94,6 @@
 
                 <form class="adm-form" action="manage-movies.html" method="get">
                     <div class="adm-form-row-2">
-                        <!-- Movie ID (Read-only / Auto-assigned) -->
                         <div class="adm-field">
                             <label class="adm-label" for="movie-id">
                                 Movie ID <small style="color: #888;">(Auto-generated)</small>
@@ -115,7 +102,6 @@
                             <span id="id-hint" class="adm-hint">System-assigned sequential identifier</span>
                         </div>
 
-                        <!-- Release Year -->
                         <div class="adm-field">
                             <label class="adm-label" for="release-year">
                                 Release Year <span class="adm-required" title="Required field">*</span>
@@ -125,7 +111,6 @@
                         </div>
                     </div>
 
-                    <!-- Title -->
                     <div class="adm-field">
                         <label class="adm-label" for="movie-title">
                             Movie Title <span class="adm-required" title="Required field">*</span>
@@ -134,7 +119,6 @@
                     </div>
 
                     <div class="adm-form-row-2">
-                        <!-- Primary Genre Dropdown -->
                         <div class="adm-field">
                             <label class="adm-label" for="movie-genre">
                                 Primary Genre <span class="adm-required" title="Required field">*</span>
@@ -154,7 +138,6 @@
                             </select>
                         </div>
 
-                        <!-- Director -->
                         <div class="adm-field">
                             <label class="adm-label" for="movie-director">
                                 Director <span class="adm-required" title="Required field">*</span>
@@ -163,7 +146,6 @@
                         </div>
                     </div>
 
-                    <!-- Synopsis / Description -->
                     <div class="adm-field">
                         <label class="adm-label" for="movie-description">
                             Synopsis / Description <span class="adm-required" title="Required field">*</span>
@@ -172,7 +154,6 @@
                         <span class="adm-hint">Displayed prominently on the public movie detail page</span>
                     </div>
 
-                    <!-- Poster Upload Input -->
                     <div class="adm-field">
                         <label class="adm-label" for="movie-poster">
                             Movie Poster Image <span class="adm-required" title="Required field">*</span>
@@ -181,7 +162,6 @@
                         <span class="adm-hint">Recommended aspect ratio: 2:3 (e.g. 600 &times; 900 px). JPG, PNG, or WebP.</span>
                     </div>
 
-                    <!-- Form Submission Actions -->
                     <div class="adm-actions-row">
                         <a href="manage-movies.html" class="btn btn--secondary">Cancel</a>
                         <div class="adm-spacer"></div>
@@ -196,7 +176,6 @@
                 </form>
             </div>
 
-            <!-- Guidelines & Tips Side Card -->
             <aside class="adm-side-card" aria-label="Catalog entry standards">
                 <h2 class="adm-card-title">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -235,7 +214,6 @@
         </div>
     </main>
 
-    <!-- Unified Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-left">

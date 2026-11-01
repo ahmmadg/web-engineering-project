@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search & Filter Movies — CineReview</title>
-    <!-- Member 1 Shared Design Tokens & Layout -->
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/components.css">
-    <!-- Member 2 Movie Catalog & Search Stylesheet -->
     <link rel="stylesheet" href="../../css/pages/movies.css">
 </head>
 <body>
-
-    <!-- Phase 1 Required Evaluator Bar: 3 Static Navbars Demonstration -->
     <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
         <div class="navbar-eval-title">
             <span>&#9881; Phase 1 Grading Strip: 3 Static Navbars</span>
@@ -28,7 +24,6 @@
         </div>
     </aside>
 
-    <!-- State 2: Shared User Navigation Bar -->
     <header class="navbar">
         <a href="../../index.html" class="logo">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -39,8 +34,6 @@
             </svg>
             <span>CineReview</span>
         </a>
-
-        <!-- Quick Search Bar (Pure HTML Form - No JS) -->
         <form action="search-movies.html" method="get" class="search-bar">
             <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
             <button type="submit" class="search-btn" title="Search Movies" aria-label="Search">
@@ -71,9 +64,7 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="movies-container">
-        <!-- Breadcrumbs Navigation -->
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="../../index.html">Home</a>
             <span class="separator">/</span>
@@ -82,13 +73,11 @@
             <span class="current">Advanced Search</span>
         </nav>
 
-        <!-- Search Header Hero -->
         <section class="search-header-hero">
             <h1>Search &amp; Filter Catalog</h1>
             <p>Locate any cinematic work in our standardized library. Query by record ID, title keyword, primary genre, release year, or director name.</p>
         </section>
 
-        <!-- Dedicated Search & Filter Form (Pure HTML5 - No JavaScript) -->
         <section class="search-form-card" aria-label="Movie Search Form">
             <h2>
                 <span>🔍</span> Multi-Criteria Movie Filter
@@ -97,7 +86,6 @@
             <form action="search-movies.html" method="get">
                 <div class="search-inputs-grid">
 
-                    <!-- Filter 1: Movie ID -->
                     <div class="search-input-group">
                         <label for="search-id">
                             Movie ID <span>(Exact match, 1 – 8)</span>
@@ -105,7 +93,6 @@
                         <input type="number" id="search-id" name="id" class="input-styled" placeholder="e.g. 1" min="1" max="9999">
                     </div>
 
-                    <!-- Filter 2: Movie Title -->
                     <div class="search-input-group">
                         <label for="search-title">
                             Movie Title <span>(Keyword or full name)</span>
@@ -113,7 +100,6 @@
                         <input type="text" id="search-title" name="title" class="input-styled" placeholder="e.g. The Dark Knight">
                     </div>
 
-                    <!-- Filter 3: Genre Dropdown -->
                     <div class="search-input-group">
                         <label for="search-genre">
                             Genre <span>(Select primary category)</span>
@@ -131,7 +117,6 @@
                         </select>
                     </div>
 
-                    <!-- Filter 4: Release Year -->
                     <div class="search-input-group">
                         <label for="search-year">
                             Release Year <span>(Four-digit year)</span>
@@ -139,7 +124,6 @@
                         <input type="number" id="search-year" name="year" class="input-styled" placeholder="e.g. 2008" min="1900" max="2026">
                     </div>
 
-                    <!-- Filter 5: Director -->
                     <div class="search-input-group">
                         <label for="search-director">
                             Director Name <span>(e.g. Nolan, Tarantino)</span>
@@ -147,7 +131,6 @@
                         <input type="text" id="search-director" name="director" class="input-styled" placeholder="e.g. Christopher Nolan">
                     </div>
 
-                    <!-- Filter 6: Sort Order Preference -->
                     <div class="search-input-group">
                         <label for="search-sort">
                             Sort Results By
@@ -162,7 +145,6 @@
 
                 </div>
 
-                <!-- Form Action Buttons -->
                 <div class="search-actions-row">
                     <a href="search-movies.html" class="btn-search-reset" title="Clear all input values">
                         <span>↺</span> Clear Filters
@@ -174,7 +156,6 @@
             </form>
         </section>
 
-        <!-- Active Search Filters Simulated Summary Bar -->
         <div class="active-query-bar">
             <div class="query-chips-list">
                 <span style="font-size: 0.85rem; color: #888; font-weight: 600;">Active Filter:</span>
@@ -191,11 +172,8 @@
             </div>
         </div>
 
-        <!-- Sample Search Results Grid -->
         <section aria-label="Search Results Grid">
             <div class="catalog-grid">
-
-                <!-- Result 1: The Dark Knight (ID 1) -->
                 <article class="catalog-card">
                     <div class="card-poster-wrapper">
                         <span class="poster-badge-id">ID: 1</span>
@@ -245,7 +223,6 @@
                     </div>
                 </article>
 
-                <!-- Result 2: Inception (ID 2) -->
                 <article class="catalog-card">
                     <div class="card-poster-wrapper">
                         <span class="poster-badge-id">ID: 2</span>
@@ -295,7 +272,6 @@
                     </div>
                 </article>
 
-                <!-- Result 3: Interstellar (ID 3) -->
                 <article class="catalog-card">
                     <div class="card-poster-wrapper">
                         <span class="poster-badge-id">ID: 3</span>
@@ -357,8 +333,7 @@
             </div>
         </section>
     </main>
-
-    <!-- Standard CineReview Footer -->
+    
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-left">

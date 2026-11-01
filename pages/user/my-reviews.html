@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Reviews — CineReview</title>
-    <!-- Member 1 Shared Design Tokens & Layout -->
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/components.css">
-    <!-- Member 3 Review System Stylesheet -->
     <link rel="stylesheet" href="../../css/pages/reviews.css">
 </head>
 <body>
 
-    <!-- Phase 1 Required Evaluator Bar: 3 Static Navbars Demonstration -->
     <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
         <div class="navbar-eval-title">
             <span>&#9881; Phase 1 Grading Strip: 3 Static Navbars</span>
@@ -28,7 +25,6 @@
         </div>
     </aside>
 
-    <!-- State 2: Shared User Navigation Bar -->
     <header class="navbar">
         <a href="../../index.html" class="logo">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -40,7 +36,6 @@
             <span>CineReview</span>
         </a>
 
-        <!-- Quick Search Bar (Pure HTML Form - No JS) -->
         <form action="search-movies.html" method="get" class="search-bar">
             <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
             <button type="submit" class="search-btn" title="Search Movies" aria-label="Search">
@@ -71,9 +66,7 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="rv-container">
-        <!-- Breadcrumbs Navigation -->
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="../../index.html">Home</a>
             <span class="separator">/</span>
@@ -88,7 +81,6 @@
             <a href="submit-review.html" class="btn btn--primary">✍️ Write a New Review</a>
         </header>
 
-        <!-- Status Summary -->
         <section class="rv-summary" aria-label="Review status summary">
             <div class="rv-summary-item">
                 <span class="rv-summary-number">5</span>
@@ -108,10 +100,7 @@
             </div>
         </section>
 
-        <!-- Review History (newest first) -->
         <section class="rv-review-list" aria-label="My review history">
-
-                <!-- Review #5: Parasite (Pending) -->
                 <article class="rv-review-card rv-review-card--pending" id="review-5">
                     <div class="rv-thumb rv-thumb--parasite" aria-hidden="true">Parasite</div>
                     <div class="rv-review-main">
@@ -136,7 +125,6 @@
                         </div>
                     </div>
                 </article>
-                <!-- Review #3: Pulp Fiction (Pending) -->
                 <article class="rv-review-card rv-review-card--pending" id="review-3">
                     <div class="rv-thumb rv-thumb--pulp" aria-hidden="true">Pulp Fiction</div>
                     <div class="rv-review-main">
@@ -161,7 +149,6 @@
                         </div>
                     </div>
                 </article>
-                <!-- Review #4: The Grand Budapest Hotel (Rejected) -->
                 <article class="rv-review-card rv-review-card--rejected" id="review-4">
                     <div class="rv-thumb rv-thumb--budapest" aria-hidden="true">Grand Budapest</div>
                     <div class="rv-review-main">
@@ -189,7 +176,6 @@
                         </div>
                     </div>
                 </article>
-                <!-- Review #2: Inception (Approved) -->
                 <article class="rv-review-card rv-review-card--approved" id="review-2">
                     <div class="rv-thumb rv-thumb--inception" aria-hidden="true">Inception</div>
                     <div class="rv-review-main">
@@ -214,7 +200,6 @@
                         </div>
                     </div>
                 </article>
-                <!-- Review #1: The Dark Knight (Approved) -->
                 <article class="rv-review-card rv-review-card--approved" id="review-1">
                     <div class="rv-thumb rv-thumb--dark-knight" aria-hidden="true">The Dark Knight</div>
                     <div class="rv-review-main">
@@ -244,7 +229,6 @@
         <p class="rv-empty-hint">Showing all 5 of your reviews. Looking for something to watch? <a href="movies-list.html" style="color: var(--accent-primary);">Browse the movie catalog →</a></p>
     </main>
 
-    <!-- Unified Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-left">

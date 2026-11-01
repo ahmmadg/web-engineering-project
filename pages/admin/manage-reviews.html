@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Reviews — Admin — CineReview</title>
-    <!-- Member 1 Shared Design Tokens & Layout -->
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/components.css">
-    <!-- Member 3 Review System Stylesheet -->
     <link rel="stylesheet" href="../../css/pages/reviews.css">
 </head>
 <body>
 
-    <!-- Phase 1 Required Evaluator Bar: 3 Static Navbars Demonstration -->
     <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
         <div class="navbar-eval-title">
             <span>&#9881; Phase 1 Grading Strip: 3 Static Navbars</span>
@@ -28,7 +25,6 @@
         </div>
     </aside>
 
-    <!-- State 3: Shared Admin Navigation Bar -->
     <header class="navbar navbar--admin">
         <a href="../../index.html" class="logo">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -40,7 +36,6 @@
             <span>CineReview <small style="font-size: 0.7rem; color: #ff8585; margin-left: 4px; font-weight: normal;">ADMIN</small></span>
         </a>
 
-        <!-- Quick Search Bar (Pure HTML Form - No JS) -->
         <form action="../user/search-movies.html" method="get" class="search-bar">
             <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
             <button type="submit" class="search-btn" title="Search" aria-label="Search">
@@ -64,9 +59,7 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="rv-container">
-        <!-- Breadcrumbs Navigation -->
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="dashboard.html">Dashboard</a>
             <span class="separator">/</span>
@@ -81,7 +74,6 @@
             <div class="rv-header-tag"><span>🛡️</span> 2 reviews awaiting moderation</div>
         </header>
 
-        <!-- Moderation Summary -->
         <section class="rv-summary rv-admin-summary" aria-label="Moderation summary">
             <div class="rv-summary-item">
                 <span class="rv-summary-number">5</span>
@@ -106,7 +98,6 @@
             <span><strong>Reject</strong> needs a rejection note of at least 15 characters.</span>
         </div>
 
-        <!-- Reviews Moderation Table (scrolls horizontally on small screens) -->
         <div class="table-wrapper">
             <table class="data-table">
                 <caption class="sr-only">All submitted community reviews with moderation actions</caption>
@@ -122,8 +113,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
-                    <!-- Review #1 -->
                     <tr id="review-1">
                         <td class="rv-cell-id">#1</td>
                         <td class="rv-cell-user">john_doe</td>
@@ -144,7 +133,6 @@
                             </form>
                         </td>
                     </tr>
-                    <!-- Review #2 -->
                     <tr id="review-2">
                         <td class="rv-cell-id">#2</td>
                         <td class="rv-cell-user">sarah_m</td>
@@ -165,7 +153,6 @@
                             </form>
                         </td>
                     </tr>
-                    <!-- Review #3 -->
                     <tr id="review-3">
                         <td class="rv-cell-id">#3</td>
                         <td class="rv-cell-user">moviefan99</td>
@@ -186,7 +173,6 @@
                             </form>
                         </td>
                     </tr>
-                    <!-- Review #4 -->
                     <tr id="review-4">
                         <td class="rv-cell-id">#4</td>
                         <td class="rv-cell-user">alex_w</td>
@@ -207,7 +193,6 @@
                             </form>
                         </td>
                     </tr>
-                    <!-- Review #5 -->
                     <tr id="review-5">
                         <td class="rv-cell-id">#5</td>
                         <td class="rv-cell-user">cinephile</td>
@@ -233,7 +218,6 @@
         </div>
     </main>
 
-    <!-- Unified Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-left">

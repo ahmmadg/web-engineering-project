@@ -3,34 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineReview — Movie Reviews &amp; Community Ratings</title>
-    <!-- Member 1 Shared Design Tokens & Layout -->
+    <title>Movie Reviews</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
-    <!-- Member 2 Movie Catalog Stylesheet (for accurate poster and card aesthetics) -->
     <link rel="stylesheet" href="css/pages/movies.css">
-    <!-- Member 1 Home Page Stylesheet -->
     <link rel="stylesheet" href="css/pages/home.css">
 </head>
 <body>
-
-    <!-- Phase 1 Required Evaluator Bar: 3 Static Navbars Demonstration -->
     <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
-        <div class="navbar-eval-title">
-            <span>&#9881; Phase 1 Grading Strip: 3 Static Navbars</span>
-        </div>
         <div class="navbar-eval-links">
             <span style="color:#aaa;">Preview State:</span>
             <span class="navbar-eval-btn is-active">&#9679; 1. Guest View (Home)</span>
             <a href="pages/user/movies-list.html" class="navbar-eval-btn">&#9675; 2. User View (Catalog)</a>
             <a href="pages/admin/dashboard.html" class="navbar-eval-btn">&#9675; 3. Admin View (Dashboard)</a>
-            <a href="cover-page.html" class="navbar-eval-btn navbar-eval-btn--cover">&#128196; Cover Page</a>
         </div>
     </aside>
 
-    <!-- State 1: Shared Guest Navigation Bar -->
     <header class="navbar">
         <a href="index.html" class="logo">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -42,7 +32,6 @@
             <span>CineReview</span>
         </a>
 
-        <!-- Quick Search Bar (Pure HTML Form - No JS) -->
         <form action="pages/user/search-movies.html" method="get" class="search-bar">
             <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
             <button type="submit" class="search-btn" title="Search" aria-label="Search">
@@ -66,7 +55,6 @@
     </header>
 
     <main>
-        <!-- Hero Section with Cinema Backdrop and Brand Messaging -->
         <section class="hero" style="background: linear-gradient(to right, rgba(14, 14, 16, 0.94) 0%, rgba(20, 20, 24, 0.88) 50%, rgba(140, 24, 24, 0.55) 100%), url('Gemini_Generated_Image_mzmgvhmzmgvhmzmg.jfif') center/cover no-repeat;">
             <div class="hero-content">
                 <div class="hero-tagline-badge">
@@ -95,7 +83,6 @@
             </div>
         </section>
 
-        <!-- Our Movie Catalog Section: Matching Posters from Browse Movies (movies-list.html) -->
         <section class="movie-section" aria-labelledby="catalog-heading">
             <div class="section-header">
                 <div class="section-title-wrap">
@@ -111,13 +98,11 @@
             </div>
 
             <div class="catalog-grid" aria-label="Movie Catalog List">
-                <!-- Movie 1: The Dark Knight -->
                 <article class="catalog-card">
                     <div class="card-poster-wrapper">
                         <span class="poster-badge-id">ID: 1</span>
                         <span class="poster-badge-year">2008</span>
                         <a href="pages/user/movie-detail.html" aria-label="View The Dark Knight details">
-                            <!-- Custom SVG Poster Art (from movies-list.html) -->
                             <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Dark Knight Movie Poster">
                                 <defs>
                                     <linearGradient id="tdk-bg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -162,13 +147,11 @@
                     </div>
                 </article>
 
-                <!-- Movie 2: Inception -->
                 <article class="catalog-card">
                     <div class="card-poster-wrapper">
                         <span class="poster-badge-id">ID: 2</span>
                         <span class="poster-badge-year">2010</span>
                         <a href="pages/user/movie-detail.html" aria-label="View Inception details">
-                            <!-- Custom SVG Poster Art (from movies-list.html) -->
                             <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Inception Movie Poster">
                                 <defs>
                                     <linearGradient id="inc-bg" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -213,13 +196,11 @@
                     </div>
                 </article>
 
-                <!-- Movie 3: Interstellar -->
                 <article class="catalog-card">
                     <div class="card-poster-wrapper">
                         <span class="poster-badge-id">ID: 3</span>
                         <span class="poster-badge-year">2014</span>
                         <a href="pages/user/movie-detail.html" aria-label="View Interstellar details">
-                            <!-- Custom SVG Poster Art (from movies-list.html) -->
                             <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interstellar Movie Poster">
                                 <defs>
                                     <linearGradient id="int-bg" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -273,13 +254,11 @@
                     </div>
                 </article>
 
-                <!-- Movie 4: Pulp Fiction -->
                 <article class="catalog-card">
                     <div class="card-poster-wrapper">
                         <span class="poster-badge-id">ID: 4</span>
                         <span class="poster-badge-year">1994</span>
                         <a href="pages/user/movie-detail.html" aria-label="View Pulp Fiction details">
-                            <!-- Custom SVG Poster Art (from movies-list.html) -->
                             <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pulp Fiction Movie Poster">
                                 <defs>
                                     <linearGradient id="pulp-bg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -321,13 +300,11 @@
                     </div>
                 </article>
 
-                <!-- Movie 5: The Shawshank Redemption -->
                 <article class="catalog-card">
                     <div class="card-poster-wrapper">
                         <span class="poster-badge-id">ID: 5</span>
                         <span class="poster-badge-year">1994</span>
                         <a href="pages/user/movie-detail.html" aria-label="View The Shawshank Redemption details">
-                            <!-- Custom SVG Poster Art (from movies-list.html) -->
                             <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Shawshank Redemption Movie Poster">
                                 <defs>
                                     <linearGradient id="shaw-bg" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -373,13 +350,11 @@
                     </div>
                 </article>
 
-                <!-- Movie 6: The Godfather -->
                 <article class="catalog-card">
                     <div class="card-poster-wrapper">
                         <span class="poster-badge-id">ID: 6</span>
                         <span class="poster-badge-year">1972</span>
                         <a href="pages/user/movie-detail.html" aria-label="View The Godfather details">
-                            <!-- Custom SVG Poster Art (from movies-list.html) -->
                             <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Godfather Movie Poster">
                                 <defs>
                                     <linearGradient id="god-bg" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -424,13 +399,11 @@
                     </div>
                 </article>
 
-                <!-- Movie 7: Spirited Away -->
                 <article class="catalog-card">
                     <div class="card-poster-wrapper">
                         <span class="poster-badge-id">ID: 7</span>
                         <span class="poster-badge-year">2001</span>
                         <a href="pages/user/movie-detail.html" aria-label="View Spirited Away details">
-                            <!-- Custom SVG Poster Art (from movies-list.html) -->
                             <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Spirited Away Movie Poster">
                                 <defs>
                                     <linearGradient id="spirit-bg" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -473,13 +446,11 @@
                     </div>
                 </article>
 
-                <!-- Movie 8: Parasite -->
                 <article class="catalog-card">
                     <div class="card-poster-wrapper">
                         <span class="poster-badge-id">ID: 8</span>
                         <span class="poster-badge-year">2019</span>
                         <a href="pages/user/movie-detail.html" aria-label="View Parasite details">
-                            <!-- Custom SVG Poster Art (from movies-list.html) -->
                             <svg viewBox="0 0 300 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parasite Movie Poster">
                                 <defs>
                                     <linearGradient id="para-bg" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -520,7 +491,6 @@
             </div>
         </section>
 
-        <!-- Community Call to Action Section -->
         <section class="promo-section" aria-labelledby="promo-heading">
             <div class="promo-content">
                 <h2 id="promo-heading">Some scenes stay with you.<br>So do our critiques.</h2>
@@ -544,19 +514,11 @@
         </section>
     </main>
 
-    <!-- Unified CineReview Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-left">
                 <h2>Great MOVIES deserve<br>great conversations!</h2>
                 <p>Read our expert reviews. Join the community. Let the silver screen ignite your imagination.<br>Because moments on screen become discussions off screen.</p>
-                <div class="social-icons">
-                    <span class="icon" title="Facebook">f</span>
-                    <span class="icon" title="Twitter / X">t</span>
-                    <span class="icon" title="LinkedIn">in</span>
-                    <span class="icon" title="YouTube">yt</span>
-                </div>
-                <p class="copyright">&copy; 2026 CineReview. All rights reserved.</p>
             </div>
             <div class="footer-links">
                 <div class="link-column">
@@ -585,10 +547,6 @@
                         <li><a href="pages/admin/dashboard.html">Admin View Demo</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="footer-right-logo">
-                <div class="logo-box">CineReview</div>
-                <p class="address">Faculty of Computers &amp; Artificial Intelligence<br>Web Engineering Project<br>Cairo University</p>
             </div>
         </div>
     </footer>
