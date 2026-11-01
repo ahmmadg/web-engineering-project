@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dark Knight (2008) | CineReview</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/pages/movies.css">
+</head>
+<body>
+    <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
+        <div class="navbar-eval-links">
+            <span style="color:#aaa;">Preview State:</span>
+            <a href="../../index.html" class="navbar-eval-btn">&#9675; 1. Guest View (Home)</a>
+            <span class="navbar-eval-btn is-active">&#9679; 2. User View (Movie Detail)</span>
+            <a href="../admin/dashboard.html" class="navbar-eval-btn">&#9675; 3. Admin View (Dashboard)</a>
+        </div>
+    </aside>
+
+    <header class="navbar">
+        <a href="../../index.html" class="logo">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M7 8v8"/>
+                <path d="M17 8v8"/>
+                <path d="M2 12h20"/>
+            </svg>
+            <span>CineReview</span>
+        </a>
+
+        <form action="search-movies.html" method="get" class="search-bar">
+            <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
+            <button type="submit" class="search-btn" title="Search Movies" aria-label="Search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </form>
+
+        <nav class="nav-links">
+            <a href="../../index.html">Home</a>
+            <a href="movies-list.html" class="active">Browse Movies</a>
+            <a href="search-movies.html">Search &amp; Filter</a>
+            <a href="my-reviews.html">My Reviews</a>
+            <a href="submit-review.html" class="nav-btn-highlight">+ Write Review</a>
+        </nav>
+
+        <div class="user-nav-actions">
+            <a href="my-reviews.html" class="user-profile-badge" title="View Profile">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>MovieBuff</span>
+            </a>
+            <a href="../auth/login.html" class="nav-logout-btn" title="Sign Out">Sign Out</a>
+        </div>
+    </header>
+
+    <div class="detail-hero-backdrop">
+        <div class="movies-container" style="padding-bottom: 0;">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <a href="../../index.html">Home</a>
+                <span class="separator">/</span>
+                <a href="movies-list.html">Catalog</a>
+                <span class="separator">/</span>
+                <span class="current">The Dark Knight (2008)</span>
+            </nav>
+
+            <div class="detail-layout-grid">
+
+                <aside class="detail-poster-column">
+                    <div class="detail-poster-card">
+                        <svg viewBox="0 0 340 510" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Dark Knight Master Poster">
+                            <defs>
+                                <linearGradient id="detail-tdk-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#070a10"/>
+                                    <stop offset="50%" stop-color="#111927"/>
+                                    <stop offset="100%" stop-color="#030508"/>
+                                </linearGradient>
+                                <radialGradient id="detail-glow" cx="50%" cy="40%" r="55%">
+                                    <stop offset="0%" stop-color="#e58d47" stop-opacity="0.5"/>
+                                    <stop offset="55%" stop-color="#1d4ed8" stop-opacity="0.2"/>
+                                    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+                                </radialGradient>
+                            </defs>
+                            <rect width="340" height="510" fill="url(#detail-tdk-bg)"/>
+                            <circle cx="170" cy="210" r="150" fill="url(#detail-glow)"/>
+                            <path d="M0,510 L0,410 L30,410 L30,360 L60,360 L60,430 L95,430 L95,340 L115,340 L115,310 L130,310 L130,430 L160,430 L160,280 L185,280 L185,430 L215,430 L215,330 L240,330 L240,390 L270,390 L270,350 L300,350 L300,420 L340,420 L340,510 Z" fill="#04060a" opacity="0.95"/>
+                            <path d="M170,175 C182,158 205,152 222,166 C238,158 266,172 272,197 C250,191 233,206 225,225 C210,210 193,214 170,237 C147,214 130,210 115,225 C107,206 90,191 68,197 C74,172 102,158 118,166 C135,152 158,158 170,175 Z" fill="#e58d47" opacity="0.95"/>
+                            <text x="170" y="80" text-anchor="middle" fill="#94a3b8" font-size="12" letter-spacing="4" font-family="'Segoe UI', sans-serif">LEGENDARY PICTURES PRESENTS</text>
+                            <text x="170" y="455" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="900" letter-spacing="3" font-family="'Segoe UI', sans-serif">THE DARK KNIGHT</text>
+                            <text x="170" y="480" text-anchor="middle" fill="#e58d47" font-size="11" letter-spacing="4" font-weight="700" font-family="'Segoe UI', sans-serif">WELCOME TO A WORLD WITHOUT RULES</text>
+                        </svg>
+                    </div>
+                    <div class="specs-card">
+                        <h3>Movie Specifications</h3>
+                        <dl class="specs-list">
+                            <dt>Database Record ID</dt>
+                            <dd>#1 (CineReview Standardized)</dd>
+
+                            <dt>Theatrical Release</dt>
+                            <dd>July 18, 2008 (United States)</dd>
+
+                            <dt>Official Runtime</dt>
+                            <dd>152 minutes (2h 32m)</dd>
+
+                            <dt>Primary Director</dt>
+                            <dd>Christopher Nolan</dd>
+
+                            <dt>Screenplay By</dt>
+                            <dd>Jonathan Nolan, Christopher Nolan</dd>
+
+                            <dt>Production Studios</dt>
+                            <dd>Warner Bros., Legendary, Syncopy</dd>
+
+                            <dt>Production Budget</dt>
+                            <dd>$185,000,000 USD</dd>
+
+                            <dt>Worldwide Box Office</dt>
+                            <dd>$1,006,234,167 USD</dd>
+
+                            <dt>Age Classification</dt>
+                            <dd>PG-13 (Intense Sequences &amp; Violence)</dd>
+
+                            <dt>Original Audio</dt>
+                            <dd>English (Dolby Digital / SDDS / DTS)</dd>
+                        </dl>
+                    </div>
+                </aside>
+
+                <section class="detail-main-column">
+                    <div class="detail-header-tags">
+                        <span class="genre-tag genre-action">Action</span>
+                        <span class="genre-tag genre-crime">Crime</span>
+                        <span class="genre-tag genre-drama">Drama</span>
+                        <span class="genre-tag genre-thriller">Thriller</span>
+                    </div>
+
+                    <h1 class="detail-title">The Dark Knight</h1>
+                    <p class="detail-tagline">"Why so serious"</p>
+
+                    <div class="detail-meta-strip">
+                        <div class="meta-item">Release Year: <strong>2008</strong></div>
+                        <span class="meta-divider">•</span>
+                        <div class="meta-item">Classification: <strong>PG-13</strong></div>
+                        <span class="meta-divider">•</span>
+                        <div class="meta-item">Duration: <strong>2h 32m</strong></div>
+                        <span class="meta-divider">•</span>
+                        <div class="meta-item">Director: <strong>Christopher Nolan</strong></div>
+                    </div>
+
+                    <div class="rating-showcase-box">
+                        <div class="rating-big-group">
+                            <div class="rating-big-number">
+                                4.9<span> / 5.0</span>
+                            </div>
+                            <div class="rating-stars-breakdown">
+                                <div class="stars-row">★★★★★</div>
+                                <div class="votes-count">Based on <strong>1,482</strong> community critiques</div>
+                            </div>
+                        </div>
+
+                        <a href="submit-review.html?movie_id=1" class="btn-write-review-hero" title="Submit a Critique for The Dark Knight">
+                            <span>✍️</span> Write a Review
+                        </a>
+                    </div>
+
+                    <div class="rating-meters-wrapper" aria-label="Rating distribution breakdown">
+                        <div class="meter-row">
+                            <span style="width: 45px;">5 Stars</span>
+                            <div class="meter-track">
+                                <div class="meter-fill" style="width: 88%;"></div>
+                            </div>
+                            <span style="width: 40px; text-align: right;">88%</span>
+                        </div>
+                        <div class="meter-row">
+                            <span style="width: 45px;">4 Stars</span>
+                            <div class="meter-track">
+                                <div class="meter-fill" style="width: 9%;"></div>
+                            </div>
+                            <span style="width: 40px; text-align: right;">9%</span>
+                        </div>
+                        <div class="meter-row">
+                            <span style="width: 45px;">3 Stars</span>
+                            <div class="meter-track">
+                                <div class="meter-fill" style="width: 2%;"></div>
+                            </div>
+                            <span style="width: 40px; text-align: right;">2%</span>
+                        </div>
+                        <div class="meter-row">
+                            <span style="width: 45px;">2 Stars</span>
+                            <div class="meter-track">
+                                <div class="meter-fill" style="width: 0.7%;"></div>
+                            </div>
+                            <span style="width: 40px; text-align: right;">0.7%</span>
+                        </div>
+                        <div class="meter-row">
+                            <span style="width: 45px;">1 Star</span>
+                            <div class="meter-track">
+                                <div class="meter-fill" style="width: 0.3%;"></div>
+                            </div>
+                            <span style="width: 40px; text-align: right;">0.3%</span>
+                        </div>
+                    </div>
+
+                    <article class="detail-section">
+                        <h2 class="detail-section-title">Synopsis &amp; Overview</h2>
+                        <p class="synopsis-text">
+                            With the help of allies Lieutenant Jim Gordon and newly appointed District Attorney Harvey Dent, Batman has been able to keep a tight lid on crime in Gotham City. But when a vile young criminal calling himself the Joker suddenly throws the town into chaos, the caped Crusader begins to tread a fine line between heroism and vigilantism.
+                        </p>
+                        <p class="synopsis-text" style="margin-top: 1rem;">
+                            As the Joker unleashes psychological warfare on the citizens of Gotham, Batman must confront his deepest moral convictions. Heath Ledger delivers an indelible, Academy Award-winning performance as an agent of chaos whose anarchic cruelty tests Gotham's fragile social fabric and drives its white knight to the brink of tragedy.
+                        </p>
+                    </article>
+
+                    <section class="detail-section">
+                        <h2 class="detail-section-title">Director &amp; Key Cast</h2>
+                        <div class="cast-grid">
+                            <div class="cast-card">
+                                <div class="cast-avatar">🎬</div>
+                                <div class="cast-info">
+                                    <p class="actor-name">Christopher Nolan</p>
+                                    <p class="character-name">Director / Writer</p>
+                                </div>
+                            </div>
+                            <div class="cast-card">
+                                <div class="cast-avatar">🦇</div>
+                                <div class="cast-info">
+                                    <p class="actor-name">Christian Bale</p>
+                                    <p class="character-name">Bruce Wayne / Batman</p>
+                                </div>
+                            </div>
+                            <div class="cast-card">
+                                <div class="cast-avatar">🃏</div>
+                                <div class="cast-info">
+                                    <p class="actor-name">Heath Ledger</p>
+                                    <p class="character-name">The Joker</p>
+                                </div>
+                            </div>
+                            <div class="cast-card">
+                                <div class="cast-avatar">⚖️</div>
+                                <div class="cast-info">
+                                    <p class="actor-name">Aaron Eckhart</p>
+                                    <p class="character-name">Harvey Dent / Two-Face</p>
+                                </div>
+                            </div>
+                            <div class="cast-card">
+                                <div class="cast-avatar">☕</div>
+                                <div class="cast-info">
+                                    <p class="actor-name">Michael Caine</p>
+                                    <p class="character-name">Alfred Pennyworth</p>
+                                </div>
+                            </div>
+                            <div class="cast-card">
+                                <div class="cast-avatar">🚨</div>
+                                <div class="cast-info">
+                                    <p class="actor-name">Gary Oldman</p>
+                                    <p class="character-name">Lt. James Gordon</p>
+                                </div>
+                            </div>
+                            <div class="cast-card">
+                                <div class="cast-avatar">🔬</div>
+                                <div class="cast-info">
+                                    <p class="actor-name">Morgan Freeman</p>
+                                    <p class="character-name">Lucius Fox</p>
+                                </div>
+                            </div>
+                            <div class="cast-card">
+                                <div class="cast-avatar">⚖️</div>
+                                <div class="cast-info">
+                                    <p class="actor-name">Maggie Gyllenhaal</p>
+                                    <p class="character-name">Rachel Dawes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="detail-section" id="community-reviews">
+                        <div class="reviews-section-header">
+                            <div>
+                                <h2 class="detail-section-title" style="margin-bottom: 0.3rem;">Community Critiques</h2>
+                                <p style="font-size: 0.9rem; color: #aaa;">Displaying verified community reviews for The Dark Knight</p>
+                            </div>
+                            <a href="submit-review.html?movie_id=1" class="btn-write-review-hero" style="font-size: 0.88rem; padding: 0.6rem 1.3rem;">
+                                + Write a Review
+                            </a>
+                        </div>
+
+                        <div class="reviews-list">
+                            <article class="review-critique-card">
+                                <header class="review-critique-header">
+                                    <div class="reviewer-meta">
+                                        <div class="reviewer-avatar">MK</div>
+                                        <div class="reviewer-details">
+                                            <p class="reviewer-name">Marcus Kane</p>
+                                            <span class="reviewer-tag">Verified Critic • Senior Member</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-date-score">
+                                        <div class="review-rating-stars">★★★★★ 5.0 / 5.0</div>
+                                        <time class="review-timestamp" datetime="2026-09-14">September 14, 2026</time>
+                                    </div>
+                                </header>
+                                <h3 class="review-headline">A monumental achievement in modern cinematic history.</h3>
+                                <p class="review-body-text">
+                                    Christopher Nolan elevated the entire superhero genre into an uncompromising crime thriller reminiscent of Michael Mann's Heat. Heath Ledger's embodiment of the Joker is nothing short of legendary—electrifying every frame with menacing chaos. The pacing, the Hans Zimmer percussion, and Wally Pfister's sweeping IMAX photography make this a certified all-time masterpiece.
+                                </p>
+                                <footer class="review-footer-bar">
+                                    <span class="helpful-tag">👍 318 members found this review helpful</span>
+                                    <span>•</span>
+                                    <span>Status: Approved by Moderation</span>
+                                </footer>
+                            </article>
+
+                            <article class="review-critique-card">
+                                <header class="review-critique-header">
+                                    <div class="reviewer-meta">
+                                        <div class="reviewer-avatar" style="background-color: #4a2b3a; color: #e1a4c8;">SL</div>
+                                        <div class="reviewer-details">
+                                            <p class="reviewer-name">Sarah Lin</p>
+                                            <span class="reviewer-tag">Top Contributor • Film Historian</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-date-score">
+                                        <div class="review-rating-stars">★★★★★ 5.0 / 5.0</div>
+                                        <time class="review-timestamp" datetime="2026-08-20">August 20, 2026</time>
+                                    </div>
+                                </header>
+                                <h3 class="review-headline">The moral dilemma between Batman and the Joker remains unmatched.</h3>
+                                <p class="review-body-text">
+                                    What sets The Dark Knight apart from any standard action flick is its dense thematic richness. It interrogates the very essence of justice, escalation, and sacrifice. The ferry experiment scene continues to be one of the tensest moral crossroads ever filmed. A brilliant triumph from beginning to end.
+                                </p>
+                                <footer class="review-footer-bar">
+                                    <span class="helpful-tag">👍 192 members found this review helpful</span>
+                                    <span>•</span>
+                                    <span>Status: Approved by Moderation</span>
+                                </footer>
+                            </article>
+
+                            <article class="review-critique-card">
+                                <header class="review-critique-header">
+                                    <div class="reviewer-meta">
+                                        <div class="reviewer-avatar" style="background-color: #2b4a3a; color: #a4e1bd;">DA</div>
+                                        <div class="reviewer-details">
+                                            <p class="reviewer-name">David Al-Sayed</p>
+                                            <span class="reviewer-tag">Community Reviewer</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-date-score">
+                                        <div class="review-rating-stars">★★★★☆ 4.5 / 5.0</div>
+                                        <time class="review-timestamp" datetime="2026-07-05">July 5, 2026</time>
+                                    </div>
+                                </header>
+                                <h3 class="review-headline">Incredible acting, gripping score, near flawless third act.</h3>
+                                <p class="review-body-text">
+                                    Ledger deserved every ounce of praise he received. The only slight flaw is Batman's exaggerated growl voice in a couple of interrogation moments, but it does little to detract from what is clearly the pinnacle of comic book adaptations.
+                                </p>
+                                <footer class="review-footer-bar">
+                                    <span class="helpful-tag">👍 87 members found this review helpful</span>
+                                    <span>•</span>
+                                    <span>Status: Approved by Moderation</span>
+                                </footer>
+                            </article>
+
+                        </div>
+
+                        <div class="cta-review-banner">
+                            <h3>Have you watched The Dark Knight?</h3>
+                            <p>Share your perspective with thousands of cinephiles. Write a critique, assign a star rating, and contribute to the community consensus.</p>
+                            <a href="submit-review.html?movie_id=1" class="btn-write-review-hero">
+                                <span>✍️</span> Submit Your Critique Now
+                            </a>
+                        </div>
+                    </section>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <h2>Great MOVIES deserve<br>great conversations!</h2>
+                <p>Read our expert reviews. Join the community. Let the silver screen ignite your imagination.<br>Because moments on screen become discussions off screen.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="search-movies.html?genre=Action">Action &amp; Adventure</a></li>
+                        <li><a href="search-movies.html?genre=Sci-Fi">Sci-Fi &amp; Fantasy</a></li>
+                        <li><a href="search-movies.html?genre=Drama">Drama</a></li>
+                        <li><a href="search-movies.html?genre=Crime">Crime &amp; Thriller</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="movies-list.html">Movie Catalog</a></li>
+                        <li><a href="submit-review.html">Write a Review</a></li>
+                        <li><a href="my-reviews.html">My Reviews</a></li>
+                        <li><a href="../auth/login.html">Sign In</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home Page</a></li>
+                        <li><a href="search-movies.html">Advanced Search</a></li>
+                        <li><a href="../admin/dashboard.html">Admin Portal</a></li>
+                        <li><a href="../../cover-page.html">Cover Page</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

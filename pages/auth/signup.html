@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/pages/auth.css">
+</head>
+<body class="auth-wrapper">
+
+  <main class="auth-container">
+    <div class="auth-card">
+
+      <section class="auth-panel" aria-labelledby="signup-heading">
+        <div class="auth-header">
+          <h1 id="signup-heading">Create Account</h1>
+          <p>Already have an account? <a href="login.html">Log in here</a></p>
+        </div>
+
+        <form class="auth-form" action="../user/movies-list.html" method="get">
+
+          <div class="auth-field">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Choose a username" autocomplete="username" minlength="3" maxlength="30" required>
+          </div>
+
+          <div class="auth-field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" autocomplete="email" required>
+          </div>
+
+          <div class="row">
+            <div class="auth-field">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" placeholder="Min. 6 characters" autocomplete="new-password" minlength="6" required>
+            </div>
+            <div class="auth-field">
+              <label for="confirm_password">Confirm Password</label>
+              <input type="password" id="confirm_password" name="confirm_password" placeholder="Repeat password" autocomplete="new-password" minlength="6" required>
+            </div>
+          </div>
+
+          <div class="auth-admin-toggle">
+            <label class="auth-checkbox-group">
+              <input type="checkbox" id="is_admin" name="is_admin" value="true">
+              <div>
+                <span class="toggle-label">Register as Administrator</span>
+              </div>
+            </label>
+          </div>
+
+          <label class="auth-checkbox-group">
+            <input type="checkbox" name="terms" required checked>
+            <span>I agree to the <a href="#" style="color: inherit; text-decoration: underline;">Terms &amp; Conditions</a></span>
+          </label>
+
+          <button type="submit" class="auth-btn-primary">Create CineReview Account</button>
+        </form>
+      </section>
+
+      <aside class="auth-hero" aria-hidden="true">
+        <img class="auth-hero-img" src="../../Gemini_Generated_Image_mzmgvhmzmgvhmzmg.jfif" alt="Cinema theater backdrop">
+        <div class="auth-hero-overlay"></div>
+      </aside>
+
+    </div>
+  </main>
+
+</body>
+</html>

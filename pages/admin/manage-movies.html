@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Movies</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/pages/reviews.css">
+    <link rel="stylesheet" href="../../css/pages/admin.css">
+</head>
+<body>
+    <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
+        <div class="navbar-eval-links">
+            <span style="color:#aaa;">Preview State:</span>
+            <a href="../../index.html" class="navbar-eval-btn">&#9675; 1. Guest View (Home)</a>
+            <a href="../user/movies-list.html" class="navbar-eval-btn">&#9675; 2. User View (Catalog)</a>
+            <span class="navbar-eval-btn is-active">&#9679; 3. Admin View (Catalog)</span>
+        </div>
+    </aside>
+
+    <header class="navbar navbar--admin">
+        <a href="../../index.html" class="logo">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M7 8v8"/>
+                <path d="M17 8v8"/>
+                <path d="M2 12h20"/>
+            </svg>
+            <span>CineReview <small style="font-size: 0.7rem; color: #ff8585; margin-left: 4px; font-weight: normal;">ADMIN</small></span>
+        </a>
+        <form action="../user/search-movies.html" method="get" class="search-bar">
+            <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
+            <button type="submit" class="search-btn" title="Search" aria-label="Search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </form>
+
+        <nav class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="manage-movies.html" class="active">Manage Movies</a>
+            <a href="add-movie.html">Add Movie</a>
+            <a href="manage-reviews.html">Manage Reviews</a>
+        </nav>
+
+        <div class="user-nav-actions">
+            <span class="admin-role-tag">Admin Mode</span>
+            <a href="../auth/login.html" class="nav-logout-btn" title="Sign Out">Log out</a>
+        </div>
+    </header>
+    <main class="adm-container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="dashboard.html">Dashboard</a>
+            <span class="separator">/</span>
+            <span class="current">Manage Movies</span>
+        </nav>
+
+        <div class="rv-table-legend">
+            <span><strong>Edit</strong> opens record form pre-filled with data.</span>
+            <span><strong>Delete</strong> safely requests record removal.</span>
+            <span>Click any movie title to open the public detail view.</span>
+        </div>
+        <div class="table-wrapper">
+            <table class="data-table">
+                <caption class="sr-only">Comprehensive list of all 8 movies registered in CineReview</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 80px;">ID</th>
+                        <th scope="col">Movie / Title</th>
+                        <th scope="col" style="width: 140px;">Genre</th>
+                        <th scope="col" style="width: 100px;">Year</th>
+                        <th scope="col">Director</th>
+                        <th scope="col" style="text-align: right; width: 170px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="movie-m001">
+                        <td class="rv-cell-id">#M001</td>
+                        <td>
+                            <div class="adm-movie-cell">
+                                <div class="adm-table-thumb" style="background: linear-gradient(160deg, #3a2a14 0%, #05070a 100%);">
+                                    TDK
+                                </div>
+                                <div>
+                                    <a href="../user/movie-detail.html" class="adm-movie-meta-title">The Dark Knight</a>
+                                    <span class="adm-movie-meta-sub">Rating: 9.0/10 &bull; 152 min</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge badge--genre">Action</span>
+                            <span class="badge badge--genre">Crime</span>
+                        </td>
+                        <td><strong>2008</strong></td>
+                        <td>Christopher Nolan</td>
+                        <td style="text-align: right;">
+                            <div class="adm-action-buttons" style="justify-content: flex-end;">
+                                <a href="edit-movie.html" class="adm-action-edit" title="Edit The Dark Knight">Edit</a>
+                                <form action="manage-movies.html" method="get">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="movie_id" value="M001">
+                                    <button type="submit" class="btn btn--danger btn--sm" title="Delete record #M001">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="movie-m002">
+                        <td class="rv-cell-id">#M002</td>
+                        <td>
+                            <div class="adm-movie-cell">
+                                <div class="adm-table-thumb" style="background: linear-gradient(160deg, #1d3b5c 0%, #05070a 100%);">
+                                    INC
+                                </div>
+                                <div>
+                                    <a href="../user/movie-detail.html" class="adm-movie-meta-title">Inception</a>
+                                    <span class="adm-movie-meta-sub">Rating: 8.8/10 &bull; 148 min</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge badge--genre">Sci-Fi</span>
+                            <span class="badge badge--genre">Action</span>
+                        </td>
+                        <td><strong>2010</strong></td>
+                        <td>Christopher Nolan</td>
+                        <td style="text-align: right;">
+                            <div class="adm-action-buttons" style="justify-content: flex-end;">
+                                <a href="edit-movie.html" class="adm-action-edit" title="Edit Inception">Edit</a>
+                                <form action="manage-movies.html" method="get">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="movie_id" value="M002">
+                                    <button type="submit" class="btn btn--danger btn--sm" title="Delete record #M002">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="movie-m003">
+                        <td class="rv-cell-id">#M003</td>
+                        <td>
+                            <div class="adm-movie-cell">
+                                <div class="adm-table-thumb" style="background: linear-gradient(160deg, #2b3a4a 0%, #0d0d0d 100%);">
+                                    SHA
+                                </div>
+                                <div>
+                                    <a href="../user/movie-detail.html" class="adm-movie-meta-title">The Shawshank Redemption</a>
+                                    <span class="adm-movie-meta-sub">Rating: 9.3/10 &bull; 142 min</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge badge--genre">Drama</span>
+                        </td>
+                        <td><strong>1994</strong></td>
+                        <td>Frank Darabont</td>
+                        <td style="text-align: right;">
+                            <div class="adm-action-buttons" style="justify-content: flex-end;">
+                                <a href="edit-movie.html" class="adm-action-edit" title="Edit The Shawshank Redemption">Edit</a>
+                                <form action="manage-movies.html" method="get">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="movie_id" value="M003">
+                                    <button type="submit" class="btn btn--danger btn--sm" title="Delete record #M003">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr id="movie-m004">
+                        <td class="rv-cell-id">#M004</td>
+                        <td>
+                            <div class="adm-movie-cell">
+                                <div class="adm-table-thumb" style="background: linear-gradient(160deg, #5c1818 0%, #0a0a0a 100%);">
+                                    PUL
+                                </div>
+                                <div>
+                                    <a href="../user/movie-detail.html" class="adm-movie-meta-title">Pulp Fiction</a>
+                                    <span class="adm-movie-meta-sub">Rating: 8.9/10 &bull; 154 min</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge badge--genre">Crime</span>
+                            <span class="badge badge--genre">Drama</span>
+                        </td>
+                        <td><strong>1994</strong></td>
+                        <td>Quentin Tarantino</td>
+                        <td style="text-align: right;">
+                            <div class="adm-action-buttons" style="justify-content: flex-end;">
+                                <a href="edit-movie.html" class="adm-action-edit" title="Edit Pulp Fiction">Edit</a>
+                                <form action="manage-movies.html" method="get">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="movie_id" value="M004">
+                                    <button type="submit" class="btn btn--danger btn--sm" title="Delete record #M004">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr id="movie-m005">
+                        <td class="rv-cell-id">#M005</td>
+                        <td>
+                            <div class="adm-movie-cell">
+                                <div class="adm-table-thumb" style="background: linear-gradient(160deg, #9c3b7a 0%, #1c0f18 100%);">
+                                    BUD
+                                </div>
+                                <div>
+                                    <a href="../user/movie-detail.html" class="adm-movie-meta-title">The Grand Budapest Hotel</a>
+                                    <span class="adm-movie-meta-sub">Rating: 8.1/10 &bull; 99 min</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge badge--genre">Comedy</span>
+                            <span class="badge badge--genre">Drama</span>
+                        </td>
+                        <td><strong>2014</strong></td>
+                        <td>Wes Anderson</td>
+                        <td style="text-align: right;">
+                            <div class="adm-action-buttons" style="justify-content: flex-end;">
+                                <a href="edit-movie.html" class="adm-action-edit" title="Edit The Grand Budapest Hotel">Edit</a>
+                                <form action="manage-movies.html" method="get">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="movie_id" value="M005">
+                                    <button type="submit" class="btn btn--danger btn--sm" title="Delete record #M005">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr id="movie-m006">
+                        <td class="rv-cell-id">#M006</td>
+                        <td>
+                            <div class="adm-movie-cell">
+                                <div class="adm-table-thumb" style="background: linear-gradient(160deg, #2e663a 0%, #07110a 100%);">
+                                    PAR
+                                </div>
+                                <div>
+                                    <a href="../user/movie-detail.html" class="adm-movie-meta-title">Parasite</a>
+                                    <span class="adm-movie-meta-sub">Rating: 8.5/10 &bull; 132 min</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge badge--genre">Thriller</span>
+                            <span class="badge badge--genre">Drama</span>
+                        </td>
+                        <td><strong>2019</strong></td>
+                        <td>Bong Joon-ho</td>
+                        <td style="text-align: right;">
+                            <div class="adm-action-buttons" style="justify-content: flex-end;">
+                                <a href="edit-movie.html" class="adm-action-edit" title="Edit Parasite">Edit</a>
+                                <form action="manage-movies.html" method="get">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="movie_id" value="M006">
+                                    <button type="submit" class="btn btn--danger btn--sm" title="Delete record #M006">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr id="movie-m007">
+                        <td class="rv-cell-id">#M007</td>
+                        <td>
+                            <div class="adm-movie-cell">
+                                <div class="adm-table-thumb" style="background: linear-gradient(160deg, #1d3b5c 0%, #0a1017 100%);">
+                                    INT
+                                </div>
+                                <div>
+                                    <a href="../user/movie-detail.html" class="adm-movie-meta-title">Interstellar</a>
+                                    <span class="adm-movie-meta-sub">Rating: 8.7/10 &bull; 169 min</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge badge--genre">Sci-Fi</span>
+                            <span class="badge badge--genre">Adventure</span>
+                        </td>
+                        <td><strong>2014</strong></td>
+                        <td>Christopher Nolan</td>
+                        <td style="text-align: right;">
+                            <div class="adm-action-buttons" style="justify-content: flex-end;">
+                                <a href="edit-movie.html" class="adm-action-edit" title="Edit Interstellar">Edit</a>
+                                <form action="manage-movies.html" method="get">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="movie_id" value="M007">
+                                    <button type="submit" class="btn btn--danger btn--sm" title="Delete record #M007">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr id="movie-m008">
+                        <td class="rv-cell-id">#M008</td>
+                        <td>
+                            <div class="adm-movie-cell">
+                                <div class="adm-table-thumb" style="background: linear-gradient(160deg, #532b8f 0%, #150a24 100%);">
+                                    LLL
+                                </div>
+                                <div>
+                                    <a href="../user/movie-detail.html" class="adm-movie-meta-title">La La Land</a>
+                                    <span class="adm-movie-meta-sub">Rating: 8.0/10 &bull; 128 min</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge badge--genre">Drama</span>
+                            <span class="badge badge--genre">Music</span>
+                        </td>
+                        <td><strong>2016</strong></td>
+                        <td>Damien Chazelle</td>
+                        <td style="text-align: right;">
+                            <div class="adm-action-buttons" style="justify-content: flex-end;">
+                                <a href="edit-movie.html" class="adm-action-edit" title="Edit La La Land">Edit</a>
+                                <form action="manage-movies.html" method="get">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="movie_id" value="M008">
+                                    <button type="submit" class="btn btn--danger btn--sm" title="Delete record #M008">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <h2>Great MOVIES deserve<br>great conversations!</h2>
+                <p>Read our expert reviews. Join the community. Let the silver screen ignite your imagination.<br>Because moments on screen become discussions off screen.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="../user/search-movies.html?genre=Action">Action &amp; Adventure</a></li>
+                        <li><a href="../user/search-movies.html?genre=Sci-Fi">Sci-Fi &amp; Fantasy</a></li>
+                        <li><a href="../user/search-movies.html?genre=Drama">Drama</a></li>
+                        <li><a href="../user/search-movies.html?genre=Crime">Crime &amp; Thriller</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="../user/movies-list.html">Movie Catalog</a></li>
+                        <li><a href="../user/submit-review.html">Write a Review</a></li>
+                        <li><a href="../user/my-reviews.html">My Reviews</a></li>
+                        <li><a href="../auth/login.html">Sign In</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home Page</a></li>
+                        <li><a href="../user/search-movies.html">Advanced Search</a></li>
+                        <li><a href="dashboard.html">Admin Portal</a></li>
+                        <li><a href="../../cover-page.html">Cover Page</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

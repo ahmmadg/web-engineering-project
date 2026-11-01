@@ -1,14 +1,3 @@
-/* ==========================================================================
-   CineReview — Review System & Content Moderation Stylesheet
-   Owned by: Member 3
-   Pages: submit-review.html, my-reviews.html, manage-reviews.html
-   Loads after: css/variables.css, css/layout.css, css/components.css
-   No JavaScript required (100% Pure CSS3 & Semantic HTML5)
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. Base (same base as the other page stylesheets)
-   -------------------------------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -48,9 +37,6 @@ img, svg { display: block; max-width: 100%; }
     white-space: nowrap;
 }
 
-/* --------------------------------------------------------------------------
-   2. Navbars (User navbar + Admin navbar variant)
-   -------------------------------------------------------------------------- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -108,7 +94,6 @@ img, svg { display: block; max-width: 100%; }
     color: #000 !important;
 }
 
-/* Keep the quick-search field in the navbar compact (overrides global input rule) */
 .navbar .search-bar input[type="text"] {
     height: auto;
     padding: 0.2rem;
@@ -179,9 +164,6 @@ img, svg { display: block; max-width: 100%; }
     border-color: #ff6b6b;
 }
 
-/* --------------------------------------------------------------------------
-   3. Page container, breadcrumbs & page header
-   -------------------------------------------------------------------------- */
 .rv-container {
     max-width: 1280px;
     margin: 0 auto;
@@ -245,9 +227,6 @@ img, svg { display: block; max-width: 100%; }
     font-size: 0.9rem;
 }
 
-/* --------------------------------------------------------------------------
-   4. Shared reusable pieces: buttons, badges, alerts, stars
-   -------------------------------------------------------------------------- */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -285,7 +264,6 @@ img, svg { display: block; max-width: 100%; }
     outline-offset: 2px;
 }
 
-/* Status badges */
 .badge {
     display: inline-block;
     padding: 0.25rem 0.7rem;
@@ -318,7 +296,6 @@ img, svg { display: block; max-width: 100%; }
 .alert--danger  { background-color: rgba(229, 71, 71, 0.1);  border-color: rgba(229, 71, 71, 0.45); color: #ffc2c2; }
 .alert--info    { background-color: rgba(164, 200, 225, 0.1); border-color: rgba(164, 200, 225, 0.4); color: #d3e6f3; }
 
-/* Star rating display */
 .stars {
     color: #4a4a4a;
     font-size: 1.1rem;
@@ -334,9 +311,6 @@ img, svg { display: block; max-width: 100%; }
     color: var(--accent-primary, #e58d47);
 }
 
-/* --------------------------------------------------------------------------
-   5. submit-review.html — Review form
-   -------------------------------------------------------------------------- */
 .rv-submit-layout {
     display: grid;
     grid-template-columns: 1fr 340px;
@@ -390,7 +364,6 @@ img, svg { display: block; max-width: 100%; }
     color: var(--text-dim, #aaaaaa);
 }
 
-/* Inputs — selectors are deliberately specific so they win over the global input rules */
 .rv-form select.rv-control,
 .rv-form input[type="text"].rv-control,
 .rv-form textarea.rv-control {
@@ -433,9 +406,6 @@ img, svg { display: block; max-width: 100%; }
 
 .rv-form .rv-control::placeholder { color: #666666; }
 
-/* CSS-only 5-star rating input.
-   Radios are written 5 → 1 in the HTML; flex-direction: row-reverse shows them 1 → 5.
-   The general sibling combinator (~) then lights up the checked star and every star before it. */
 .rv-star-input {
     position: relative;
     display: inline-flex;
@@ -478,7 +448,6 @@ img, svg { display: block; max-width: 100%; }
     color: var(--text-dim, #aaaaaa);
 }
 
-/* Confirmation checkbox */
 .rv-check {
     display: flex;
     align-items: flex-start;
@@ -507,7 +476,6 @@ img, svg { display: block; max-width: 100%; }
 
 .rv-form-actions .rv-spacer { flex: 1; }
 
-/* Guidelines side card */
 .rv-guide-list { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.4rem; }
 
 .rv-guide-list li {
@@ -536,9 +504,6 @@ img, svg { display: block; max-width: 100%; }
 .rv-status-legend div { display: flex; align-items: flex-start; gap: 0.6rem; }
 .rv-status-legend .badge { flex: none; min-width: 78px; text-align: center; }
 
-/* --------------------------------------------------------------------------
-   6. my-reviews.html — Personal review history
-   -------------------------------------------------------------------------- */
 .rv-summary {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -579,7 +544,6 @@ img, svg { display: block; max-width: 100%; }
 .rv-review-card--pending  { border-left-color: var(--accent-primary, #e58d47); }
 .rv-review-card--rejected { border-left-color: var(--accent-secondary, #e54747); }
 
-/* Poster thumbnail (pure CSS, keeps the 2:3 poster ratio) */
 .rv-thumb {
     aspect-ratio: 2 / 3;
     border-radius: var(--radius-sm, 4px);
@@ -650,13 +614,10 @@ img, svg { display: block; max-width: 100%; }
 
 .rv-empty-hint { text-align: center; color: var(--text-dim, #aaaaaa); font-size: 0.9rem; }
 
-/* --------------------------------------------------------------------------
-   7. manage-reviews.html — Admin moderation table
-   -------------------------------------------------------------------------- */
 .rv-admin-summary { grid-template-columns: repeat(4, 1fr); }
 
 .table-wrapper {
-    position: relative; /* keeps the visually-hidden labels inside the scroll area */
+    position: relative;
     width: 100%;
     overflow-x: auto;
     background-color: var(--bg-surface, #1a1a1a);
@@ -736,9 +697,6 @@ img, svg { display: block; max-width: 100%; }
     margin-bottom: 1rem;
 }
 
-/* --------------------------------------------------------------------------
-   8. Unified footer (same markup and look as the other pages)
-   -------------------------------------------------------------------------- */
 .footer-left h2 {
     font-size: 1.8rem;
     color: var(--accent-primary, #e58d47);
@@ -769,9 +727,6 @@ img, svg { display: block; max-width: 100%; }
 
 .footer .address { text-align: right; font-size: 0.75rem; color: #bbbbbb; line-height: 1.5; }
 
-/* --------------------------------------------------------------------------
-   9. Responsive breakpoints
-   -------------------------------------------------------------------------- */
 @media (max-width: 1080px) {
     .rv-submit-layout { grid-template-columns: 1fr; }
     .rv-side-card { position: static; }

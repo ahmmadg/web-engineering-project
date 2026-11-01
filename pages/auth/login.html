@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In</title>
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/pages/auth.css">
+</head>
+<body class="auth-wrapper">
+  <main class="auth-container">
+    <div class="auth-card">
+
+      <section class="auth-panel" aria-labelledby="login-heading">
+        <div class="auth-header">
+          <h1 id="login-heading">Welcome Back</h1>
+          <p>Don't have an account yet? <a href="signup.html">Sign up here</a></p>
+        </div>
+
+        <form class="auth-form" action="../user/movies-list.html" method="get">
+
+          <div class="auth-field">
+            <label for="identifier">Username or Email</label>
+            <input type="text" id="identifier" name="identifier" placeholder="Enter username or email" autocomplete="username" required>
+          </div>
+
+          <div class="auth-field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+          </div>
+
+          <label class="auth-checkbox-group">
+            <input type="checkbox" name="remember" checked>
+            <span>Remember me on this device</span>
+          </label>
+
+          <button type="submit" class="auth-btn-primary">Log In</button>
+        </form>
+      </section>
+
+      <aside class="auth-hero" aria-hidden="true">
+        <img class="auth-hero-img" src="../../Gemini_Generated_Image_mzmgvhmzmgvhmzmg.jfif" alt="Cinema theater backdrop">
+        <div class="auth-hero-overlay"></div>
+      </aside>
+
+    </div>
+  </main>
+
+</body>
+</html>

@@ -1,54 +1,67 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Reviews — CineReview</title>
-    <!-- Member 1 Shared Design Tokens & Layout -->
+    <title>Manage Reviews</title>
+    <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/components.css">
-    <!-- Member 3 Review System Stylesheet -->
     <link rel="stylesheet" href="../../css/pages/reviews.css">
 </head>
 <body>
-    <!-- Admin Navbar -->
+
+    <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
+        <div class="navbar-eval-links">
+            <span style="color:#aaa;">Preview State:</span>
+            <a href="../../index.html" class="navbar-eval-btn">&#9675; 1. Guest View (Home)</a>
+            <a href="../user/movies-list.html" class="navbar-eval-btn">&#9675; 2. User View (Catalog)</a>
+            <span class="navbar-eval-btn is-active">&#9679; 3. Admin View (Reviews)</span>
+        </div>
+    </aside>
+
     <header class="navbar navbar--admin">
         <a href="../../index.html" class="logo">
-            <span class="ticket-icon">🎟️</span> CineReview
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M7 8v8"/>
+                <path d="M17 8v8"/>
+                <path d="M2 12h20"/>
+            </svg>
+            <span>CineReview <small style="font-size: 0.7rem; color: #ff8585; margin-left: 4px; font-weight: normal;">ADMIN</small></span>
         </a>
+
+        <form action="../user/search-movies.html" method="get" class="search-bar">
+            <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
+            <button type="submit" class="search-btn" title="Search" aria-label="Search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </form>
 
         <nav class="nav-links">
             <a href="dashboard.html">Dashboard</a>
             <a href="manage-movies.html">Manage Movies</a>
             <a href="add-movie.html">Add Movie</a>
-            <a href="manage-reviews.html" class="active" aria-current="page">Manage Reviews</a>
+            <a href="manage-reviews.html" class="active">Manage Reviews</a>
         </nav>
 
         <div class="user-nav-actions">
-            <span class="admin-role-tag">Role: <strong>Administrator</strong></span>
+            <span class="admin-role-tag">Admin Mode</span>
             <a href="../auth/login.html" class="nav-logout-btn" title="Sign Out">Log out</a>
         </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="rv-container">
-        <!-- Breadcrumbs Navigation -->
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="dashboard.html">Dashboard</a>
             <span class="separator">/</span>
             <span class="current">Manage Reviews</span>
         </nav>
 
-        <header class="rv-page-header">
-            <div>
-                <h1>Manage Reviews</h1>
-                <p>Moderate community reviews. Accept a review to publish it, or reject it with a note explaining what the author should improve.</p>
-            </div>
-            <div class="rv-header-tag"><span>🛡️</span> 2 reviews awaiting moderation</div>
-        </header>
-
-        <!-- Moderation Summary -->
         <section class="rv-summary rv-admin-summary" aria-label="Moderation summary">
             <div class="rv-summary-item">
                 <span class="rv-summary-number">5</span>
@@ -73,7 +86,6 @@
             <span><strong>Reject</strong> needs a rejection note of at least 15 characters.</span>
         </div>
 
-        <!-- Reviews Moderation Table (scrolls horizontally on small screens) -->
         <div class="table-wrapper">
             <table class="data-table">
                 <caption class="sr-only">All submitted community reviews with moderation actions</caption>
@@ -89,8 +101,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
-                    <!-- Review #1 -->
                     <tr id="review-1">
                         <td class="rv-cell-id">#1</td>
                         <td class="rv-cell-user">john_doe</td>
@@ -111,7 +121,6 @@
                             </form>
                         </td>
                     </tr>
-                    <!-- Review #2 -->
                     <tr id="review-2">
                         <td class="rv-cell-id">#2</td>
                         <td class="rv-cell-user">sarah_m</td>
@@ -132,7 +141,6 @@
                             </form>
                         </td>
                     </tr>
-                    <!-- Review #3 -->
                     <tr id="review-3">
                         <td class="rv-cell-id">#3</td>
                         <td class="rv-cell-user">moviefan99</td>
@@ -153,7 +161,6 @@
                             </form>
                         </td>
                     </tr>
-                    <!-- Review #4 -->
                     <tr id="review-4">
                         <td class="rv-cell-id">#4</td>
                         <td class="rv-cell-user">alex_w</td>
@@ -174,7 +181,6 @@
                             </form>
                         </td>
                     </tr>
-                    <!-- Review #5 -->
                     <tr id="review-5">
                         <td class="rv-cell-id">#5</td>
                         <td class="rv-cell-user">cinephile</td>
@@ -200,19 +206,11 @@
         </div>
     </main>
 
-    <!-- Unified Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-left">
                 <h2>Great MOVIES deserve<br>great conversations!</h2>
                 <p>Read our expert reviews. Join the community. Let the silver screen ignite your imagination.<br>Because moments on screen become discussions off screen.</p>
-                <div class="social-icons">
-                    <span class="icon" title="Facebook">f</span>
-                    <span class="icon" title="Twitter / X">t</span>
-                    <span class="icon" title="LinkedIn">in</span>
-                    <span class="icon" title="YouTube">yt</span>
-                </div>
-                <p class="copyright">© 2026 CineReview. All rights reserved.</p>
             </div>
             <div class="footer-links">
                 <div class="link-column">
@@ -242,10 +240,6 @@
                         <li><a href="../../cover-page.html">Cover Page</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="footer-right-logo">
-                <div class="logo-box">🎟️ CINE REVIEW</div>
-                <p class="address">Faculty of Computers &amp; Artificial Intelligence<br>Web Engineering Project<br>Cairo University</p>
             </div>
         </div>
     </footer>
