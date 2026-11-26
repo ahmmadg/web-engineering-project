@@ -1,16 +1,14 @@
-(function (root) {
-    'use strict';
+import storage from './storage.js';
 
-    var SESSION_KEY = 'movieReview_session';
-    var sessionScript = root.document && root.document.currentScript;
-    var appRoot = sessionScript ? new URL('../', sessionScript.src) : null;
-    var ROLE_HOME = {
+const SESSION_KEY = 'movieReview_session';
+const appRoot = new URL('../', import.meta.url);
+const ROLE_HOME = {
         admin: 'pages/admin/manage-movies.html',
         super_admin: 'pages/super-dashboard.html',
         user: 'pages/user/movies-list.html'
     };
 
-    function normalizeRole(role) {
+export function normalizeRole(role) {
         if (typeof role !== 'string') {
             return null;
         }
@@ -24,20 +22,15 @@
             normalized === 'super_admin' ? normalized : null;
     }
 
-    function getSessionStorage() {
-        if (!root.sessionStorage) {
+function getSessionStorage() {
+        if (!globalThis.sessionStorage) {
             throw new Error('sessionStorage is not available.');
         }
-
-        return root.sessionStorage;
+        return globalThis.sessionStorage;
     }
 
     function getUsers() {
-        if (!root.movieReviewStorage || typeof root.movieReviewStorage.getAll !== 'function') {
-            throw new Error('Load the movieReviewStorage module before using sessions.');
-        }
-
-        return root.movieReviewStorage.getAll('users');
+        return storage.getAll('users');
     }
 
     function seedSuperAdmin() {
@@ -47,7 +40,7 @@
         });
 
         if (!hasSuperAdmin) {
-            root.movieReviewStorage.insert('users', {
+            storage.insert('users', {
                 username: 'superAdmin',
                 email: 'superadmin@cinereview.local',
                 password: 'SuperAdmin123',
@@ -60,7 +53,7 @@
         return ROLE_HOME[role] || ROLE_HOME.user;
     }
 
-    function redirectToHome() {
+export function redirectToHome() {
         var currentUser = getCurrentUser();
         if (!currentUser) {
             return false;
@@ -72,22 +65,22 @@
 
     function navigate(path) {
         var destination = appRoot ? new URL(path, appRoot).href : path;
-        if (root.location && typeof root.location.assign === 'function') {
-            root.location.assign(destination);
+        if (globalThis.location && typeof globalThis.location.assign === 'function') {
+            globalThis.location.assign(destination);
             return;
         }
 
-        if (root.location) {
-            root.location.href = destination;
+        if (globalThis.location) {
+            globalThis.location.href = destination;
         }
     }
 
     function concealDocument() {
-        if (!root.document || !root.document.documentElement) {
+        if (!globalThis.document || !globalThis.document.documentElement) {
             return null;
         }
 
-        var element = root.document.documentElement;
+        var element = globalThis.document.documentElement;
         var previousVisibility = element.style.visibility;
         element.style.visibility = 'hidden';
 
@@ -96,7 +89,7 @@
         };
     }
 
-    function login(username, password) {
+export function login(username, password) {
         if (typeof username !== 'string' || typeof password !== 'string') {
             throw new TypeError('Username and password must be strings.');
         }
@@ -127,11 +120,11 @@
         return true;
     }
 
-    function logout() {
+export function logout() {
         getSessionStorage().clear();
     }
 
-    function getCurrentUser() {
+export function getCurrentUser() {
         var serialized = getSessionStorage().getItem(SESSION_KEY);
         if (!serialized) {
             return null;
@@ -153,7 +146,7 @@
         }
     }
 
-    function requireRole(allowedRoles) {
+export function requireRole(allowedRoles) {
         if (!Array.isArray(allowedRoles) || allowedRoles.length === 0) {
             throw new TypeError('Allowed roles must be a non-empty array.');
         }
@@ -178,22 +171,16 @@
         return true;
     }
 
-    var sessions = {
-        login: login,
-        logout: logout,
-        getCurrentUser: getCurrentUser,
-        redirectToHome: redirectToHome,
-        requireRole: requireRole
-    };
+export const sessions = {
+    login,
+    logout,
+    getCurrentUser,
+    redirectToHome,
+    requireRole
+};
 
-    root.movieReviewSessions = sessions;
-    if (root.document && root.movieReviewStorage &&
-        typeof root.movieReviewStorage.getAll === 'function' &&
-        typeof root.movieReviewStorage.insert === 'function') {
-        seedSuperAdmin();
-    }
+if (globalThis.document) {
+    seedSuperAdmin();
+}
 
-    if (typeof module !== 'undefined' && module.exports) {
-        module.exports = sessions;
-    }
-}(typeof globalThis !== 'undefined' ? globalThis : this));
+export default sessions;

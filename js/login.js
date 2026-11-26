@@ -1,18 +1,10 @@
-(function (root) {
-    'use strict';
+import * as sessions from './sessions.js';
 
-    if (!root.movieReviewSessions ||
-        typeof root.movieReviewSessions.redirectToHome !== 'function') {
-        throw new Error('Load the movieReviewSessions module before using login.');
-    }
-    if (root.movieReviewSessions.redirectToHome()) {
-        return;
-    }
-
-    var form = root.document.getElementById('login-form');
-    var username = root.document.getElementById('identifier');
-    var password = root.document.getElementById('password');
-    var errorMessage = root.document.getElementById('login-error');
+if (!sessions.redirectToHome()) {
+    var form = document.getElementById('login-form');
+    var username = document.getElementById('identifier');
+    var password = document.getElementById('password');
+    var errorMessage = document.getElementById('login-error');
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -20,7 +12,7 @@
 
         var authenticated;
         try {
-            authenticated = root.movieReviewSessions.login(
+            authenticated = sessions.login(
                 username.value.trim(),
                 password.value
             );
@@ -36,6 +28,6 @@
             return;
         }
 
-        root.movieReviewSessions.redirectToHome();
+        sessions.redirectToHome();
     });
-}(typeof globalThis !== 'undefined' ? globalThis : this));
+}

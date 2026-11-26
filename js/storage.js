@@ -1,69 +1,66 @@
-(function (root) {
-    'use strict';
+const KEY_PREFIX = 'movieReview_';
 
-    var KEY_PREFIX = 'movieReview_';
-
-    function getLocalStorage() {
-        if (!root.localStorage) {
-            throw new Error('localStorage is not available.');
-        }
-
-        return root.localStorage;
+function getLocalStorage() {
+    if (!globalThis.localStorage) {
+        throw new Error('localStorage is not available.');
     }
 
-    function getTableKey(table) {
-        if (typeof table !== 'string' || table.trim() === '') {
-            throw new TypeError('Table name must be a non-empty string.');
-        }
+    return globalThis.localStorage;
+}
 
-        return KEY_PREFIX + table;
+function getTableKey(table) {
+    if (typeof table !== 'string' || table.trim() === '') {
+        throw new TypeError('Table name must be a non-empty string.');
     }
 
-    function readRows(table) {
-        var serialized = getLocalStorage().getItem(getTableKey(table));
-        if (!serialized) {
-            return [];
-        }
+    return KEY_PREFIX + table;
+}
 
+function readRows(table) {
+    const serialized = getLocalStorage().getItem(getTableKey(table));
+    if (!serialized) {
+        return [];
+    }
+
+    try {
+        const rows = JSON.parse(serialized);
+        return Array.isArray(rows) ? rows : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function getNextId(table, rows) {
+    const counterKey = getTableKey(table) + '_nextId';
+    const serialized = getLocalStorage().getItem(counterKey);
+    let counter = 0;
+
+    if (serialized) {
         try {
-            var rows = JSON.parse(serialized);
-            return Array.isArray(rows) ? rows : [];
+            counter = JSON.parse(serialized);
         } catch (error) {
-            return [];
+            counter = 0;
         }
     }
 
-    function getNextId(table, rows) {
-        var counterKey = getTableKey(table) + '_nextId';
-        var serialized = getLocalStorage().getItem(counterKey);
-        var counter = 0;
+    const highestId = rows.reduce(function (highest, row) {
+        return row && Number.isSafeInteger(row.id) && row.id > highest
+            ? row.id
+            : highest;
+    }, 0);
 
-        if (serialized) {
-            try {
-                counter = JSON.parse(serialized);
-            } catch (error) {
-                counter = 0;
-            }
-        }
-
-        var highestId = rows.reduce(function (highest, row) {
-            return row && Number.isSafeInteger(row.id) && row.id > highest
-                ? row.id
-                : highest;
-        }, 0);
-
-        if (!Number.isSafeInteger(counter) || counter < 1) {
-            counter = 1;
-        }
-
-        return Math.max(counter, highestId + 1);
+    if (!Number.isSafeInteger(counter) || counter < 1) {
+        counter = 1;
     }
 
-    function saveRows(table, rows) {
-        getLocalStorage().setItem(getTableKey(table), JSON.stringify(rows));
-    }
+    return Math.max(counter, highestId + 1);
+}
 
-    var storage = {
+function saveRows(table, rows) {
+    getLocalStorage().setItem(getTableKey(table), JSON.stringify(rows));
+}
+
+const storage = {
         getAll: function (table) {
             return readRows(table);
         },
@@ -131,10 +128,6 @@
 
             return readRows(table).filter(predicate);
         }
-    };
+};
 
-    root.movieReviewStorage = storage;
-    if (typeof module !== 'undefined' && module.exports) {
-        module.exports = storage;
-    }
-}(typeof globalThis !== 'undefined' ? globalThis : this));
+export default storage;

@@ -1,7 +1,4 @@
-(function (root) {
-    'use strict';
-
-    var MESSAGE_TYPES = ['success', 'danger', 'info'];
+const MESSAGE_TYPES = ['success', 'danger', 'info'];
     var DATE_ONLY_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
 
     function parseDate(value) {
@@ -45,11 +42,11 @@
         return year + '-' + month + '-' + day;
     }
 
-    function today() {
+export function today() {
         return toDateInputValue(new Date());
     }
 
-    function nextYear(value) {
+export function nextYear(value) {
         var date = value === undefined ? new Date() : parseDate(value);
         var year = date.getFullYear() + 1;
         var month = date.getMonth();
@@ -63,7 +60,7 @@
         return toDateInputValue(result);
     }
 
-    function formatDate(value, options) {
+export function formatDate(value, options) {
         var date = parseDate(value);
         var formatOptions = options || {
             year: 'numeric',
@@ -74,7 +71,7 @@
         return new Intl.DateTimeFormat(undefined, formatOptions).format(date);
     }
 
-    function setText(element, text) {
+export function setText(element, text) {
         if (!element || !('textContent' in element)) {
             throw new TypeError('A text-capable element is required.');
         }
@@ -83,7 +80,7 @@
         return element;
     }
 
-    function showMessage(element, text, type) {
+export function showMessage(element, text, type) {
         if (!element || !element.classList || typeof element.setAttribute !== 'function') {
             throw new TypeError('A message element is required.');
         }
@@ -101,16 +98,12 @@
         return element;
     }
 
-    var utils = {
-        today: today,
-        nextYear: nextYear,
-        formatDate: formatDate,
-        showMessage: showMessage,
-        setText: setText
-    };
+const utils = {
+    today,
+    nextYear,
+    formatDate,
+    showMessage,
+    setText
+};
 
-    root.movieReviewUtils = utils;
-    if (typeof module !== 'undefined' && module.exports) {
-        module.exports = utils;
-    }
-}(typeof globalThis !== 'undefined' ? globalThis : this));
+export default utils;

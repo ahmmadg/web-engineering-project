@@ -1,11 +1,7 @@
-(function (root) {
-    'use strict';
+import storage from './storage.js';
+import { requireRole } from './sessions.js';
 
-    var storage = root.movieReviewStorage;
-    if (!storage || typeof storage.getAll !== 'function') {
-        throw new Error('Load the movieReviewStorage module before the super-admin dashboard.');
-    }
-
+if (requireRole(['super_admin'])) {
     function normalizeRole(role) {
         if (typeof role !== 'string') {
             return '';
@@ -24,7 +20,7 @@
     }
 
     function setCount(id, count) {
-        var element = root.document.getElementById(id);
+        var element = document.getElementById(id);
         if (!element) {
             throw new Error('Missing dashboard count element: ' + id);
         }
@@ -47,4 +43,4 @@
     setCount('pending-reviews-count', countReviewsByStatus(reviews, 'pending'));
     setCount('approved-reviews-count', countReviewsByStatus(reviews, 'approved'));
     setCount('rejected-reviews-count', countReviewsByStatus(reviews, 'rejected'));
-}(typeof globalThis !== 'undefined' ? globalThis : this));
+}

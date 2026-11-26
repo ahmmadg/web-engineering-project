@@ -1,21 +1,14 @@
-(function (root) {
-    'use strict';
+import storage from './storage.js';
+import * as sessions from './sessions.js';
 
-    if (!root.movieReviewSessions ||
-        typeof root.movieReviewSessions.redirectToHome !== 'function') {
-        throw new Error('Load the movieReviewSessions module before using signup.');
-    }
-    if (root.movieReviewSessions.redirectToHome()) {
-        return;
-    }
-
-    var form = root.document.getElementById('signup-form');
-    var username = root.document.getElementById('username');
-    var email = root.document.getElementById('email');
-    var password = root.document.getElementById('password');
-    var confirmation = root.document.getElementById('confirm_password');
-    var role = root.document.getElementById('role');
-    var message = root.document.getElementById('signup-message');
+if (!sessions.redirectToHome()) {
+    var form = document.getElementById('signup-form');
+    var username = document.getElementById('username');
+    var email = document.getElementById('email');
+    var password = document.getElementById('password');
+    var confirmation = document.getElementById('confirm_password');
+    var role = document.getElementById('role');
+    var message = document.getElementById('signup-message');
 
     function validatePasswordMatch() {
         confirmation.setCustomValidity(
@@ -60,7 +53,7 @@
         var users;
 
         try {
-            users = root.movieReviewStorage.getAll('users');
+            users = storage.getAll('users');
         } catch (error) {
             showSaveError(error);
             return;
@@ -89,7 +82,7 @@
         }
 
         try {
-            root.movieReviewStorage.insert('users', {
+            storage.insert('users', {
                 username: username.value.trim(),
                 email: email.value.trim().toLowerCase(),
                 password: password.value,
@@ -100,6 +93,6 @@
             return;
         }
 
-        root.location.href = 'login.html';
+        globalThis.location.href = 'login.html';
     });
-}(typeof globalThis !== 'undefined' ? globalThis : this));
+}
