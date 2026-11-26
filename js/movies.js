@@ -1,22 +1,22 @@
 /* ==========================================================================
    CineReview — Movie Catalog Business Logic Module
    Owned by: Member 4 (Moneer Magdi)
-   Depends on: storage.js (Student 1), session.js (Student 1)
+   Depends on: storage.js (Student 1), sessions.js (Student 1)
    ========================================================================== */
 
-import { getAll, getById, insert, update, remove, find } from './storage.js';
-import { getCurrentUser } from './session.js';
+import storage from './storage.js';
+import { getCurrentUser } from './sessions.js';
 
 const DIRECTOR_PATTERN = /^[A-Za-z .\-]+$/;
 const MIN_YEAR = 1888;
 
 /**
- * Verifies the currently signed-in user has admin or superAdmin privileges.
+ * Verifies the currently signed-in user has admin or super_admin privileges.
  * @returns {{ ok: boolean, user?: Object, error?: string }}
  */
 function requireAdminSession() {
     const user = getCurrentUser();
-    if (!user || (user.role !== 'admin' && user.role !== 'superAdmin')) {
+    if (!user || (user.role !== 'admin' && user.role !== 'super_admin')) {
         return { ok: false, error: 'Unauthorized: Administrator access is required.' };
     }
     return { ok: true, user };
@@ -35,7 +35,7 @@ export function isDuplicateMovie(title, releaseYear, skipId = null) {
     const yearNum = Number(releaseYear);
     const skipNum = skipId !== null && skipId !== undefined && skipId !== '' ? Number(skipId) : null;
 
-    const matches = find('movies', (movie) => {
+    const matches = storage.find('movies', (movie) => {
         if (skipNum !== null && Number(movie.id) === skipNum) {
             return false;
         }
@@ -90,11 +90,11 @@ export function saveMovie(data, editId = null) {
     const hasEditId = editId !== null && editId !== undefined && editId !== '';
     if (hasEditId) {
         const numericId = Number(editId);
-        const existing = getById('movies', numericId);
+        const existing = storage.getById('movies', numericId);
         if (!existing) {
             return { ok: false, error: 'Movie record could not be found.' };
         }
-        const updated = update('movies', numericId, {
+        const updated = storage.update('movies', numericId, {
             title,
             genre,
             releaseYear,
@@ -104,13 +104,13 @@ export function saveMovie(data, editId = null) {
         return { ok: true, movie: updated };
     }
 
-    const created = insert('movies', {
+    const created = storage.insert('movies', {
         title,
         genre,
         releaseYear,
         director,
         description,
-        createdBy: auth.user.id
+        createdBy: auth.user.userId
     });
     return { ok: true, movie: created };
 }
@@ -127,24 +127,24 @@ export function deleteMovie(id) {
     }
 
     const movieId = Number(id);
-    const existing = getById('movies', movieId);
+    const existing = storage.getById('movies', movieId);
     if (!existing) {
         return { ok: false, error: 'Movie record could not be found.' };
     }
 
-    const relatedReviews = find('reviews', (review) => Number(review.movieId) === movieId);
+    const relatedReviews = storage.find('reviews', (review) => Number(review.movieId) === movieId);
     for (const review of relatedReviews) {
-        remove('reviews', review.id);
+        storage.remove('reviews', review.id);
     }
 
-    remove('movies', movieId);
+    storage.remove('movies', movieId);
     return { ok: true, deletedReviewsCount: relatedReviews.length };
 }
 
 /**
- * Returns all movies currently stored in localStorage via storage.js.
+ * Returns all movies currently stored via storage.js.
  * @returns {Array<Object>}
  */
 export function getAllMovies() {
-    return getAll('movies');
+    return storage.getAll('movies');
 }

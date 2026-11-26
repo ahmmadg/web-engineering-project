@@ -4,15 +4,15 @@
    Page: pages/admin/manage-movies.html
    ========================================================================== */
 
-import { requireRole } from '../session.js';
-import { renderNavbar } from '../navbar.js';
+import { requireRole } from '../sessions.js';
+import '../navbar.js';
 import { showMessage } from '../utils.js';
 import { confirmDialog } from '../dialog.js';
 import { getAllMovies, deleteMovie } from '../movies.js';
 
-const currentUser = requireRole(['admin', 'superAdmin']);
+const authorized = requireRole(['admin', 'super_admin']);
 
-if (currentUser) {
+if (authorized) {
     initManageMoviesPage();
 }
 
@@ -22,7 +22,6 @@ function initManageMoviesPage() {
         pageContent.hidden = false;
     }
 
-    renderNavbar();
     renderMoviesTable();
 
     const tbody = document.getElementById('movies-table-body');

@@ -4,15 +4,16 @@
    Page: pages/admin/manage-admins.html
    ========================================================================== */
 
-import { requireRole } from '../session.js';
-import { renderNavbar } from '../navbar.js';
-import { getAll, getById, update, remove, find } from '../storage.js';
+import { requireRole, getCurrentUser } from '../sessions.js';
+import '../navbar.js';
+import storage from '../storage.js';
 import { showMessage } from '../utils.js';
 import { confirmDialog } from '../dialog.js';
 
-const currentUser = requireRole(['superAdmin']);
+const authorized = requireRole(['super_admin']);
+const currentUser = authorized ? getCurrentUser() : null;
 
-if (currentUser) {
+if (authorized && currentUser) {
     initManageAdminsPage();
 }
 
@@ -22,7 +23,6 @@ function initManageAdminsPage() {
         pageContent.hidden = false;
     }
 
-    renderNavbar();
     renderTables();
 
     const adminsBody = document.getElementById('admins-table-body');
@@ -37,7 +37,7 @@ function initManageAdminsPage() {
 }
 
 function renderTables() {
-    const users = getAll('users');
+    const users = storage.getAll('users');
     const admins = users.filter((u) => u.role === 'admin');
     const standardUsers = users.filter((u) => u.role === 'user');
 
@@ -187,8 +187,8 @@ function handleAdminAction(event) {
     }
 
     if (action === 'delete-admin') {
-        const target = getById('users', targetId);
-        if (!target || target.role !== 'admin' || Number(target.id) === Number(currentUser.id)) {
+        const target = storage.getById('users', targetId);
+        if (!target || target.role !== 'admin' || Number(target.id) === Number(currentUser.userId)) {
             if (messageEl) showMessage(messageEl, 'Cannot delete this account.', 'danger');
             return;
         }
@@ -221,45 +221,45 @@ function handleUserAction(event) {
 }
 
 function promoteUser(userId) {
-    if (currentUser.role !== 'superAdmin') {
+    if (currentUser.role !== 'super_admin') {
         return { ok: false, message: 'Unauthorized: Super Admin access required.' };
     }
-    const target = getById('users', userId);
+    const target = storage.getById('users', userId);
     if (!target || target.role !== 'user') {
         return { ok: false, message: 'Only standard users can be promoted to Admin.' };
     }
-    update('users', userId, { role: 'admin' });
+    storage.update('users', userId, { role: 'admin' });
     return { ok: true, message: `Promoted "${target.username}" to Administrator.` };
 }
 
 function demoteAdmin(adminId) {
-    if (currentUser.role !== 'superAdmin') {
+    if (currentUser.role !== 'super_admin') {
         return { ok: false, message: 'Unauthorized: Super Admin access required.' };
     }
-    const target = getById('users', adminId);
-    if (!target || target.role !== 'admin' || Number(target.id) === Number(currentUser.id)) {
+    const target = storage.getById('users', adminId);
+    if (!target || target.role !== 'admin' || Number(target.id) === Number(currentUser.userId)) {
         return { ok: false, message: 'Only regular admin accounts can be demoted.' };
     }
-    update('users', adminId, { role: 'user' });
+    storage.update('users', adminId, { role: 'user' });
     return { ok: true, message: `Demoted "${target.username}" to standard User.` };
 }
 
 function deleteAdminAccount(adminId) {
-    if (currentUser.role !== 'superAdmin') {
+    if (currentUser.role !== 'super_admin') {
         return { ok: false, message: 'Unauthorized: Super Admin access required.' };
     }
-    const target = getById('users', adminId);
-    if (!target || target.role !== 'admin' || Number(target.id) === Number(currentUser.id)) {
+    const target = storage.getById('users', adminId);
+    if (!target || target.role !== 'admin' || Number(target.id) === Number(currentUser.userId)) {
         return { ok: false, message: 'Only regular admin accounts can be deleted here.' };
     }
 
     // Assumption: movies created by a deleted admin stay in storage (createdBy kept).
     // Clean up any reviews authored by this account.
-    const userReviews = find('reviews', (review) => Number(review.userId) === Number(adminId));
+    const userReviews = storage.find('reviews', (review) => Number(review.userId) === Number(adminId));
     for (const review of userReviews) {
-        remove('reviews', review.id);
+        storage.remove('reviews', review.id);
     }
 
-    remove('users', adminId);
+    storage.remove('users', adminId);
     return { ok: true, message: `Deleted administrator "${target.username}". Their created movies remain in the catalog.` };
 }

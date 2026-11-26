@@ -4,16 +4,16 @@
    Pages: pages/admin/add-movie.html, pages/admin/edit-movie.html
    ========================================================================== */
 
-import { requireRole } from '../session.js';
-import { renderNavbar } from '../navbar.js';
-import { getById } from '../storage.js';
+import { requireRole } from '../sessions.js';
+import '../navbar.js';
+import storage from '../storage.js';
 import { nextYear, showMessage } from '../utils.js';
 import { confirmDialog } from '../dialog.js';
 import { saveMovie, deleteMovie } from '../movies.js';
 
-const currentUser = requireRole(['admin', 'superAdmin']);
+const authorized = requireRole(['admin', 'super_admin']);
 
-if (currentUser) {
+if (authorized) {
     initMovieFormPage();
 }
 
@@ -23,15 +23,13 @@ function initMovieFormPage() {
         pageContent.hidden = false;
     }
 
-    renderNavbar();
-
     const form = document.getElementById('movie-form');
     const messageEl = document.getElementById('form-message');
     const yearInput = document.getElementById('release-year');
     const deleteBtn = document.getElementById('delete-movie-btn');
 
     if (yearInput) {
-        yearInput.max = String(nextYear());
+        yearInput.max = String(nextYear()).slice(0, 4);
     }
 
     const params = new URLSearchParams(window.location.search);
@@ -50,7 +48,7 @@ function initMovieFormPage() {
         }
 
         const numericId = Number(idParam);
-        const movie = getById('movies', numericId);
+        const movie = storage.getById('movies', numericId);
         if (!movie) {
             disableForm(form, deleteBtn);
             if (messageEl) {
