@@ -96,9 +96,11 @@ export function login(username, password) {
 
         var normalizedUsername = username.trim().toLowerCase();
         var user = getUsers().find(function (candidate) {
-            var candidateUsername = candidate && (candidate.username || candidate.email);
-            return typeof candidateUsername === 'string' &&
-                candidateUsername.toLowerCase() === normalizedUsername &&
+            var matchesUsername = candidate && typeof candidate.username === 'string' &&
+                candidate.username.trim().toLowerCase() === normalizedUsername;
+            var matchesEmail = candidate && typeof candidate.email === 'string' &&
+                candidate.email.trim().toLowerCase() === normalizedUsername;
+            return (matchesUsername || matchesEmail) &&
                 candidate.password === password;
         });
 
@@ -160,7 +162,7 @@ export function requireRole(allowedRoles) {
         }
 
         if (!allowedRoles.map(normalizeRole).includes(currentUser.role)) {
-            navigate(getOwnHome(currentUser.role));
+            navigate('pages/access-denied.html');
             return false;
         }
 

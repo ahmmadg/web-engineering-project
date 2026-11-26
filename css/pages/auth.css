@@ -181,6 +181,36 @@
   transform: scale(0.99);
 }
 
+.access-denied-card {
+  max-width: 640px;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.access-denied-content {
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.access-denied-content .auth-header {
+  margin-bottom: 0;
+}
+
+.access-denied-content .auth-btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.access-denied-home {
+  color: var(--text-dim, #aaaaaa);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .auth-hero {
   position: relative;
   background-color: #0b0d11;
