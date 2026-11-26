@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Movie</title>
+    <title>Add New Movie — Admin — CineReview</title>
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/variables.css">
     <link rel="stylesheet" href="../../css/layout.css">
@@ -11,50 +11,14 @@
     <link rel="stylesheet" href="../../css/pages/reviews.css">
     <link rel="stylesheet" href="../../css/pages/admin.css">
 </head>
-<body>
-    <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
-        <div class="navbar-eval-links">
-            <span style="color:#aaa;">Preview State:</span>
-            <a href="../../index.html" class="navbar-eval-btn">&#9675; 1. Guest View (Home)</a>
-            <a href="../user/movies-list.html" class="navbar-eval-btn">&#9675; 2. User View (Catalog)</a>
-            <span class="navbar-eval-btn is-active">&#9679; 3. Admin View (Catalog)</span>
-        </div>
-    </aside>
+<body data-mode="add">
 
-    <header class="navbar navbar--admin">
-        <a href="../../index.html" class="logo">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="M7 8v8"/>
-                <path d="M17 8v8"/>
-                <path d="M2 12h20"/>
-            </svg>
-            <span>CineReview <small style="font-size: 0.7rem; color: #ff8585; margin-left: 4px; font-weight: normal;">ADMIN</small></span>
-        </a>
-        <form action="../user/search-movies.html" method="get" class="search-bar">
-            <input type="text" name="title" placeholder="Search Reviews, Movies, Directors.." autocomplete="off">
-            <button type="submit" class="search-btn" title="Search" aria-label="Search">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-            </button>
-        </form>
+    <!-- Role-Based Navigation Bar (Rendered by navbar.js) -->
+    <header id="navbar-mount"></header>
 
-        <nav class="nav-links">
-            <a href="dashboard.html">Dashboard</a>
-            <a href="manage-movies.html">Manage Movies</a>
-            <a href="add-movie.html" class="active">Add Movie</a>
-            <a href="manage-reviews.html">Manage Reviews</a>
-        </nav>
-
-        <div class="user-nav-actions">
-            <span class="admin-role-tag">Admin Mode</span>
-            <a href="../auth/login.html" class="nav-logout-btn" title="Sign Out">Log out</a>
-        </div>
-    </header>
-
-    <main class="adm-container">
+    <!-- Main Content Area (Hidden until session guard passes) -->
+    <main class="adm-container" id="page-content" hidden>
+        <!-- Breadcrumbs Navigation -->
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="dashboard.html">Dashboard</a>
             <span class="separator">/</span>
@@ -63,7 +27,27 @@
             <span class="current">Add New Movie</span>
         </nav>
 
+        <header class="rv-page-header">
+            <div>
+                <h1>Add New Movie</h1>
+                <p>Register a new cinematic title into the CineReview platform. All registered titles immediately appear in the user catalog and search engine.</p>
+            </div>
+            <div class="rv-header-tag">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <span>Add Movie Mode</span>
+            </div>
+        </header>
+
+        <!-- Dynamic Form Validation / Error Message Slot -->
+        <div id="form-message" class="adm-message-slot" aria-live="polite"></div>
+
+        <!-- 2-Column Form Layout -->
         <div class="adm-form-layout">
+            <!-- Form Card -->
             <div class="adm-form-card">
                 <h2 class="adm-card-title">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -73,39 +57,43 @@
                     Movie Catalog Registration Form
                 </h2>
 
-                <form class="adm-form" action="manage-movies.html" method="get">
+                <form class="adm-form" id="movie-form">
                     <div class="adm-form-row-2">
+                        <!-- Movie ID (Read-only / Auto-assigned by storage.js) -->
                         <div class="adm-field">
                             <label class="adm-label" for="movie-id">
                                 Movie ID <small style="color: #888;">(Auto-generated)</small>
                             </label>
-                            <input type="text" id="movie-id" name="movie_id" value="M009" readonly class="adm-control" aria-describedby="id-hint">
-                            <span id="id-hint" class="adm-hint">System-assigned sequential identifier</span>
+                            <input type="text" id="movie-id" name="movie_id" placeholder="Assigned automatically on save" readonly class="adm-control" aria-describedby="id-hint">
+                            <span id="id-hint" class="adm-hint">System-assigned sequential numeric ID</span>
                         </div>
 
+                        <!-- Release Year (max set dynamically to nextYear() on load) -->
                         <div class="adm-field">
                             <label class="adm-label" for="release-year">
                                 Release Year <span class="adm-required" title="Required field">*</span>
                             </label>
-                            <input type="number" id="release-year" name="release_year" min="1900" max="2026" required placeholder="e.g. 2024" class="adm-control">
-                            <span class="adm-hint">Valid range: 1900 &ndash; 2026</span>
+                            <input type="number" id="release-year" name="release_year" min="1888" step="1" required placeholder="e.g. 2024" class="adm-control">
+                            <span class="adm-hint">Valid range: 1888 &ndash; next year</span>
                         </div>
                     </div>
 
+                    <!-- Title -->
                     <div class="adm-field">
                         <label class="adm-label" for="movie-title">
                             Movie Title <span class="adm-required" title="Required field">*</span>
                         </label>
-                        <input type="text" id="movie-title" name="title" required placeholder="e.g. Oppenheimer" class="adm-control" autocomplete="off">
+                        <input type="text" id="movie-title" name="title" required minlength="1" maxlength="100" placeholder="Enter movie title" class="adm-control" autocomplete="off">
                     </div>
 
                     <div class="adm-form-row-2">
+                        <!-- Primary Genre Dropdown -->
                         <div class="adm-field">
                             <label class="adm-label" for="movie-genre">
                                 Primary Genre <span class="adm-required" title="Required field">*</span>
                             </label>
                             <select id="movie-genre" name="genre" required class="adm-control">
-                                <option value="" disabled selected>-- Select Genre --</option>
+                                <option value="" selected>-- Select Genre --</option>
                                 <option value="Action">Action</option>
                                 <option value="Adventure">Adventure</option>
                                 <option value="Animation">Animation</option>
@@ -119,30 +107,35 @@
                             </select>
                         </div>
 
+                        <!-- Director -->
                         <div class="adm-field">
                             <label class="adm-label" for="movie-director">
                                 Director <span class="adm-required" title="Required field">*</span>
                             </label>
-                            <input type="text" id="movie-director" name="director" required placeholder="e.g. Christopher Nolan" class="adm-control" autocomplete="off">
+                            <input type="text" id="movie-director" name="director" required pattern="[A-Za-z .\-]+" title="Letters, spaces, dots, and hyphens only" placeholder="e.g. Christopher Nolan" class="adm-control" autocomplete="off">
+                            <span class="adm-hint">Letters, spaces, dots, and hyphens only</span>
                         </div>
                     </div>
 
+                    <!-- Synopsis / Description -->
                     <div class="adm-field">
                         <label class="adm-label" for="movie-description">
                             Synopsis / Description <span class="adm-required" title="Required field">*</span>
                         </label>
-                        <textarea id="movie-description" name="description" rows="5" required placeholder="Provide an engaging summary of the plot, characters, and narrative themes (minimum 40 characters)..." class="adm-control" minlength="40"></textarea>
-                        <span class="adm-hint">Displayed prominently on the public movie detail page</span>
+                        <textarea id="movie-description" name="description" rows="5" required minlength="20" maxlength="1000" placeholder="Provide a summary of the plot and themes (20 to 1000 characters)..." class="adm-control"></textarea>
+                        <span class="adm-hint">20 to 1000 characters</span>
                     </div>
 
+                    <!-- Poster Upload Input (Optional in Phase 2) -->
                     <div class="adm-field">
                         <label class="adm-label" for="movie-poster">
-                            Movie Poster Image <span class="adm-required" title="Required field">*</span>
+                            Movie Poster Image <small style="color: #888;">(Optional)</small>
                         </label>
-                        <input type="file" id="movie-poster" name="poster" accept="image/*" required class="adm-control">
-                        <span class="adm-hint">Recommended aspect ratio: 2:3 (e.g. 600 &times; 900 px). JPG, PNG, or WebP.</span>
+                        <input type="file" id="movie-poster" name="poster" accept="image/*" class="adm-control">
+                        <span class="adm-hint">Optional artwork preview. Catalog records are stored in browser storage.</span>
                     </div>
 
+                    <!-- Form Submission Actions -->
                     <div class="adm-actions-row">
                         <a href="manage-movies.html" class="btn btn--secondary">Cancel</a>
                         <div class="adm-spacer"></div>
@@ -157,6 +150,7 @@
                 </form>
             </div>
 
+            <!-- Guidelines & Tips Side Card -->
             <aside class="adm-side-card" aria-label="Catalog entry standards">
                 <h2 class="adm-card-title">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -170,19 +164,19 @@
                 <ul class="adm-tips-list">
                     <li>
                         <span class="adm-tip-bullet">1</span>
-                        <div><strong>Unique Movie ID:</strong> The identifier is auto-generated sequentially by the database to ensure integrity across review records.</div>
+                        <div><strong>Unique Movie ID:</strong> Generated automatically and never reused after deletion.</div>
                     </li>
                     <li>
                         <span class="adm-tip-bullet">2</span>
-                        <div><strong>Title Accuracy:</strong> Use official theatrical release titles. Include subtitle if applicable.</div>
+                        <div><strong>No Duplicates:</strong> Two movies cannot share the same title and release year (case-insensitive).</div>
                     </li>
                     <li>
                         <span class="adm-tip-bullet">3</span>
-                        <div><strong>Genre Selection:</strong> Select the primary marketing genre. Multi-genre tags can be expanded in Phase 2.</div>
+                        <div><strong>Director Format:</strong> Only letters, spaces, dots, and hyphens are allowed.</div>
                     </li>
                     <li>
                         <span class="adm-tip-bullet">4</span>
-                        <div><strong>High-Res Artwork:</strong> High-quality 2:3 vertical posters maintain aesthetic consistency in the catalog grid.</div>
+                        <div><strong>Description Length:</strong> Must be between 20 and 1000 characters.</div>
                     </li>
                 </ul>
 
@@ -195,11 +189,19 @@
         </div>
     </main>
 
+    <!-- Unified Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-left">
                 <h2>Great MOVIES deserve<br>great conversations!</h2>
                 <p>Read our expert reviews. Join the community. Let the silver screen ignite your imagination.<br>Because moments on screen become discussions off screen.</p>
+                <div class="social-icons">
+                    <span class="icon" title="Facebook">f</span>
+                    <span class="icon" title="Twitter / X">t</span>
+                    <span class="icon" title="LinkedIn">in</span>
+                    <span class="icon" title="YouTube">yt</span>
+                </div>
+                <p class="copyright">&copy; 2026 CineReview. All rights reserved.</p>
             </div>
             <div class="footer-links">
                 <div class="link-column">
@@ -230,7 +232,13 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer-right-logo">
+                <div class="logo-box">CineReview</div>
+                <p class="address">Faculty of Computers &amp; Artificial Intelligence<br>Web Engineering Project<br>Cairo University</p>
+            </div>
         </div>
     </footer>
+
+    <script type="module" src="../../js/pages/movie-form.js"></script>
 </body>
 </html>

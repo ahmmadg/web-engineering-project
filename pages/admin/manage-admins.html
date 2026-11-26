@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Admins — Super Admin — CineReview</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/pages/reviews.css">
+    <link rel="stylesheet" href="../../css/pages/admin.css">
+</head>
+<body>
+
+    <!-- Role-Based Navigation Bar (Rendered by navbar.js) -->
+    <header id="navbar-mount"></header>
+
+    <!-- Main Content Area (Hidden until superAdmin guard passes) -->
+    <main class="adm-container" id="page-content" hidden>
+        <!-- Breadcrumbs Navigation -->
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="dashboard.html">Dashboard</a>
+            <span class="separator">/</span>
+            <span class="current">Manage Admins</span>
+        </nav>
+
+        <header class="rv-page-header">
+            <div>
+                <h1>Manage Administrators</h1>
+                <p>Super Admin control panel. Promote standard users to administrators, demote administrators back to users, or remove admin accounts.</p>
+            </div>
+            <div class="rv-header-tag">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <span id="admins-count-text">0 Administrators</span>
+            </div>
+        </header>
+
+        <!-- Dynamic Feedback Message Slot -->
+        <div id="admins-message" class="adm-message-slot" aria-live="polite"></div>
+
+        <!-- Section 1: Current Administrators -->
+        <section class="adm-section-block" aria-labelledby="current-admins-heading">
+            <div class="adm-section-heading">
+                <h2 id="current-admins-heading">Current Administrators</h2>
+                <small>Movies created by a deleted admin remain in catalog storage</small>
+            </div>
+
+            <div class="adm-empty-state" id="admins-empty-state" hidden>
+                <h3>No Administrators Found</h3>
+                <p>There are currently no regular admin accounts. Promote a standard user below to grant admin access.</p>
+            </div>
+
+            <div class="table-wrapper" id="admins-table-wrapper">
+                <table class="data-table">
+                    <caption class="sr-only">List of current administrators</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 80px;">ID</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>
+                            <th scope="col" style="width: 120px;">Role</th>
+                            <th scope="col" style="text-align: right; width: 250px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admins-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 2: Standard Users (Available to Promote) -->
+        <section class="adm-section-block" aria-labelledby="standard-users-heading">
+            <div class="adm-section-heading">
+                <h2 id="standard-users-heading">Standard Users</h2>
+                <small>Promote a user account to Administrator</small>
+            </div>
+
+            <div class="adm-empty-state" id="users-empty-state" hidden>
+                <h3>No Standard Users Available</h3>
+                <p>No standard user accounts are currently registered to promote.</p>
+            </div>
+
+            <div class="table-wrapper" id="users-table-wrapper">
+                <table class="data-table">
+                    <caption class="sr-only">List of standard users eligible for promotion</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 80px;">ID</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>
+                            <th scope="col" style="width: 120px;">Role</th>
+                            <th scope="col" style="text-align: right; width: 200px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <h2>Great MOVIES deserve<br>great conversations!</h2>
+                <p>Read our expert reviews. Join the community. Let the silver screen ignite your imagination.<br>Because moments on screen become discussions off screen.</p>
+                <div class="social-icons">
+                    <span class="icon" title="Facebook">f</span>
+                    <span class="icon" title="Twitter / X">t</span>
+                    <span class="icon" title="LinkedIn">in</span>
+                    <span class="icon" title="YouTube">yt</span>
+                </div>
+                <p class="copyright">&copy; 2026 CineReview. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="../user/search-movies.html?genre=Action">Action &amp; Adventure</a></li>
+                        <li><a href="../user/search-movies.html?genre=Sci-Fi">Sci-Fi &amp; Fantasy</a></li>
+                        <li><a href="../user/search-movies.html?genre=Drama">Drama</a></li>
+                        <li><a href="../user/search-movies.html?genre=Crime">Crime &amp; Thriller</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="../user/movies-list.html">Movie Catalog</a></li>
+                        <li><a href="../user/submit-review.html">Write a Review</a></li>
+                        <li><a href="../user/my-reviews.html">My Reviews</a></li>
+                        <li><a href="../auth/login.html">Sign In</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home Page</a></li>
+                        <li><a href="../user/search-movies.html">Advanced Search</a></li>
+                        <li><a href="dashboard.html">Admin Portal</a></li>
+                        <li><a href="../../cover-page.html">Cover Page</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-right-logo">
+                <div class="logo-box">CineReview</div>
+                <p class="address">Faculty of Computers &amp; Artificial Intelligence<br>Web Engineering Project<br>Cairo University</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="../../js/pages/manage-admins.js"></script>
+</body>
+</html>
