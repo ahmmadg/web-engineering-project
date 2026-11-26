@@ -85,7 +85,8 @@
 
 .auth-field input[type="text"],
 .auth-field input[type="email"],
-.auth-field input[type="password"] {
+.auth-field input[type="password"],
+.auth-field select {
   width: 100%;
   height: 46px;
   padding: 0 1rem;
@@ -101,6 +102,20 @@
 .auth-field input:focus {
   border-color: var(--accent-secondary, #e54747);
   box-shadow: 0 0 0 3px rgba(229, 71, 71, 0.2);
+}
+
+.auth-field select:focus {
+  border-color: var(--accent-secondary, #e54747);
+  box-shadow: 0 0 0 3px rgba(229, 71, 71, 0.2);
+}
+
+.auth-form-message {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(229, 71, 71, 0.45);
+  border-radius: 6px;
+  background: rgba(229, 71, 71, 0.1);
+  color: #ffc2c2;
+  font-size: 0.85rem;
 }
 
 .auth-field input::placeholder {

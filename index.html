@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages/movies.css">
     <link rel="stylesheet" href="css/pages/home.css">
+    <script src="js/storage.js" defer></script>
+    <script src="js/sessions.js" defer></script>
+    <script src="js/navbar.js" defer></script>
 </head>
 <body>
     <aside class="navbar-eval-bar" aria-label="Phase 1 Navbar Review Strip">
@@ -495,18 +498,19 @@
             <div class="promo-content">
                 <h2 id="promo-heading">Some scenes stay with you.<br>So do our critiques.</h2>
                 <p>Read, debate, and share your perspective &mdash; because every cinematic masterpiece deserves a great conversation.</p>
-                <div class="promo-actions">
-                    <a href="pages/auth/signup.html" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                <div class="promo-actions" id="homepage-role-actions">
+                    <a id="homepage-primary-link" href="pages/auth/signup.html" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
                         <span>Join CineReview &mdash; Sign Up Free</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
                     </a>
-                    <a href="pages/user/submit-review.html" style="color: #cccccc; font-size: 0.9rem; font-weight: 600; padding: 0.75rem 1.4rem; border: 1px solid #444444; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
-                        <span>Write a Review</span>
+                    <a id="homepage-secondary-link" href="pages/auth/login.html" style="color: #cccccc; font-size: 0.9rem; font-weight: 600; padding: 0.75rem 1.4rem; border: 1px solid #444444; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
+                        <span>Log In</span>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                            <polyline points="10 17 15 12 10 7"></polyline>
+                            <line x1="15" y1="12" x2="3" y2="12"></line>
                         </svg>
                     </a>
                 </div>

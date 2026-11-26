@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="../../css/reset.css">
   <link rel="stylesheet" href="../../css/variables.css">
   <link rel="stylesheet" href="../../css/pages/auth.css">
+  <script src="../../js/storage.js" defer></script>
+  <script src="../../js/sessions.js" defer></script>
+  <script src="../../js/login.js" defer></script>
 </head>
 <body class="auth-wrapper">
   <main class="auth-container">
@@ -18,7 +21,7 @@
           <p>Don't have an account yet? <a href="signup.html">Sign up here</a></p>
         </div>
 
-        <form class="auth-form" action="../user/movies-list.html" method="get">
+        <form class="auth-form" id="login-form" action="login.html" method="post">
 
           <div class="auth-field">
             <label for="identifier">Username or Email</label>
@@ -34,6 +37,8 @@
             <input type="checkbox" name="remember" checked>
             <span>Remember me on this device</span>
           </label>
+
+          <p id="login-error" class="auth-form-message" role="alert" hidden>Invalid username or password</p>
 
           <button type="submit" class="auth-btn-primary">Log In</button>
         </form>

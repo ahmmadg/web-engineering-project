@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages/reviews.css">
+    <link rel="stylesheet" href="../css/pages/admin.css">
+    <script src="../js/storage.js"></script>
+    <script src="../js/sessions.js"></script>
+    <script>window.movieReviewSessions.requireRole(['super_admin']);</script>
+    <script src="../js/navbar.js" defer></script>
+    <script src="../js/super-dashboard.js" defer></script>
+</head>
+<body>
+    <header class="navbar navbar--admin"></header>
+
+    <main class="adm-container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="separator">/</span>
+            <span class="current">Super Admin Dashboard</span>
+        </nav>
+
+        <section aria-labelledby="system-overview-heading">
+            <div class="adm-section-header">
+                <h2 id="system-overview-heading">System Overview</h2>
+                <span>Current account and content totals</span>
+            </div>
+
+            <div class="adm-kpi-grid">
+                <article class="adm-kpi-card adm-kpi-card--users">
+                    <div class="adm-kpi-header">
+                        <span class="adm-kpi-label">Users</span>
+                        <span class="adm-kpi-icon" aria-hidden="true">U</span>
+                    </div>
+                    <span class="adm-kpi-number" id="users-count">0</span>
+                    <div class="adm-kpi-footer">Registered user accounts</div>
+                </article>
+
+                <article class="adm-kpi-card adm-kpi-card--admins">
+                    <div class="adm-kpi-header">
+                        <span class="adm-kpi-label">Admins</span>
+                        <span class="adm-kpi-icon" aria-hidden="true">A</span>
+                    </div>
+                    <span class="adm-kpi-number" id="admins-count">0</span>
+                    <div class="adm-kpi-footer">Includes super-admin accounts</div>
+                </article>
+
+                <article class="adm-kpi-card adm-kpi-card--movies">
+                    <div class="adm-kpi-header">
+                        <span class="adm-kpi-label">Movies</span>
+                        <span class="adm-kpi-icon" aria-hidden="true">M</span>
+                    </div>
+                    <span class="adm-kpi-number" id="movies-count">0</span>
+                    <div class="adm-kpi-footer">Movies in the catalog</div>
+                </article>
+
+                <article class="adm-kpi-card adm-kpi-card--pending">
+                    <div class="adm-kpi-header">
+                        <span class="adm-kpi-label">Pending Reviews</span>
+                        <span class="adm-kpi-icon" aria-hidden="true">P</span>
+                    </div>
+                    <span class="adm-kpi-number" id="pending-reviews-count">0</span>
+                    <div class="adm-kpi-footer">Awaiting moderation</div>
+                </article>
+
+                <article class="adm-kpi-card adm-kpi-card--approved">
+                    <div class="adm-kpi-header">
+                        <span class="adm-kpi-label">Approved Reviews</span>
+                        <span class="adm-kpi-icon" aria-hidden="true">OK</span>
+                    </div>
+                    <span class="adm-kpi-number" id="approved-reviews-count">0</span>
+                    <div class="adm-kpi-footer">Published reviews</div>
+                </article>
+
+                <article class="adm-kpi-card adm-kpi-card--rejected">
+                    <div class="adm-kpi-header">
+                        <span class="adm-kpi-label">Rejected Reviews</span>
+                        <span class="adm-kpi-icon" aria-hidden="true">R</span>
+                    </div>
+                    <span class="adm-kpi-number" id="rejected-reviews-count">0</span>
+                    <div class="adm-kpi-footer">Reviews declined by moderators</div>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
