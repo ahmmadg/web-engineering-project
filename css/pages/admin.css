@@ -35,6 +35,9 @@
 .adm-kpi-card--reviews { border-top-color: var(--accent-primary, #e58d47); }
 .adm-kpi-card--pending { border-top-color: #f59e0b; }
 .adm-kpi-card--users   { border-top-color: #10b981; }
+.adm-kpi-card--admins { border-top-color: #8b5cf6; }
+.adm-kpi-card--approved { border-top-color: #10b981; }
+.adm-kpi-card--rejected { border-top-color: #ef4444; }
 
 .adm-kpi-header {
     display: flex;
@@ -66,6 +69,9 @@
 .adm-kpi-card--reviews .adm-kpi-icon { background-color: rgba(229, 141, 71, 0.15); color: #f5a973; }
 .adm-kpi-card--pending .adm-kpi-icon { background-color: rgba(245, 158, 11, 0.15); color: #fbbf24; }
 .adm-kpi-card--users .adm-kpi-icon   { background-color: rgba(16, 185, 129, 0.15); color: #34d399; }
+.adm-kpi-card--admins .adm-kpi-icon { background-color: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+.adm-kpi-card--approved .adm-kpi-icon { background-color: rgba(16, 185, 129, 0.15); color: #34d399; }
+.adm-kpi-card--rejected .adm-kpi-icon { background-color: rgba(239, 68, 68, 0.15); color: #f87171; }
 
 .adm-kpi-number {
     display: block;
